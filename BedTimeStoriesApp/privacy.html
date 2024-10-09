@@ -23,12 +23,26 @@
             }
         }
 
+        function obfuscateEmail(user, domain) {
+            return user + "@" + domain;
+        }
+
         window.onload = function() {
             var userLang = navigator.language || navigator.userLanguage; 
             if (userLang.startsWith('de')) {
                 setLanguage('de');
             } else {
                 setLanguage('en');
+            }
+
+            // Obfuscate email addresses
+            var emailLinks = document.getElementsByClassName('email-obfuscate');
+            for (var i = 0; i < emailLinks.length; i++) {
+                var user = emailLinks[i].getAttribute('data-user');
+                var domain = emailLinks[i].getAttribute('data-domain');
+                var email = obfuscateEmail(user, domain);
+                emailLinks[i].setAttribute('href', 'mailto:' + email);
+                emailLinks[i].textContent = email;
             }
         }
     </script>
@@ -68,7 +82,7 @@
         <h2>Contact Us</h2>
         <p>If you have any questions or concerns about this Privacy Policy, please contact us:</p>
         <ul>
-            <li>Email: <a href="mailto:anhaenge.05-parade@icloud.com">anhaenge.05-parade@icloud.com</a></li>
+            <li>Email: <a href="#" class="email-obfuscate" data-user="anhaenge.05-parade" data-domain="icloud.com"></a></li>
             <li>Address: Harbatshofen 10 ½, 88167 Stiefenhofen, Germany</li>
         </ul>
     </div>
@@ -102,7 +116,7 @@
         <h2>Kontakt</h2>
         <p>Wenn Sie Fragen oder Bedenken bezüglich dieser Datenschutzerklärung haben, kontaktieren Sie uns bitte:</p>
         <ul>
-            <li>E-Mail: <a href="mailto:anhaenge.05-parade@icloud.com">anhaenge.05-parade@icloud.com</a></li>
+            <li>E-Mail: <a href="#" class="email-obfuscate" data-user="anhaenge.05-parade" data-domain="icloud.com"></a></li>
             <li>Adresse: Harbatshofen 10 ½, 88167 Stiefenhofen, Deutschland</li>
         </ul>
     </div>
