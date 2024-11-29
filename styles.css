@@ -18,8 +18,66 @@ body {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+    padding: 20px;
 }
 
+/* Content Box for Subpages */
+.content-box {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 2px solid #2c3e50;
+    border-radius: 8px;
+}
+
+.content-box h1 {
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.content-box h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    color: #2c3e50;
+}
+
+.content-box h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #2c3e50;
+}
+
+.content-box p {
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.5;
+}
+
+.content-box ul, 
+.content-box ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.content-box a {
+    color: #2980b9;
+    text-decoration: none;
+}
+
+.content-box a:hover,
+.content-box a:focus {
+    text-decoration: underline;
+}
+
+/* Button Styles */
 .btn {
     background-color: #007BFF;
     color: #fff;
@@ -166,9 +224,6 @@ body {
     color: #fff;
     text-align: center;
     z-index: 1;
-    opacity: 1;
-    transform: none;
-    animation: none;
 }
 
 .hero-content h1 {
@@ -181,24 +236,6 @@ body {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     font-weight: 400;
-}
-
-.btn {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s, transform 0.3s;
-    display: inline-block;
-}
-
-.btn:hover,
-.btn:focus {
-    background-color: #0056b3;
-    transform: translateY(-3px);
 }
 
 /* Modal Styles */
@@ -272,27 +309,8 @@ body {
     transform: scale(1.02);
 }
 
-/* About Section */
-.about {
-    padding: 4rem 0;
-    background-color: #fff;
-}
-
-.about h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #007BFF;
-}
-
-.about-content p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-/* Approach, Testimonials, Fit Sections */
+/* About, Approach, Testimonials, Fit Sections */
+.about,
 .approach,
 .testimonials,
 .fit {
@@ -300,6 +318,7 @@ body {
     background-color: #fff;
 }
 
+.about h3,
 .approach h3,
 .testimonials h3,
 .fit h3 {
@@ -310,6 +329,7 @@ body {
     color: #007BFF;
 }
 
+.about-content p,
 .approach-content p,
 .fit-content p {
     margin-bottom: 1.5rem;
@@ -317,7 +337,6 @@ body {
     color: #555;
 }
 
-/* Testimonials Section */
 .testimonials-content blockquote {
     font-style: italic;
     font-size: 1.3rem;
@@ -485,117 +504,4 @@ footer {
         animation: none !important;
         transition: none !important;
     }
-}
-
-/* Impressum Styles */
-.impressum,
-.privacy-policy,
-.agb {
-    padding: 6rem 0 4rem 0; /* Adjust padding as needed */
-    background-color: #fff;
-}
-
-.impressum h1,
-.privacy-policy h1,
-.agb h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: #007BFF;
-}
-
-.impressum section,
-.privacy-policy section,
-.agb section {
-    margin-bottom: 2rem;
-}
-
-.impressum h2,
-.privacy-policy h2,
-.agb h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-.impressum p,
-.privacy-policy p,
-.agb p {
-    font-size: 1rem;
-    color: #555;
-    line-height: 1.5;
-}
-
-.impressum a,
-.privacy-policy a,
-.agb a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-.impressum a:hover,
-.privacy-policy a:hover,
-.agb a:hover,
-.impressum a:focus,
-.privacy-policy a:focus,
-.agb a:focus {
-    text-decoration: underline;
-}
-
-/* Specific Styles for AGB Page */
-.agb-container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px 30px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border: 2px solid #2c3e50;
-}
-
-.agb-container h1 {
-    border-bottom: 2px solid #2c3e50;
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    color: #2c3e50;
-}
-
-.agb-container h2 {
-    margin-top: 30px;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-    color: #2c3e50;
-}
-
-.agb-container h3 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-size: 1.2em;
-    color: #2c3e50;
-}
-
-.agb-container ul, 
-.agb-container ol {
-    margin-left: 20px;
-    margin-bottom: 15px;
-}
-
-.agb-container a {
-    color: #2980b9;
-    text-decoration: none;
-}
-
-.agb-container a:hover,
-.agb-container a:focus {
-    text-decoration: underline;
-}
-
-.agb-container .footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 0.9em;
-    color: #777;
 }
