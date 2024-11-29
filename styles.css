@@ -1,0 +1,529 @@
+/* Reset & Base Styles */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    overflow-x: hidden;
+}
+
+/* Utility Classes */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+/* Visually Hidden (for accessibility) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    animation: slideDown 0.5s ease-out forwards;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.logo a {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #333;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s;
+}
+
+.logo a:hover,
+.logo a:focus {
+    color: #007BFF;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+.nav-links li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+    color: #007BFF;
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #333;
+    margin-bottom: 4px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+/* Hamburger Toggle Animation */
+.hamburger.toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.toggle span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: url('hero-background.jpg') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px; /* Height of navbar */
+    overflow: hidden;
+}
+
+.hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+    opacity: 1; /* Ensures visibility */
+    transform: none; /* Removes any initial transform */
+    animation: none; /* Disables animations for immediate visibility */
+}
+
+.hero-content h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+/* Modal Styles */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    padding-top: 60px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal.show {
+    display: block;
+    opacity: 1;
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    position: relative;
+    animation: scaleUp 0.3s ease-out;
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+    background: none;
+    border: none;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+}
+
+.calendar-iframe {
+    width: 100%;
+    height: 600px;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.calendar-iframe:hover {
+    transform: scale(1.02);
+}
+
+/* About Section */
+.about {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.about h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #007BFF;
+}
+
+.about-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Approach Section */
+.approach,
+.testimonials,
+.fit {
+    padding: 4rem 0;
+    background-color: #fff;
+}
+
+.approach h3,
+.testimonials h3,
+.fit h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #007BFF;
+}
+
+.approach-content p,
+.fit-content p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+/* Testimonials Section */
+.testimonials-content blockquote {
+    font-style: italic;
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2rem;
+    background: #fff;
+    border-left: 5px solid #007BFF;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.testimonials-content blockquote::before {
+    content: open-quote;
+    font-size: 4rem;
+    color: #007BFF;
+    position: absolute;
+    top: -20px;
+    left: 10px;
+}
+
+.testimonials-content cite {
+    display: block;
+    text-align: right;
+    margin-top: 1rem;
+    font-weight: 700;
+    color: #007BFF;
+}
+
+/* CTA Section */
+.cta-section {
+    padding: 4rem 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.cta-section h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #007BFF;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #555;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 2rem 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.footer-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-links li a:hover,
+.footer-links li a:focus {
+    color: #007BFF;
+}
+
+.footer-content p {
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        right: 0;
+        top: 70px;
+        background-color: #fff;
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in;
+    }
+
+    .nav-links.active {
+        max-height: 300px;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .nav-links li {
+        text-align: center;
+        padding: 1rem 0;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content h2 {
+        font-size: 1.2rem;
+    }
+
+    .testimonials-content blockquote {
+        font-size: 1.1rem;
+    }
+}
+
+/* Animation Classes */
+.fade-in {
+    /* Removed opacity and transform to ensure visibility */
+    animation: none;
+}
+
+.slide-in {
+    /* Removed opacity and transform to ensure visibility */
+    animation: none;
+}
+
+/* Animation Keyframes (kept for future use if desired) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Reduced Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Impressum Styles */
+.impressum {
+    padding: 6rem 0 4rem 0; /* Adjust padding as needed */
+    background-color: #fff;
+}
+
+.impressum h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #007BFF;
+}
+
+.impressum section {
+    margin-bottom: 2rem;
+}
+
+.impressum h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.impressum p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+.impressum a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.impressum a:hover,
+.impressum a:focus {
+    text-decoration: underline;
+}
