@@ -1,5 +1,3 @@
-// script.js
-
 document.addEventListener('DOMContentLoaded', () => {
     // Modal functionality
     const modal = document.getElementById('booking-modal');
