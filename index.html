@@ -2,18 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Max Sutter - Executive Coach for Founders & Leaders</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Sutter - Executive Coach for Founders & Leaders</title>
+    
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-dP0XcKf7XwXk3g5rq8N2Oy9VxS2+5v2PXW/Dk6YqHIeBIBaWXsVZbQoV0FQGvOj1bJqV1tHsp8A3SLjGCFXdg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!-- External CSS -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="Max Sutter offers transformational executive coaching for founders and leaders to unleash authentic leadership. Book a free introductory session today.">
+    <meta name="keywords" content="Executive Coach, Founders, Leaders, Transformational Coaching, Authentic Leadership">
+    <meta name="author" content="Max Sutter">
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <nav class="navbar" role="navigation" aria-label="Main Navigation">
         <div class="container">
@@ -27,7 +37,7 @@
                 <li><a href="#fit">Is This a Fit?</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -36,13 +46,13 @@
     </nav>
 
     <!-- Hero Section -->
-    <header class="hero">
+    <header class="hero" role="banner">
         <div class="overlay"></div>
         <div class="hero-content container">
             <h1 class="fade-in">Executive Coach for Founders &amp; Leaders</h1>
             <h2 class="fade-in delay-1">Transformational Coaching to Unleash Your Authentic Leadership</h2>
             <div class="button-group fade-in delay-2">
-                <button id="book-session-btn" class="btn">Book a Free Introductory Session</button>
+                <button id="book-session-btn" class="btn" aria-haspopup="dialog">Book a Free Introductory Session</button>
                 <a href="/contact" class="btn secondary-cta">Message Me</a>
             </div>
         </div>
@@ -50,60 +60,68 @@
 
     <!-- About Section -->
     <section id="about" class="about">
-        <h3 class="fade-in">About Me</h3>
-        <div class="about-content">
-            <p class="fade-in delay-1">
-                I've walked the path of entrepreneurship and leadership myself—as a founder, CEO, and leader navigating high-growth environments. Along the way, I've worked with incredible coaches who profoundly shaped my journey. I know the terrain because I've been in it.
-            </p>
-            <p class="fade-in delay-2">
-                What sets my approach apart is the integration of this firsthand experience with over 20 years of dedicated meditation practice and personal growth. I've trained with some of the best executive coaches in Silicon Valley, bringing depth to my work with clients.
-            </p>
-            <p class="fade-in delay-3">
-                When I'm not coaching, building, or meditating, I spend my time with my wife and our two young children.
-            </p>
+        <div class="container">
+            <h3 class="fade-in">About Me</h3>
+            <div class="about-content">
+                <p class="fade-in delay-1">
+                    I've walked the path of entrepreneurship and leadership myself—as a founder, CEO, and leader navigating high-growth environments. Along the way, I've worked with incredible coaches who profoundly shaped my journey. I know the terrain because I've been in it.
+                </p>
+                <p class="fade-in delay-2">
+                    What sets my approach apart is the integration of this firsthand experience with over 20 years of dedicated meditation practice and personal growth. I've trained with some of the best executive coaches in Silicon Valley, bringing depth to my work with clients.
+                </p>
+                <p class="fade-in delay-3">
+                    When I'm not coaching, building, or meditating, I spend my time with my wife and our two young children.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Approach Section -->
     <section id="approach" class="approach">
-        <h3 class="fade-in">My Approach</h3>
-        <div class="approach-content">
-            <p class="fade-in delay-1">
-                I don't subscribe to formulaic tools or surface-level techniques like "how to give feedback." Instead, I focus on the deeper truths: who you are and how you show up. Authenticity isn't just a concept; it's the foundation. If it's not real, people feel it. And real leadership starts from within.
-            </p>
-            <p class="fade-in delay-2">
-                My coaching comes from an awake space filled with love and compassion. I trust in your body's wisdom and hold a safe space that allows for the natural unfolding of clearing stored emotions and limiting beliefs. With sharp but gentle nudges, I guide you at your own pace towards loving resolution.
-            </p>
-            <p class="fade-in delay-3">
-                In practice, I combine techniques from state-of-the-art Western modalities like Internal Family Systems (IFS) with Eastern insights, especially from the Buddhist path. It's not about a technique; it's a state—a way of being that comes from having walked the path yourself.
-            </p>
+        <div class="container">
+            <h3 class="fade-in">My Approach</h3>
+            <div class="approach-content">
+                <p class="fade-in delay-1">
+                    I don't subscribe to formulaic tools or surface-level techniques like "how to give feedback." Instead, I focus on the deeper truths: who you are and how you show up. Authenticity isn't just a concept; it's the foundation. If it's not real, people feel it. And real leadership starts from within.
+                </p>
+                <p class="fade-in delay-2">
+                    My coaching comes from an awake space filled with love and compassion. I trust in your body's wisdom and hold a safe space that allows for the natural unfolding of clearing stored emotions and limiting beliefs. With sharp but gentle nudges, I guide you at your own pace towards loving resolution.
+                </p>
+                <p class="fade-in delay-3">
+                    In practice, I combine techniques from state-of-the-art Western modalities like Internal Family Systems (IFS) with Eastern insights, especially from the Buddhist path. It's not about a technique; it's a state—a way of being that comes from having walked the path yourself.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
-        <h3 class="fade-in">What Others Say</h3>
-        <div class="testimonials-content">
-            <blockquote class="fade-in delay-1">
-                <p>
-                    “Max has an incredible ability to ask sharp questions from a place of wonder and curiosity. His gentle yet directed approach allowed me to explore deeply while feeling completely supported.”
-                </p>
-                <cite>– Client Testimonial</cite>
-            </blockquote>
-            <!-- Additional testimonials can be added similarly -->
+        <div class="container">
+            <h3 class="fade-in">What Others Say</h3>
+            <div class="testimonials-content">
+                <blockquote class="fade-in delay-1">
+                    <p>
+                        “Max has an incredible ability to ask sharp questions from a place of wonder and curiosity. His gentle yet directed approach allowed me to explore deeply while feeling completely supported.”
+                    </p>
+                    <cite>– Client Testimonial</cite>
+                </blockquote>
+                <!-- Weitere Testimonials können hier hinzugefügt werden -->
+            </div>
         </div>
     </section>
 
     <!-- Fit Section -->
     <section id="fit" class="fit">
-        <h3 class="fade-in">Is This a Fit for You?</h3>
-        <div class="fit-content">
-            <p class="fade-in delay-1">
-                If you're looking for advice or someone to tell you what to do, there are experts for that (and that's not me). But if you want to remove the blocks that let your own wisdom and clarity flow—and along the way experience more joy, ease, and peace—then I might be your guy.
-            </p>
-            <p class="fade-in delay-2">
-                I work with leaders ready to explore and expand their emotional fluidity, decision-making, communication, and authentic power. Together, we'll uncover the blocks and unleash your potential to lead with clarity, connection, and confidence.
-            </p>
+        <div class="container">
+            <h3 class="fade-in">Is This a Fit for You?</h3>
+            <div class="fit-content">
+                <p class="fade-in delay-1">
+                    If you're looking for advice or someone to tell you what to do, there are experts for that (and that's not me). But if you want to remove the blocks that let your own wisdom and clarity flow—and along the way experience more joy, ease, and peace—then I might be your guy.
+                </p>
+                <p class="fade-in delay-2">
+                    I work with leaders ready to explore and expand their emotional fluidity, decision-making, communication, and authentic power. Together, we'll uncover the blocks and unleash your potential to lead with clarity, connection, and confidence.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -115,7 +133,7 @@
                 If this resonates, let's have a conversation. Transformation starts here.
             </p>
             <div class="button-group fade-in delay-2">
-                <button id="book-session-btn-bottom" class="btn">Book a Free Introductory Session</button>
+                <button id="book-session-btn-bottom" class="btn" aria-haspopup="dialog">Book a Free Introductory Session</button>
                 <a href="/contact" class="btn secondary-cta">Message Me</a>
             </div>
         </div>
@@ -127,7 +145,13 @@
             <button id="close-modal" class="close-button" aria-label="Close modal">&times;</button>
             <h2 id="modal-title" class="visually-hidden">Booking Session</h2>
             <!-- Google Calendar Appointment Scheduling -->
-            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1GUis3m9ibraDTEy03JT5eWFCJiUkCMICCfqoIoXY6ItGlxemPsDTHfbHybYafZ45097K9NYU7?gv=true" class="calendar-iframe" title="Google Calendar Appointment Scheduling" frameborder="0"></iframe>
+            <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1GUis3m9ibraDTEy03JT5eWFCJiUkCMICCfqoIoXY6ItGlxemPsDTHfbHybYafZ45097K9NYU7?gv=true" 
+                    class="calendar-iframe" 
+                    title="Google Calendar Appointment Scheduling" 
+                    frameborder="0" 
+                    loading="lazy" 
+                    allowfullscreen>
+            </iframe>
         </div>
     </div>
 
@@ -138,7 +162,11 @@
                 <li><a href="/impressum">Impressum</a></li>
                 <li><a href="/privacy">Privacy Policy</a></li>
                 <li><a href="/agb">Terms & Conditions</a></li>
-                <li><a href="https://www.linkedin.com/in/max-sutter/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                <li>
+                    <a href="https://www.linkedin.com/in/max-sutter/" target="_blank" rel="noopener noreferrer">
+                        <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+                    </a>
+                </li>
             </ul>
             <p>&copy; 2024 Max Sutter. All rights reserved.</p>
         </div>
