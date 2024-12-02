@@ -16,8 +16,8 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-    <!-- Preload LCP Image -->
-    <link rel="preload" as="image" href="images/hero-background.webp">
+    <!-- Preload LCP Images -->
+    <link rel="preload" as="image" href="images/hero-background-3840.avif">
 
     <!-- Inline Critical CSS -->
     <style>
@@ -65,7 +65,15 @@
 
         /* Hero Section */
         .hero {
-            background-image: url('images/hero-background.webp');
+            background-image: image-set(
+                url('images/hero-background-320.avif') type('image/avif'),
+                url('images/hero-background-768.avif') type('image/avif'),
+                url('images/hero-background-1280.avif') type('image/avif'),
+                url('images/hero-background-1920.avif') type('image/avif'),
+                url('images/hero-background-2560.avif') type('image/avif'),
+                url('images/hero-background-3840.avif') type('image/avif'),
+                url('images/hero-background-3840.jpg') type('image/jpeg')
+            );
             background-size: cover;
             background-position: center;
             height: 100vh;
