@@ -127,7 +127,7 @@ const ScrollAnimations = (() => {
         if ('IntersectionObserver' in window) {
             initObserver();
         } else {
-            // Fallback für ältere Browser
+            // Fallback for browsers that do not support IntersectionObserver
             faders.forEach(fader => fader.classList.add('appear'));
             sliders.forEach(slider => slider.classList.add('appear'));
         }
@@ -146,32 +146,35 @@ const ContactForm = (() => {
     const contactForm = document.querySelector('.contact-form');
     const formResponse = document.querySelector('.form-response');
 
-    const submitForm = async (event) => {
+    const submitForm = (event) => {
         event.preventDefault();
 
         const formData = new FormData(contactForm);
 
-        try {
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                body: formData
-            });
-
+        fetch(contactForm.action, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json'
+            },
+            body: formData
+        })
+        .then(response => {
             if (response.ok) {
-                const data = await response.json();
-                showResponse('Vielen Dank! Ihre Nachricht wurde gesendet.', '#2ecc71');
-                contactForm.reset();
+                return response.json();
             } else {
-                const errorData = await response.json();
-                throw new Error(errorData.error || 'Etwas ist schief gelaufen.');
+                return response.json().then(data => {
+                    throw new Error(data.error || 'Etwas ist schief gelaufen.');
+                });
             }
-        } catch (error) {
+        })
+        .then(data => {
+            showResponse('Vielen Dank! Ihre Nachricht wurde gesendet.', '#2ecc71');
+            contactForm.reset();
+        })
+        .catch(error => {
             showResponse("Oops! Etwas ist schief gelaufen und wir konnten Ihre Nachricht nicht senden.", '#e74c3c');
             console.error('Problem bei der Formularübermittlung:', error);
-        }
+        });
     };
 
     const showResponse = (message, color) => {

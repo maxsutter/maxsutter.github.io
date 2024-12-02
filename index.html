@@ -8,49 +8,16 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Preconnect zu externen Ressourcen -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
-    <!-- Google Fonts mit font-display -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome für Icons -->
+    <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-dP0XcKf7XwXk3g5rq8N2Oy9VxS2+5v2PXW/Dk6YqHIeBIBaWXsVZbQoV0FQGvOj1bJqV1tHsp8A3SLjGCFXdg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Inline kritisches CSS -->
-    <style>
-        /* Kritisches CSS für den sichtbaren Bereich */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #ffffff;
-        }
-        .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            animation: slideDown 0.5s ease-out forwards;
-        }
-        .logo a {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        /* Weitere kritische CSS-Regeln nach Bedarf */
-    </style>
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
 
-    <!-- Externe CSS mit Lazy Loading -->
-    <link rel="stylesheet" href="styles.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles.css"></noscript>
-
-    <!-- Meta Tags für SEO -->
+    <!-- Meta Tags for SEO -->
     <meta name="description" content="Max Sutter offers transformational executive coaching for founders and leaders to unleash authentic leadership. Book a free introductory session today.">
     <meta name="keywords" content="Executive Coach, Founders, Leaders, Transformational Coaching, Authentic Leadership">
     <meta name="author" content="Max Sutter">
@@ -63,7 +30,7 @@
             <div class="logo">
                 <a href="#" aria-label="Homepage">Max Sutter</a>
             </div>
-            <ul class="nav-links" id="nav-links">
+            <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#approach">Approach</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
@@ -205,7 +172,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript für Interaktionen -->
+    <!-- JavaScript for interactions -->
     <script src="script.js" defer></script>
 </body>
 </html>
