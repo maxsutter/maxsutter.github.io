@@ -16,8 +16,8 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-    <!-- Preload des LCP-Bildes -->
-    <link rel="preload" as="image" href="images/hero-background.webp" images>
+    <!-- Preload des LCP-Bildes (WebP) -->
+    <link rel="preload" as="image" href="images/hero-background.webp" type="image/webp">
 
     <!-- Google Fonts mit font-display -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -57,15 +57,30 @@
             font-weight: 600;
             transition: color 0.3s;
         }
+        .logo a:hover,
+        .logo a:focus {
+            color: var(--color-primary);
+        }
         /* Weitere kritische CSS-Regeln nach Bedarf */
         
-        /* Beispiel für hero Hintergrundbild */
+        /* Hero Section */
         .hero {
-            background-image: url('images/hero-background.webp');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin-top: 70px; /* Höhe der Navbar */
+            overflow: hidden;
+            background-color: #2c3e50; /* Fallback-Hintergrundfarbe */
+        }
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.6);
         }
 
         @keyframes slideDown {
@@ -86,6 +101,26 @@
     <meta name="description" content="Max Sutter offers transformational executive coaching for founders and leaders to unleash authentic leadership. Book a free introductory session today.">
     <meta name="keywords" content="Executive Coach, Founders, Leaders, Transformational Coaching, Authentic Leadership">
     <meta name="author" content="Max Sutter">
+
+    <!-- Fallback für Hintergrundbild mit WebP-Unterstützung -->
+    <style>
+        @supports (background-image: url('images/hero-background.webp')) {
+            .hero {
+                background-image: url('images/hero-background.webp');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+        @supports not (background-image: url('images/hero-background.webp')) {
+            .hero {
+                background-image: url('images/hero-background.jpg');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+    </style>
 </head>
 <body>
 
