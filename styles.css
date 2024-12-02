@@ -1,57 +1,102 @@
-/* ==============================
-   CSS VARIABLES
-============================== */
-:root {
-    /* Colors */
-    --color-primary: #1abc9c;
-    --color-primary-dark: #16a085;
-    --color-secondary: #3498db;
-    --color-secondary-dark: #2980b9;
-    --color-accent: #007BFF;
-    --color-text: #2c3e50;
-    --color-text-light: #555;
-    --color-background: #ffffff;
-    --color-background-secondary: #f4f6f8;
-    --color-overlay: rgba(44, 62, 80, 0.6);
-    --color-footer: #2c3e50;
-    --color-footer-text: #ecf0f1;
-    --color-error: #e74c3c;
-
-    /* Fonts */
-    --font-primary: 'Roboto', sans-serif;
-    --font-secondary: 'Montserrat', sans-serif;
-
-    /* Spacing */
-    --spacing-small: 0.5rem;
-    --spacing-medium: 1rem;
-    --spacing-large: 2rem;
-    --spacing-xlarge: 4rem;
-
-    /* Breakpoints */
-    --breakpoint-md: 768px;
-
-    /* Transition */
-    --transition-fast: 0.3s;
-    --transition-medium: 0.6s;
-}
-
-/* ==============================
-   RESET & BASE STYLES
-============================== */
-*,
-*::before,
-*::after {
+/* Reset & Base Styles */
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: var(--font-primary);
-    color: var(--color-text);
+    font-family: 'Roboto', sans-serif;
+    color: #2c3e50;
     line-height: 1.6;
-    background-color: var(--color-background);
+    background-color: #ffffff;
     overflow-x: hidden;
+}
+
+/* Utility Classes */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Content Box for Subpages */
+.content-box {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: #f4f6f8;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+.content-box h1 {
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #007BFF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.content-box h2 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+    color: #007BFF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.content-box h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #007BFF;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.content-box p {
+    margin-bottom: 15px;
+    color: #555;
+    line-height: 1.6;
+}
+
+.content-box ul, 
+.content-box ol {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+.content-box a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.content-box a:hover,
+.content-box a:focus {
+    text-decoration: underline;
+}
+
+/* Button Styles */
+.btn {
+    background-color: #1abc9c;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.btn:hover,
+.btn:focus {
+    background-color: #16a085;
+    transform: translateY(-3px);
 }
 
 /* Visually Hidden (for accessibility) */
@@ -67,111 +112,10 @@ body {
     border: 0;
 }
 
-/* ==============================
-   UTILITY CLASSES
-============================== */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-/* ==============================
-   TYPOGRAPHY
-============================== */
-h1, h2, h3 {
-    font-family: var(--font-secondary);
-    color: var(--color-accent);
-}
-
-h1 {
-    border-bottom: 2px solid var(--color-accent);
-    padding-bottom: 10px;
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-
-h2 {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 5px;
-    margin: 30px 0 15px;
-    font-size: 1.5em;
-}
-
-h3 {
-    margin: 20px 0 10px;
-    font-size: 1.2em;
-}
-
-p {
-    margin-bottom: 15px;
-    color: var(--color-text-light);
-}
-
-ul,
-ol {
-    margin-left: 20px;
-    margin-bottom: 15px;
-}
-
-a {
-    color: var(--color-accent);
-    text-decoration: none;
-}
-
-a:hover,
-a:focus {
-    text-decoration: underline;
-}
-
-/* ==============================
-   BUTTONS
-============================== */
-.btn {
-    background-color: var(--color-primary);
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-family: var(--font-secondary);
-    transition: background-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
-    display: inline-block;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.btn:hover,
-.btn:focus {
-    background-color: var(--color-primary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.btn.secondary-cta {
-    background-color: var(--color-secondary);
-}
-
-.btn.secondary-cta:hover,
-.btn.secondary-cta:focus {
-    background-color: var(--color-secondary-dark);
-}
-
-/* Button Group */
-.button-group {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* ==============================
-   NAVBAR
-============================== */
+/* Navbar Styles */
 .navbar {
-    background-color: var(--color-background);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     position: fixed;
     width: 100%;
     top: 0;
@@ -196,17 +140,17 @@ a:focus {
 }
 
 .logo a {
-    font-family: var(--font-secondary);
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.8rem;
-    color: var(--color-text);
+    color: #2c3e50;
     text-decoration: none;
     font-weight: 600;
-    transition: color var(--transition-fast);
+    transition: color 0.3s;
 }
 
 .logo a:hover,
 .logo a:focus {
-    color: var(--color-primary);
+    color: #1abc9c;
 }
 
 .nav-links {
@@ -216,16 +160,16 @@ a:focus {
 }
 
 .nav-links li a {
-    color: var(--color-text);
+    color: #2c3e50;
     text-decoration: none;
     font-weight: 500;
-    transition: color var(--transition-fast);
-    font-family: var(--font-primary);
+    transition: color 0.3s;
+    font-family: 'Roboto', sans-serif;
 }
 
 .nav-links li a:hover,
 .nav-links li a:focus {
-    color: var(--color-primary);
+    color: #1abc9c;
 }
 
 .hamburger {
@@ -239,10 +183,10 @@ a:focus {
 .hamburger span {
     height: 3px;
     width: 25px;
-    background: var(--color-text);
+    background: #2c3e50;
     margin-bottom: 4px;
     border-radius: 5px;
-    transition: all var(--transition-fast);
+    transition: all 0.3s;
 }
 
 /* Hamburger Toggle Animation */
@@ -258,9 +202,7 @@ a:focus {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-/* ==============================
-   HERO SECTION
-============================== */
+/* Hero Section */
 .hero {
     height: 100vh;
     background: url('hero-background.jpg') center/cover no-repeat;
@@ -278,7 +220,7 @@ a:focus {
     left: 0;
     right: 0;
     bottom: 0;
-    background: var(--color-overlay);
+    background: rgba(44, 62, 80, 0.6);
 }
 
 .hero-content {
@@ -289,43 +231,28 @@ a:focus {
 }
 
 .hero-content h1 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 3.5rem;
     margin-bottom: 1rem;
     font-weight: 600;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content h2 {
     font-size: 1.5rem;
     margin-bottom: 2rem;
     font-weight: 400;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content .btn {
-    background-color: var(--color-primary);
+    background-color: #1abc9c;
 }
 
 .hero-content .btn:hover,
 .hero-content .btn:focus {
-    background-color: var(--color-primary-dark);
+    background-color: #16a085;
 }
 
-/* ==============================
-   CONTENT BOX
-============================== */
-.content-box {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px 30px;
-    background-color: var(--color-background-secondary);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    border-radius: 10px;
-}
-
-/* ==============================
-   MODAL
-============================== */
+/* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
     position: fixed;
@@ -338,7 +265,7 @@ a:focus {
     background-color: rgba(44, 62, 80, 0.8);
     padding-top: 60px;
     opacity: 0;
-    transition: opacity var(--transition-fast) ease;
+    transition: opacity 0.3s ease;
 }
 
 .modal.show {
@@ -352,7 +279,7 @@ a:focus {
     padding: 2rem;
     border-radius: 10px;
     width: 90%;
-    max-width: 900px;
+    max-width: 900px; /* Erhöht für größere Desktops */
     position: relative;
     animation: scaleUp 0.3s ease-out;
 }
@@ -374,37 +301,35 @@ a:focus {
     font-size: 2rem;
     font-weight: bold;
     cursor: pointer;
-    transition: color var(--transition-fast);
+    transition: color 0.3s;
     background: none;
     border: none;
 }
 
 .close-button:hover,
 .close-button:focus {
-    color: var(--color-text);
+    color: #2c3e50;
 }
 
 .calendar-iframe {
     width: 100%;
-    height: 80vh;
-    max-height: 800px;
+    height: 80vh; /* Anpassung der Höhe auf 80% der Viewport-Höhe */
+    max-height: 800px; /* Maximale Höhe für größere Bildschirme */
     border: none;
     border-radius: 10px;
-    transition: transform var(--transition-fast) ease;
+    transition: transform 0.3s ease;
 }
 
 .calendar-iframe:hover {
     transform: scale(1.02);
 }
 
-/* ==============================
-   SECTIONS: ABOUT, APPROACH, TESTIMONIALS, FIT
-============================== */
+/* About, Approach, Testimonials, Fit Sections */
 .about,
 .approach,
 .testimonials,
 .fit {
-    padding: var(--spacing-xlarge) 0;
+    padding: 4rem 0;
     background-color: #f9f9f9;
 }
 
@@ -412,10 +337,11 @@ a:focus {
 .approach h3,
 .testimonials h3,
 .fit h3 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2rem;
-    color: var(--color-primary);
+    color: #1abc9c;
 }
 
 .about-content p,
@@ -423,7 +349,7 @@ a:focus {
 .fit-content p {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
-    color: var(--color-text-light);
+    color: #555;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
@@ -437,15 +363,15 @@ a:focus {
     position: relative;
     padding: 2rem;
     background: #fff;
-    border-left: 5px solid var(--color-primary);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #1abc9c;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 5px;
 }
 
 .testimonials-content blockquote::before {
     content: open-quote;
     font-size: 4rem;
-    color: var(--color-primary);
+    color: #1abc9c;
     position: absolute;
     top: -20px;
     left: 10px;
@@ -456,22 +382,22 @@ a:focus {
     text-align: right;
     margin-top: 1rem;
     font-weight: 700;
-    color: var(--color-primary);
+    color: #1abc9c;
 }
 
-/* ==============================
-   CTA SECTION
-============================== */
+/* CTA Section */
 .cta-section {
-    padding: var(--spacing-xlarge) 0;
-    background-color: var(--color-primary);
+    padding: 4rem 0;
+    background-color: #1abc9c;
     text-align: center;
     color: #fff;
 }
 
 .cta-section h3 {
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
     margin-bottom: 1rem;
+    color: #fff;
 }
 
 .cta-section p {
@@ -480,12 +406,10 @@ a:focus {
     color: #ecf0f1;
 }
 
-/* ==============================
-   FOOTER
-============================== */
+/* Footer Styles */
 footer {
-    background-color: var(--color-footer);
-    color: var(--color-footer-text);
+    background-color: #2c3e50;
+    color: #ecf0f1;
     padding: 2rem 0;
 }
 
@@ -504,107 +428,39 @@ footer {
 }
 
 .footer-links li a {
-    color: var(--color-footer-text);
+    color: #ecf0f1;
     text-decoration: none;
     font-weight: 500;
-    transition: color var(--transition-fast);
-    font-family: var(--font-primary);
+    transition: color 0.3s;
+    font-family: 'Roboto', sans-serif;
 }
 
 .footer-links li a:hover,
 .footer-links li a:focus {
-    color: var(--color-primary);
+    color: #1abc9c;
 }
 
 .footer-content p {
     font-size: 0.9rem;
 }
 
-/* ==============================
-   CONTACT FORM
-============================== */
-.contact-form-section {
-    padding: var(--spacing-xlarge) 0;
-    background-color: #f9f9f9;
-}
-
-.contact-form-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
-    font-family: var(--font-secondary);
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 2rem 3rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: var(--color-text);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-family: var(--font-primary);
-    font-size: 1rem;
-    transition: border-color var(--transition-fast);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--color-primary);
-    outline: none;
-}
-
-.contact-form .btn {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1.1rem;
-}
-
-.form-response {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 1rem;
-    color: var(--color-error);
-}
-
-/* ==============================
-   RESPONSIVE STYLES
-============================== */
-@media (max-width: var(--breakpoint-md)) {
+/* Responsive Styles */
+@media (max-width: 768px) {
     .nav-links {
         position: absolute;
         right: 0;
         top: 70px;
-        background-color: var(--color-background);
+        background-color: #ffffff;
         flex-direction: column;
         width: 100%;
         max-height: 0;
         overflow: hidden;
-        transition: max-height var(--transition-fast) ease-in;
+        transition: max-height 0.3s ease-in;
     }
 
     .nav-links.active {
         max-height: 300px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     }
 
     .nav-links li {
@@ -648,7 +504,7 @@ footer {
         font-size: 2rem;
     }
 
-    /* Modal Anpassungen */
+    /* Anpassung der Modal-Inhalte auf mobilen Geräten */
     .modal-content {
         width: 95%;
         max-width: 95%;
@@ -656,23 +512,12 @@ footer {
     }
 
     .calendar-iframe {
-        height: 60vh;
+        height: 60vh; /* Reduzierte Höhe für mobile Geräte */
         max-height: 600px;
-    }
-
-    /* Contact Form Responsive */
-    .contact-form {
-        padding: 1.5rem 2rem;
-    }
-
-    .contact-form-section h2 {
-        font-size: 2rem;
     }
 }
 
-/* ==============================
-   ANIMATION CLASSES
-============================== */
+/* Animation Classes */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -711,14 +556,133 @@ footer {
     }
 }
 
-/* ==============================
-   ACCESSIBILITY
-============================== */
+/* Reduced Motion for Accessibility */
 @media (prefers-reduced-motion: reduce) {
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
         animation: none !important;
         transition: none !important;
     }
 }
+
+/* Zusätzliche Verbesserungen */
+
+/* Verbesserte Button Hover-Effekte */
+.btn {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover,
+.btn:focus {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Verbesserte Lesbarkeit im Hero-Bereich */
+.hero-content h1,
+.hero-content h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Aktualisierte Footer-Links mit Icons */
+.footer-links li a i {
+    margin-right: 5px;
+}
+
+
+/* --- Bestehende CSS bleibt unverändert oben --- */
+
+/* Button Group in Hero und CTA Sections */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn.secondary-cta {
+    background-color: #3498db; /* Blaue Farbe für den sekundären Button */
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn.secondary-cta:hover,
+.btn.secondary-cta:focus {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+/* Kontaktformular Styles */
+.contact-form-section {
+    padding: 4rem 0;
+    background-color: #f9f9f9;
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #1abc9c;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #1abc9c;
+    outline: none;
+}
+
+.contact-form .btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.form-response {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #e74c3c; /* Rot für Fehlermeldungen */
+}
+
+/* Responsives Design für das Kontaktformular */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem 2rem;
+    }
+
+    .contact-form-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* --- Bestehende CSS folgt unten --- */
