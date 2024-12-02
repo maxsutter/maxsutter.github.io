@@ -8,10 +8,16 @@
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <!-- Preconnect zu externen Ressourcen -->
+    <!-- Preconnect und DNS-Prefetch zu externen Ressourcen -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Preload des LCP-Bildes (WebP) -->
+    <link rel="preload" as="image" href="images/hero-background.webp" type="image/webp">
 
     <!-- Google Fonts mit font-display -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
@@ -25,6 +31,8 @@
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #ffffff;
+            margin: 0;
+            padding: 0;
         }
         .navbar {
             background-color: #ffffff;
@@ -50,6 +58,36 @@
             transition: color 0.3s;
         }
         /* Weitere kritische CSS-Regeln nach Bedarf */
+        
+        /* Beispiel für hero Hintergrundbild */
+        .hero {
+            /* Hintergrundbild wird durch das <picture> Element gesetzt */
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin-top: 70px; /* Höhe der Navbar */
+            overflow: hidden;
+        }
+
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.6);
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
     </style>
 
     <!-- Externe CSS mit Lazy Loading -->
@@ -86,6 +124,11 @@
 
     <!-- Hero Section -->
     <header class="hero" role="banner">
+        <picture>
+            <source srcset="images/hero-background.webp" type="image/webp">
+            <source srcset="images/hero-background.jpg" type="image/jpeg">
+            <img src="images/hero-background.jpg" alt="Hero Hintergrund" class="hero-background" loading="lazy" style="display: none;">
+        </picture>
         <div class="overlay"></div>
         <div class="hero-content container">
             <h1 class="fade-in">Executive Coach for Founders &amp; Leaders</h1>
