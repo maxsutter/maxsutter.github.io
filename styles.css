@@ -104,30 +104,44 @@ body {
 }
 
 .logo a:hover,
-.logo a:focus,
-.nav-links li a:hover,
-.nav-links li a:focus,
-.close-button:hover,
-.close-button:focus,
-.footer-links li a:hover,
-.footer-links li a:focus,
-.btn:hover,
-.btn:focus,
-.btn.secondary-cta:hover,
-.btn.secondary-cta:focus {
+.logo a:focus {
     color: var(--color-primary);
-    background-color: var(--color-primary-dark);
 }
 
-/* Reduzierte Übergänge und `will-change` für bessere Performance */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-speed);
+    font-family: var(--font-primary);
+}
+
+.nav-links li a:hover,
+.nav-links li a:focus {
+    color: var(--color-primary);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
 .hamburger span {
     height: 3px;
     width: 25px;
     background: var(--color-text);
     margin-bottom: 4px;
     border-radius: 5px;
-    transition: transform var(--transition-speed), opacity var(--transition-speed);
-    will-change: transform, opacity;
+    transition: all var(--transition-speed);
 }
 
 /* Hamburger Toggle Animation */
@@ -188,14 +202,11 @@ body {
 
 .hero-content .btn {
     background-color: var(--color-primary);
-    transition: background-color var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .hero-content .btn:hover,
 .hero-content .btn:focus {
     background-color: var(--color-primary-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Content Box for Subpages */
@@ -662,20 +673,6 @@ footer {
     }
 }
 
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideInLeft {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 /* =======================
    Animation Classes
    ======================= */
@@ -697,10 +694,24 @@ footer {
     animation-delay: 0.9s;
 }
 
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .slide-in {
     opacity: 0;
     transform: translateX(-20px);
     animation: slideInLeft 0.6s forwards;
+}
+
+@keyframes slideInLeft {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
 
 /* =======================
