@@ -16,9 +16,6 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-    <!-- Preload LCP Image -->
-    <link rel="preload" as="image" href="images/hero-background.webp">
-
     <!-- Inline Critical CSS -->
     <style>
         /* Critical CSS for Above-the-Fold Content */
@@ -60,12 +57,11 @@
 
         .logo a:hover,
         .logo a:focus {
-            color: #1abc9c; /* Example primary color */
+            color: #1abc9c; /* Beispiel Primärfarbe */
         }
 
         /* Hero Section */
         .hero {
-            background-image: url('images/hero-background.webp');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -73,11 +69,48 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 70px; /* Height of navbar */
+            margin-top: 70px; /* Höhe der Navbar */
             overflow: hidden;
+            background-image: url('images/hero-background-3840.jpg'); /* Fallback JPG */
         }
 
-        .hero .overlay {
+        /* AVIF unterstützende Hintergrundbilder */
+        .hero.avif-supported {
+            /* Standard AVIF für kleine Bildschirme */
+            background-image: url('images/hero-background-320.avif');
+        }
+
+        @media (min-width: 768px) {
+            .hero.avif-supported {
+                background-image: url('images/hero-background-768.avif');
+            }
+        }
+
+        @media (min-width: 1280px) {
+            .hero.avif-supported {
+                background-image: url('images/hero-background-1280.avif');
+            }
+        }
+
+        @media (min-width: 1920px) {
+            .hero.avif-supported {
+                background-image: url('images/hero-background-1920.avif');
+            }
+        }
+
+        @media (min-width: 2560px) {
+            .hero.avif-supported {
+                background-image: url('images/hero-background-2560.avif');
+            }
+        }
+
+        @media (min-width: 3840px) {
+            .hero.avif-supported {
+                background-image: url('images/hero-background-3840.avif');
+            }
+        }
+
+        .overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -116,7 +149,7 @@
         }
 
         .btn {
-            background-color: #1abc9c; /* Example primary color */
+            background-color: #1abc9c; /* Beispiel Primärfarbe */
             color: #fff;
             padding: 0.75rem 1.5rem;
             border: none;
@@ -132,20 +165,20 @@
 
         .btn:hover,
         .btn:focus {
-            background-color: #16a085; /* Example primary dark color */
+            background-color: #16a085; /* Beispiel Primär dunkle Farbe */
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         .btn.secondary-cta {
-            background-color: #3498db; /* Example secondary color */
+            background-color: #3498db; /* Beispiel sekundäre Farbe */
             color: #fff;
             text-decoration: none;
         }
 
         .btn.secondary-cta:hover,
         .btn.secondary-cta:focus {
-            background-color: #2980b9; /* Example secondary dark color */
+            background-color: #2980b9; /* Beispiel sekundäre dunkle Farbe */
         }
 
         /* Keyframes */
@@ -158,14 +191,14 @@
             }
         }
 
-        /* Additional critical styles can be added here */
+        /* Zusätzliche kritische Stile können hier hinzugefügt werden */
     </style>
 
     <!-- External CSS Loaded Asynchronously -->
     <link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="styles.css"></noscript>
 
-    <!-- Meta Tags for SEO -->
+    <!-- Meta Tags für SEO -->
     <meta name="description" content="Max Sutter offers transformational executive coaching for founders and leaders to unleash authentic leadership. Book a free introductory session today.">
     <meta name="keywords" content="Executive Coach, Founders, Leaders, Transformational Coaching, Authentic Leadership">
     <meta name="author" content="Max Sutter">
@@ -253,7 +286,7 @@
                     </p>
                     <cite>– Client Testimonial</cite>
                 </blockquote>
-                <!-- Additional Testimonials Can Be Added Here -->
+                <!-- Zusätzliche Testimonials können hier hinzugefügt werden -->
             </div>
         </div>
     </section>
@@ -320,7 +353,31 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Interactions -->
+    <!-- JavaScript zur Überprüfung der AVIF-Unterstützung und Setzen der Hintergrundbilder -->
+    <script>
+        (function() {
+            function checkAvifSupport(callback) {
+                const avifImg = new Image();
+                avifImg.src = "data:image/avif;base64,AAAAIGZ0eXBhdmlmAAACAGF2aWZtaW1hc3ZjAAACAG1pbWFzdgAAACAAIAAAAAG1pZjI1MgAAAAAAADcAAABUaW1lIE1lbGxvdXMgU3R1ZGF0ZQAAAABkYW5tYXJrAABEAAABBwAAAAEAAQAAAAEA";
+                avifImg.onload = function () {
+                    const isSupported = (avifImg.width > 0) && (avifImg.height > 0);
+                    callback(isSupported);
+                };
+                avifImg.onerror = function () {
+                    callback(false);
+                };
+            }
+
+            checkAvifSupport(function(supported) {
+                if (supported) {
+                    document.querySelector('.hero').classList.add('avif-supported');
+                }
+                // Falls nicht unterstützt, bleibt das Fallback-JPG bestehen
+            });
+        })();
+    </script>
+
+    <!-- JavaScript für Interaktionen -->
     <script src="script.js" defer></script>
 </body>
 </html>
