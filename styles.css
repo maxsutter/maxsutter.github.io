@@ -573,3 +573,103 @@ footer {
 .footer-links li a i {
     margin-right: 5px;
 }
+
+
+/* --- Bestehende CSS bleibt unverändert oben --- */
+
+/* Button Group in Hero und CTA Sections */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn.secondary-cta {
+    background-color: #3498db; /* Blaue Farbe für den sekundären Button */
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn.secondary-cta:hover,
+.btn.secondary-cta:focus {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+/* Kontaktformular Styles */
+.contact-form-section {
+    padding: 4rem 0;
+    background-color: #f9f9f9;
+}
+
+.contact-form-section h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #1abc9c;
+}
+
+.contact-form {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 2rem 3rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #1abc9c;
+    outline: none;
+}
+
+.contact-form .btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.form-response {
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    color: #e74c3c; /* Rot für Fehlermeldungen */
+}
+
+/* Responsives Design für das Kontaktformular */
+@media (max-width: 768px) {
+    .contact-form {
+        padding: 1.5rem 2rem;
+    }
+
+    .contact-form-section h2 {
+        font-size: 2rem;
+    }
+}
+
+/* --- Bestehende CSS folgt unten --- */
