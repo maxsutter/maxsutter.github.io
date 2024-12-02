@@ -1,5 +1,188 @@
 /* subsites.css */
 
+
+/* =======================
+   Critical CSS aus index.html Hauptseite
+   ======================= */
+
+        /* Critical CSS for Above-the-Fold Content */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            color: #2c3e50;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out forwards;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo a {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .logo a:hover,
+        .logo a:focus {
+            color: #1abc9c; /* Example primary color */
+        }
+
+        /* Hero Section */
+        /* Basis-Stile ohne Hintergrundbild */
+        .hero {
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 70px; /* Höhe der Navbar */
+            overflow: hidden;
+            /* Kein Hintergrundbild hier */
+        }
+
+        @media (max-width: 325px) {
+            .hero {
+                background-image: url('images/hero-background-320.avif');
+            }
+        }
+        @media (min-width: 326px) and (max-width: 770px) {
+            .hero {
+                background-image: url('images/hero-background-768.avif');
+            }
+        }
+
+        /* Laptops */
+        @media (min-width: 771px) and (max-width: 1300px) {
+            .hero {
+                background-image: url('images/hero-background-1280.avif');
+            }
+        }
+
+        /* Desktops */
+        @media (min-width: 1301px) and (max-width: 1930px) {
+            .hero {
+                background-image: url('images/hero-background-1920.avif');
+            }
+        }
+
+        /* Großbildschirme */
+        @media (min-width: 1931px) and (max-width: 2570px) {
+            .hero {
+                background-image: url('images/hero-background-2560.avif');
+            }
+        }
+
+        /* Ultra-Großbildschirme */
+        @media (min-width: 2571px) {
+            .hero {
+                background-image: url('images/hero-background-3840.avif');
+            }
+        }
+
+        .hero .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(44, 62, 80, 0.6);
+        }
+
+        .hero-content {
+            position: relative;
+            color: #fff;
+            text-align: center;
+            z-index: 1;
+        }
+
+        .hero-content h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            background-color: #1abc9c; /* Example primary color */
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-decoration: none;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            background-color: #16a085; /* Example primary dark color */
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn.secondary-cta {
+            background-color: #3498db; /* Example secondary color */
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .btn.secondary-cta:hover,
+        .btn.secondary-cta:focus {
+            background-color: #2980b9; /* Example secondary dark color */
+        }
+
+        /* Keyframes */
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+
 /* =======================
    Spezifische Stile für Unterseiten
    ======================= */
