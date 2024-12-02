@@ -74,43 +74,59 @@
             overflow: hidden;
             /* Kein Hintergrundbild hier */
         }
-
+        
         @media (max-width: 325px) {
             .hero {
-                background-image: url('images/hero-background-320.avif');
+                background-image: image-set(
+                    url('images/hero-background-320.avif') 1x,
+                    url('images/hero-background-768.avif') 2x,
+                    url('images/hero-background-1280.avif') 3x
+                );
             }
         }
         @media (min-width: 326px) and (max-width: 770px) {
             .hero {
-                background-image: url('images/hero-background-768.avif');
+                background-image: image-set(
+                    url('images/hero-background-768.avif') 1x,
+                    url('images/hero-background-1280.avif') 2x,
+                    url('images/hero-background-1920.avif') 3x
+                );
             }
         }
-
         /* Laptops */
         @media (min-width: 771px) and (max-width: 1300px) {
             .hero {
-                background-image: url('images/hero-background-1280.avif');
+                background-image: image-set(
+                    url('images/hero-background-1280.avif') 1x,
+                    url('images/hero-background-1560.avif') 2x
+                );
             }
         }
-
         /* Desktops */
         @media (min-width: 1301px) and (max-width: 1930px) {
             .hero {
-                background-image: url('images/hero-background-1920.avif');
+                background-image: image-set(
+                    url('images/hero-background-1920.avif') 1x,
+                    url('images/hero-background-3840.avif') 2x
+                );
             }
         }
-
         /* Großbildschirme */
         @media (min-width: 1931px) and (max-width: 2570px) {
             .hero {
-                background-image: url('images/hero-background-2560.avif');
+                background-image: image-set(
+                    url('images/hero-background-2560.avif') 1x,
+                    url('images/hero-background-3840.avif') 2x
+                );
             }
         }
-
         /* Ultra-Großbildschirme */
         @media (min-width: 2571px) {
             .hero {
-                background-image: url('images/hero-background-3840.avif');
+                background-image: image-set(
+                    url('images/hero-background-3840.avif') 1x,
+                    url('images/hero-background-3840.avif') 2x
+                );
             }
         }
 
