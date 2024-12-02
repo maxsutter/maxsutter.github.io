@@ -16,9 +16,6 @@
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
-    <!-- Preload LCP Images -->
-    <link rel="preload" as="image" href="images/hero-background-3840.avif">
-
     <!-- Inline Critical CSS -->
     <style>
         /* Critical CSS for Above-the-Fold Content */
@@ -64,16 +61,8 @@
         }
 
         /* Hero Section */
+        /* Basis-Stile ohne Hintergrundbild */
         .hero {
-            background-image: image-set(
-                url('images/hero-background-320.avif') type('image/avif') 1x,
-                url('images/hero-background-768.avif') type('image/avif') 2x,
-                url('images/hero-background-1280.avif') type('image/avif') 3x,
-                url('images/hero-background-1920.avif') type('image/avif') 4x,
-                url('images/hero-background-2560.avif') type('image/avif') 5x,
-                url('images/hero-background-3840.avif') type('image/avif') 6x,
-                url('images/hero-background-3840.jpg') type('image/jpeg') 6x
-            );
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -81,8 +70,51 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 70px; /* Height of navbar */
+            margin-top: 70px; /* Höhe der Navbar */
             overflow: hidden;
+            /* Kein Hintergrundbild hier */
+        }
+
+        /* Mobile Geräte */
+        @media (max-width: 767px) {
+            .hero {
+                background-image: url('images/hero-background-320.avif');
+            }
+        }
+
+        /* Tablets */
+        @media (min-width: 768px) and (max-width: 1279px) {
+            .hero {
+                background-image: url('images/hero-background-768.avif');
+            }
+        }
+
+        /* Laptops */
+        @media (min-width: 1280px) and (max-width: 1919px) {
+            .hero {
+                background-image: url('images/hero-background-1280.avif');
+            }
+        }
+
+        /* Desktops */
+        @media (min-width: 1920px) and (max-width: 2559px) {
+            .hero {
+                background-image: url('images/hero-background-1920.avif');
+            }
+        }
+
+        /* Großbildschirme */
+        @media (min-width: 2560px) and (max-width: 3839px) {
+            .hero {
+                background-image: url('images/hero-background-2560.avif');
+            }
+        }
+
+        /* Ultra-Großbildschirme */
+        @media (min-width: 3840px) {
+            .hero {
+                background-image: url('images/hero-background-3840.avif');
+            }
         }
 
         .hero .overlay {
