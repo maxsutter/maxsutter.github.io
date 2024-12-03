@@ -150,7 +150,7 @@
                     If you have any questions about this Privacy Policy, please contact us:
                 </p>
                 <ul>
-                    <li>By email: <a href="mailto:sonden.dinkel_0w@icloud.com">sonden.dinkel_0w@icloud.com</a></li>
+                    <li>By email: <span id="email-container"></span></li>
                 </ul>
             </section>
         </div>
@@ -169,6 +169,19 @@
         </div>
     </footer>
 
+    <!-- JavaScript for email security -->
+    <script type="text/javascript">
+        (function(){
+            var part1 = "privacy";
+            var part2 = "maxsutter";
+            var part3 = "de";
+            var email = part1 + "@" + part2 + "." + part3;
+            var link = document.createElement('a');
+            link.href = "mailto:" + email;
+            link.textContent = email;
+            document.getElementById('email-container').appendChild(link);
+        })();
+    </script>
     <!-- JavaScript for interactions -->
     <script src="../script.js" defer></script>
 </body>

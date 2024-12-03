@@ -58,20 +58,7 @@
             <section>
                 <h2>Contact</h2>
                 <p>
-                    Email: 
-                    <script type="text/javascript">
-                        (function(){
-                            var part1 = "impressum";
-                            var part2 = "maxsutter";
-                            var part3 = "de";
-                            var email = part1 + "@" + part2 + "." + part3;
-                            var link = document.createElement('a');
-                            link.href = "mailto:" + email;
-                            link.textContent = email;
-                            document.getElementById('email-container').appendChild(link);
-                        })();
-                    </script>
-                    <span id="email-container"></span>
+                    Email: <span id="email-container"></span>
                 </p>
             </section>
 
@@ -116,6 +103,19 @@
         </div>
     </footer>
 
+    <!-- JavaScript for email security -->
+    <script type="text/javascript">
+        (function(){
+            var part1 = "impressum";
+            var part2 = "maxsutter";
+            var part3 = "de";
+            var email = part1 + "@" + part2 + "." + part3;
+            var link = document.createElement('a');
+            link.href = "mailto:" + email;
+            link.textContent = email;
+            document.getElementById('email-container').appendChild(link);
+        })();
+    </script>
     <!-- JavaScript for interactions -->
     <script src="../script.js" defer></script>
 </body>
