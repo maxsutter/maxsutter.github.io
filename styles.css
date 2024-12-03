@@ -239,19 +239,6 @@ body {
     color: var(--color-error);
 }
 
-/* =======================
-   Button Styles
-   ======================= */
-
-/* Buttons are already styled in critical CSS */
-
-/* Button Group */
-.button-group {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
 
 /* =======================
    Modal Styles
