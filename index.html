@@ -29,14 +29,22 @@
             overflow-x: hidden;
         }
 
+        /* Navbar */
         .navbar {
-            background-color: #ffffff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            background-color: transparent;
+            box-shadow: none;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             animation: slideDown 0.5s ease-out forwards;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Navbar nach dem Scrollen */
+        .navbar.scrolled {
+            background-color: var(--color-bg);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .navbar .container {
@@ -148,8 +156,7 @@
 
         .hero-content h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+            font-size: 5rem;
             font-weight: 600;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
@@ -250,7 +257,7 @@
     <header class="hero" role="banner">
         <div class="overlay"></div>
         <div class="hero-content container">
-            <h1 class="fade-in">Max Sutter</h1>
+            <h1 class="fade-in">MAX SUTTER</h1>
             <h2 class="fade-in delay-1">Transformational Coaching to Unleash Your Authentic Leadership</h2>
             <div class="button-group fade-in delay-2">
                 <button id="book-session-btn" class="btn" aria-haspopup="dialog">Experience a Free Session</button>

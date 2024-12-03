@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     HamburgerMenu.init();
     ScrollAnimations.init();
     ContactForm.init();
+    Navbar.init(); // Initialisiere das Navbar-Modul
 });
 
 /**
@@ -184,6 +185,34 @@ const ContactForm = (() => {
     const bindEvents = () => {
         if (contactForm) {
             contactForm.addEventListener('submit', submitForm);
+        }
+    };
+
+    return {
+        init: bindEvents
+    };
+})();
+
+/**
+ * Navbar Module
+ * Handles the background color change of the navbar on scroll.
+ */
+const Navbar = (() => {
+    const navbar = document.querySelector('.navbar');
+
+    const handleScroll = () => {
+        if (window.scrollY > 50) { // Schwellenwert anpassen nach Bedarf
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    };
+
+    const bindEvents = () => {
+        if (navbar) {
+            window.addEventListener('scroll', handleScroll);
+            // Initialer Check beim Laden der Seite
+            handleScroll();
         }
     };
 
