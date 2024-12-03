@@ -55,23 +55,17 @@
 
         /* Navbar Links und Logo - Standardzustand (transparente Navbar) */
         .navbar .nav-links li a,
-        .navbar .logo a,
-        .language-switcher button {
+        .navbar .logo a {
             color: #ffffff;
             transition: color var(--transition-speed);
             text-decoration: none;
             font-weight: 500;
             font-family: var(--font-primary);
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem 1rem;
         }
 
         /* Navbar Links und Logo - Beim Scrollen (weiße Hintergrundfarbe) */
         .navbar.scrolled .nav-links li a,
-        .navbar.scrolled .logo a,
-        .navbar.scrolled .language-switcher button {
+        .navbar.scrolled .logo a {
             color: var(--color-text); /* Dunkler Text, definiert als #2c3e50 */
         }
 
@@ -98,9 +92,7 @@
         .logo a:hover,
         .logo a:focus,
         .navbar .nav-links li a:hover,
-        .navbar .nav-links li a:focus,
-        .language-switcher button:hover,
-        .language-switcher button:focus {
+        .navbar .nav-links li a:focus {
             color: var(--color-primary);
         }
 
@@ -131,168 +123,7 @@
 
             .navbar .nav-links {
                 gap: 0;
-                position: absolute;
-                right: 0;
-                top: 70px;
-                flex-direction: column;
-                width: 100%;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height var(--transition-speed) ease-in;
-                background-color: var(--color-bg);
             }
-
-            .nav-links.active {
-                max-height: 300px;
-            }
-
-            .nav-links li {
-                text-align: right;
-                padding: 1rem 0;
-                padding-right: 2.5rem;
-            }
-
-            .navbar.scrolled .nav-links {
-                background-color: var(--color-bg);
-            }
-
-            .hamburger.toggle span:nth-child(1) {
-                transform: rotate(45deg) translate(5px, 5px);
-            }
-
-            .hamburger.toggle span:nth-child(2) {
-                opacity: 0;
-            }
-
-            .hamburger.toggle span:nth-child(3) {
-                transform: rotate(-45deg) translate(5px, -5px);
-            }
-
-            .navbar.scrolled .hamburger span {
-                background: var(--color-text); /* Change to dark color when scrolled */
-            }
-
-            /* Hero Content */
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-content h2 {
-                font-size: 1.2rem;
-            }
-
-            /* Testimonials */
-            .testimonials-content blockquote {
-                font-size: 1.1rem;
-            }
-
-            /* Buttons */
-            .hero-content .btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
-            /* Sections Padding */
-            .about,
-            .approach,
-            .testimonials,
-            .fit {
-                padding: 3rem 0;
-            }
-
-            /* Section Headings */
-            .about h3,
-            .approach h3,
-            .testimonials h3,
-            .fit h3,
-            .cta-section h3 {
-                font-size: 2rem;
-            }
-
-            /* Modal Content */
-            .modal-content {
-                width: 95%;
-                max-width: 95%;
-                padding: 1rem;
-            }
-
-            /* Calendar Iframe */
-            .calendar-iframe {
-                height: 60vh;
-                max-height: 600px;
-            }
-
-            /* Contact Form */
-            .contact-form {
-                padding: 1.5rem 2rem;
-            }
-
-            .contact-form-section h2 {
-                font-size: 2rem;
-            }
-        }
-
-        /* Language Switcher Dropdown */
-        .language-switcher {
-            position: relative;
-        }
-
-        .language-switcher button {
-            background: none;
-            border: none;
-            color: inherit;
-            cursor: pointer;
-            font-family: var(--font-primary);
-            font-size: 1rem;
-            padding: 0.5rem 1rem;
-            transition: color var(--transition-speed);
-        }
-
-        .language-switcher button:hover,
-        .language-switcher button:focus {
-            color: var(--color-primary);
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--color-bg);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            border-radius: 5px;
-            overflow: hidden;
-            opacity: 0;
-            transform: translateY(-10px);
-            transition: opacity var(--transition-speed), transform var(--transition-speed);
-            z-index: 1000;
-        }
-
-        .dropdown-menu.show {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu li {
-            list-style: none;
-        }
-
-        .dropdown-menu li button {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            background: none;
-            border: none;
-            text-align: left;
-            cursor: pointer;
-            font-family: var(--font-primary);
-            font-size: 1rem;
-            transition: background-color var(--transition-speed);
-        }
-
-        .dropdown-menu li button:hover,
-        .dropdown-menu li button:focus {
-            background-color: var(--color-bg-alt);
         }
 
         /* Hero Section */
@@ -465,19 +296,11 @@
                 <!-- <a href="#" aria-label="Homepage">Max Sutter</a> -->
             </div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#about" id="nav-about">About</a></li>
-                <li><a href="#approach" id="nav-approach">Approach</a></li>
-                <li><a href="#testimonials" id="nav-testimonials">Testimonials</a></li>
-                <li><a href="#fit" id="nav-fit">Is This a Fit?</a></li>
-                <li><a href="/contact" id="nav-contact">Contact</a></li>
-                <!-- Sprachumschalter Dropdown -->
-                <li class="language-switcher">
-                    <button id="language-button" aria-haspopup="true" aria-expanded="false">EN</button>
-                    <ul id="language-dropdown" class="dropdown-menu" aria-label="Language Selection">
-                        <li><button data-lang="en" id="lang-en">EN</button></li>
-                        <li><button data-lang="de" id="lang-de">DE</button></li>
-                    </ul>
-                </li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#approach">Approach</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#fit">Is This a Fit?</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
             <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
                 <span></span>
@@ -491,11 +314,11 @@
     <header class="hero" role="banner">
         <div class="overlay"></div>
         <div class="hero-content container">
-            <h1 id="hero-title" class="fade-in">MAX SUTTER</h1>
-            <h2 id="hero-subtitle" class="fade-in delay-1">Transformational Coaching to Unleash Your Authentic Leadership</h2>
+            <h1 class="fade-in">MAX SUTTER</h1>
+            <h2 class="fade-in delay-1">Transformational Coaching to Unleash Your Authentic Leadership</h2>
             <div class="button-group fade-in delay-2">
                 <button id="book-session-btn" class="btn" aria-haspopup="dialog">Experience a Free Session</button>
-                <a href="/contact" class="btn secondary-cta" id="secondary-cta">Message Me</a>
+                <a href="/contact" class="btn secondary-cta">Message Me</a>
             </div>
         </div>
     </header>
@@ -503,15 +326,15 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h3 id="about-heading" class="fade-in">About Me</h3>
+            <h3 class="fade-in">About Me</h3>
             <div class="about-content">
-                <p id="about-paragraph-1" class="fade-in delay-1">
+                <p class="fade-in delay-1">
                     I've walked the path of entrepreneurship and leadership myself—as a founder, CEO, and leader navigating high-growth environments. Along the way, I've worked with incredible coaches who profoundly shaped my journey. I know the terrain because I've been in it.
                 </p>
-                <p id="about-paragraph-2" class="fade-in delay-2">
+                <p class="fade-in delay-2">
                     What sets my approach apart is the integration of this firsthand experience with over 20 years of dedicated meditation practice and personal growth. I've trained with some of the best executive coaches in Silicon Valley, bringing depth to my work with clients.
                 </p>
-                <p id="about-paragraph-3" class="fade-in delay-3">
+                <p class="fade-in delay-3">
                     When I'm not coaching, building, or meditating, I spend my time with my wife and our two young children.
                 </p>
             </div>
@@ -521,15 +344,15 @@
     <!-- Approach Section -->
     <section id="approach" class="approach">
         <div class="container">
-            <h3 id="approach-heading" class="fade-in">My Approach</h3>
+            <h3 class="fade-in">My Approach</h3>
             <div class="approach-content">
-                <p id="approach-paragraph-1" class="fade-in delay-1">
+                <p class="fade-in delay-1">
                     I don't subscribe to formulaic tools or surface-level techniques like "how to give feedback." Instead, I focus on the deeper truths: who you are and how you show up. Authenticity isn't just a concept; it's the foundation. If it's not real, people feel it. And real leadership starts from within.
                 </p>
-                <p id="approach-paragraph-2" class="fade-in delay-2">
+                <p class="fade-in delay-2">
                     My coaching comes from an awake space filled with love and compassion. I trust in your body's wisdom and hold a safe space that allows for the natural unfolding of clearing stored emotions and limiting beliefs. With sharp but gentle nudges, I guide you at your own pace towards loving resolution.
                 </p>
-                <p id="approach-paragraph-3" class="fade-in delay-3">
+                <p class="fade-in delay-3">
                     In practice, I combine techniques from state-of-the-art Western modalities with Eastern insights, especially from the Buddhist path. It's not about a technique; it's a state—a way of being that comes from having walked the path myself.
                 </p>
             </div>
@@ -539,15 +362,15 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <h3 id="testimonials-heading" class="fade-in">What Others Say</h3>
+            <h3 class="fade-in">What Others Say</h3>
             <div class="testimonials-content">
                 <blockquote class="fade-in delay-1">
-                    <p id="testimonial-1-text">
+                    <p>
                         “Max has an incredible ability to ask sharp questions from a place of wonder and curiosity. His gentle yet directed approach allowed me to explore deeply while feeling completely supported.”
                     </p>
-                    <cite id="testimonial-1-cite">– Client Testimonial</cite>
+                    <cite>– Client Testimonial</cite>
                 </blockquote>
-                <!-- Additional Testimonials Can Be Added Here with Unique IDs -->
+                <!-- Additional Testimonials Can Be Added Here -->
             </div>
         </div>
     </section>
@@ -555,12 +378,12 @@
     <!-- Fit Section -->
     <section id="fit" class="fit">
         <div class="container">
-            <h3 id="fit-heading" class="fade-in">Is This a Fit for You?</h3>
+            <h3 class="fade-in">Is This a Fit for You?</h3>
             <div class="fit-content">
-                <p id="fit-paragraph-1" class="fade-in delay-1">
+                <p class="fade-in delay-1">
                     If you're looking for advice or someone to tell you what to do, there are experts for that (and that's not me). But if you want to remove the blocks that let your own wisdom and clarity flow—and along the way experience more joy, ease, and peace—then I might be your guy.
                 </p>
-                <p id="fit-paragraph-2" class="fade-in delay-2">
+                <p class="fade-in delay-2">
                     I work with leaders ready to explore and expand their emotional fluidity, decision-making, communication, and authentic power. Together, we'll uncover the blocks and unleash your potential to lead with clarity, connection, and confidence.
                 </p>
             </div>
@@ -570,13 +393,13 @@
     <!-- Call to Action Section -->
     <section id="contact" class="cta-section">
         <div class="container">
-            <h3 id="cta-heading" class="fade-in">Ready to Transform?</h3>
-            <p id="cta-paragraph" class="fade-in delay-1">
+            <h3 class="fade-in">Ready to Transform?</h3>
+            <p class="fade-in delay-1">
                 If this resonates, let's have a conversation. Transformation starts here.
             </p>
             <div class="button-group fade-in delay-2" style="justify-content: center;">
                 <button id="book-session-btn-bottom" class="btn" aria-haspopup="dialog">Book a Free Introductory Session</button>
-                <a href="/contact" class="btn secondary-cta" id="secondary-cta-bottom">Message Me</a>
+                <a href="/contact" class="btn secondary-cta">Message Me</a>
             </div>
         </div>
     </section>
@@ -601,20 +424,20 @@
     <footer>
         <div class="container footer-content">
             <ul class="footer-links">
-                <li><a href="/impressum" id="footer-impressum">Impressum</a></li>
-                <li><a href="/privacy" id="footer-privacy">Privacy Policy</a></li>
-                <li><a href="/agb" id="footer-agb">Terms & Conditions</a></li>
+                <li><a href="/impressum">Impressum</a></li>
+                <li><a href="/privacy">Privacy Policy</a></li>
+                <li><a href="/agb">Terms & Conditions</a></li>
                 <li>
-                    <a href="https://www.linkedin.com/in/max-sutter/" target="_blank" rel="noopener noreferrer" id="footer-linkedin">
+                    <a href="https://www.linkedin.com/in/max-sutter/" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
                     </a>
                 </li>
             </ul>
-            <p id="footer-copyright">&copy; 2024 Max Sutter. All rights reserved.</p>
+            <p>&copy; 2024 Max Sutter. All rights reserved.</p>
         </div>
     </footer>
 
     <!-- JavaScript for Interactions -->
-    <script src="scripts.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
