@@ -47,7 +47,6 @@ body {
 }
 
 /* Hero Section */
-/* Basis-Stile ohne Hintergrundbild */
 .hero {
     background-size: cover;
     background-position: center;
@@ -58,46 +57,6 @@ body {
     justify-content: center;
     margin-top: 70px; /* Höhe der Navbar */
     overflow: hidden;
-    /* Kein Hintergrundbild hier */
-}
-
-@media (max-width: 325px) {
-    .hero {
-        background-image: url('images/hero-background-320.avif');
-    }
-}
-@media (min-width: 326px) and (max-width: 770px) {
-    .hero {
-        background-image: url('images/hero-background-768.avif');
-    }
-}
-
-/* Laptops */
-@media (min-width: 771px) and (max-width: 1300px) {
-    .hero {
-        background-image: url('images/hero-background-1280.avif');
-    }
-}
-
-/* Desktops */
-@media (min-width: 1301px) and (max-width: 1930px) {
-    .hero {
-        background-image: url('images/hero-background-1920.avif');
-    }
-}
-
-/* Großbildschirme */
-@media (min-width: 1931px) and (max-width: 2570px) {
-    .hero {
-        background-image: url('images/hero-background-2560.avif');
-    }
-}
-
-/* Ultra-Großbildschirme */
-@media (min-width: 2571px) {
-    .hero {
-        background-image: url('images/hero-background-3840.avif');
-    }
 }
 
 .hero .overlay {
@@ -139,7 +98,7 @@ body {
 }
 
 .btn {
-    background-color: #1abc9c; /* Example primary color */
+    background-color: #1abc9c;
     color: #fff;
     padding: 0.75rem 1.5rem;
     border: none;
@@ -155,20 +114,19 @@ body {
 
 .btn:hover,
 .btn:focus {
-    background-color: #16a085; /* Example primary dark color */
+    background-color: #16a085;
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .btn.secondary-cta {
-    background-color: #3498db; /* Example secondary color */
+    background-color: #3498db;
     color: #fff;
-    text-decoration: none;
 }
 
 .btn.secondary-cta:hover,
 .btn.secondary-cta:focus {
-    background-color: #2980b9; /* Example secondary dark color */
+    background-color: #2980b9;
 }
 
 /* Keyframes */
@@ -182,41 +140,72 @@ body {
 }
 
 /* =======================
-   Spezifische Stile für Unterseiten
+   Background Images for Hero Section
    ======================= */
-
-/* Allgemeine Stile für Content-Boxen */
-.content-box {
-    padding: var(--spacing-md);
-    background-color: var(--color-bg-alt);
-    border-radius: 8px;
-    box-shadow: 0 2px 8px var(--color-shadow);
-    margin-top: var(--spacing-lg);
-    margin-bottom: var(--spacing-lg);
-    
-    /* Neue Styles für professionelles Dokument-Layout */
-    max-width: 800px; /* Ähnlich der Breite einer DIN A4-Seite */
-    width: 100%;
-    border: 1px solid #ddd; /* Leichter Rahmen */
-    background-color: #fff; /* Weißer Hintergrund für Dokument-Optik */
+@media (max-width: 325px) {
+    .hero {
+        background-image: url('images/hero-background-320.avif');
+    }
 }
 
-/* Zentrierung des Content-Boxes auf Desktop */
-.agb .impressum .privacy-policy {
+@media (min-width: 326px) and (max-width: 770px) {
+    .hero {
+        background-image: url('images/hero-background-768.avif');
+    }
+}
+
+@media (min-width: 771px) and (max-width: 1300px) {
+    .hero {
+        background-image: url('images/hero-background-1280.avif');
+    }
+}
+
+@media (min-width: 1301px) and (max-width: 1930px) {
+    .hero {
+        background-image: url('images/hero-background-1920.avif');
+    }
+}
+
+@media (min-width: 1931px) and (max-width: 2570px) {
+    .hero {
+        background-image: url('images/hero-background-2560.avif');
+    }
+}
+
+@media (min-width: 2571px) {
+    .hero {
+        background-image: url('images/hero-background-3840.avif');
+    }
+}
+
+/* =======================
+   Spezifische Stile für Unterseiten
+   ======================= */
+.content-box {
+    padding: 1.5rem;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin: 2rem auto;
+    max-width: 800px;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+.agb, .impressum, .privacy-policy {
     display: flex;
     justify-content: center;
     padding: 2rem;
-    background-color: var(--color-bg); /* Hintergrundfarbe der Seite */
+    background-color: #f9f9f9;
 }
 
-/* Überschriften */
 .agb h1,
 .impressum h1,
 .privacy-policy h1 {
-    font-family: var(--font-secondary);
+    font-family: 'Montserrat', sans-serif;
     font-size: 2rem;
-    color: var(--color-primary-dark);
-    margin-bottom: var(--spacing-md);
+    color: #2c3e50;
+    margin-bottom: 1rem;
     text-align: center;
 }
 
@@ -224,81 +213,26 @@ body {
 .impressum h2,
 .privacy-policy h2 {
     font-size: 1.5rem;
-    color: var(--color-secondary);
-    margin-top: var(--spacing-sm);
-    margin-bottom: 0.5rem;
+    color: #3498db;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
 }
 
-/* Absätze */
 .agb p,
 .impressum p,
 .privacy-policy p {
     font-size: 1rem;
-    color: var(--color-text);
-    margin-bottom: var(--spacing-sm);
+    color: #2c3e50;
+    margin-bottom: 0.75rem;
     line-height: 1.6;
 }
 
-/* Listen */
-.agb ul,
-.impressum ul,
-.privacy-policy ul {
-    list-style: disc inside;
-    margin-left: var(--spacing-sm);
-    margin-bottom: var(--spacing-md);
-}
-
-/* Links */
-a {
-    color: var(--color-accent);
-    text-decoration: none;
-}
-
-a:hover,
-a:focus {
-    text-decoration: underline;
-}
-
-/* Tabellen (falls verwendet) */
-.content-box table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-bottom: var(--spacing-md);
-}
-
-.content-box th,
-.content-box td {
-    border: 1px solid #ddd;
-    padding: 0.75rem;
-    text-align: left;
-}
-
-.content-box th {
-    background-color: var(--color-bg-section);
-    color: var(--color-text);
-}
-
-/* =======================
-   Zusätzliche Anpassungen für AGB-Seite
-   ======================= */
-
-/* Rahmen und Schatten auf Desktop verbessern */
-@media (min-width: 769px) {
-    .content-box {
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        border: 1px solid #ccc;
-    }
-}
-
-/* Volle Breite mit Padding auf Mobile */
+/* Mobile Anpassungen */
 @media (max-width: 768px) {
     .content-box {
-        padding: var(--spacing-sm);
-        margin-top: var(--spacing-md);
-        margin-bottom: var(--spacing-md);
-        border: none; /* Kein Rahmen auf Mobile */
-        box-shadow: none; /* Kein Schatten auf Mobile */
-        background-color: var(--color-bg); /* Einheitlicher Hintergrund */
+        padding: 1rem;
+        box-shadow: none;
+        border: none;
     }
 
     .agb {
@@ -309,48 +243,29 @@ a:focus {
         font-size: 1.75rem;
     }
 
-    .agb h2 {
-        font-size: 1.25rem;
-    }
-
-    .agb p,
-    .impressum p,
-    .privacy-policy p {
+    .agb p {
         font-size: 0.95rem;
     }
 }
 
-/* Optimierung der Druckansicht (optional) */
+/* Druckansicht */
 @media print {
     body {
         background-color: #fff;
     }
 
-    .navbar,
-    footer,
-    .hamburger,
-    .nav-links {
-        display: none; /* Navbar und Footer nicht drucken */
-    }
-
-    .agb {
-        padding: 0;
+    .navbar, footer, .hamburger, .nav-links {
+        display: none;
     }
 
     .content-box {
         box-shadow: none;
         border: none;
         max-width: 100%;
-        margin: 0;
         padding: 0;
     }
 
-    .agb h1,
-    .agb h2 {
+    .agb h1, .agb h2 {
         text-align: left;
-    }
-
-    .agb ul {
-        margin-left: 1.5rem;
     }
 }
