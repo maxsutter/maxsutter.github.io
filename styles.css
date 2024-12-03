@@ -76,44 +76,6 @@ body {
    Layout Components
    ======================= */
 
-/* Navbar */
-.navbar .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-}
-
-.navbar .nav-links li a {
-    color: var(--color-text);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color var(--transition-speed);
-    font-family: var(--font-primary);
-}
-
-.navbar .nav-links li a:hover,
-.navbar .nav-links li a:focus {
-    color: var(--color-primary);
-}
-
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    border: none;
-    background: none;
-}
-
-.hamburger span {
-    height: 3px;
-    width: 25px;
-    background: var(--color-text);
-    margin-bottom: 4px;
-    border-radius: 5px;
-    transition: transform var(--transition-speed), opacity var(--transition-speed);
-    will-change: transform, opacity;
-}
-
 /* Hamburger Toggle Animation */
 .hamburger.toggle span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
