@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Sutter - Executive Coach for Founders & Leaders</title>
+    <title>Max Sutter - Executive Coach für Gründer & Führungskräfte</title>
     
     <!-- Favicon -->
     <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
 
-    <!-- Preconnect and DNS-Prefetch to External Resources -->
+    <!-- Preconnect und DNS-Prefetch zu externen Ressourcen -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
@@ -18,7 +18,7 @@
 
     <!-- Inline Critical CSS -->
     <style>
-        /* Critical CSS for Above-the-Fold Content */
+        /* Kritisches CSS für Above-the-Fold-Inhalte */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #ffffff;
@@ -37,7 +37,6 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            /* animation: slideDown 0.5s ease-out forwards; */
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -66,7 +65,7 @@
         /* Navbar Links und Logo - Beim Scrollen (weiße Hintergrundfarbe) */
         .navbar.scrolled .nav-links li a,
         .navbar.scrolled .logo a {
-            color: var(--color-text); /* Dunkler Text, definiert als #2c3e50 */
+            color: var(--color-text);
         }
 
         .navbar .container {
@@ -86,7 +85,7 @@
         }
 
         .navbar.scrolled .logo a {
-            color: var(--color-text); /* Dunkler Text beim Scrollen */
+            color: var(--color-text);
         }
 
         .logo a:hover,
@@ -103,16 +102,16 @@
             cursor: pointer;
             border: none;
             background: none;
-            padding: 0.5rem
+            padding: 0.5rem;
         }
         .hamburger span {
             height: 3px;
             width: 25px;
-            background: #ffffff; /* Default to white */
+            background: #ffffff;
             margin-bottom: 4px;
             border-radius: 5px;
             transition: background var(--transition-speed), transform var(--transition-speed), opacity var(--transition-speed), box-shadow var(--transition-speed);
-            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* Optional shadow */
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
         }
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -233,7 +232,7 @@
         }
 
         .btn {
-            background-color: #1abc9c; /* Example primary color */
+            background-color: #1abc9c;
             color: #fff;
             padding: 0.75rem 1.5rem;
             border: none;
@@ -249,20 +248,20 @@
 
         .btn:hover,
         .btn:focus {
-            background-color: #16a085; /* Example primary dark color */
+            background-color: #16a085;
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         .btn.secondary-cta {
-            background-color: #3498db; /* Example secondary color */
+            background-color: #3498db;
             color: #fff;
             text-decoration: none;
         }
 
         .btn.secondary-cta:hover,
         .btn.secondary-cta:focus {
-            background-color: #2980b9; /* Example secondary dark color */
+            background-color: #2980b9;
         }
 
         /* Keyframes */
@@ -275,16 +274,16 @@
             }
         }
 
-        /* Additional critical styles can be added here */
+        /* Zusätzliche kritische Styles können hier hinzugefügt werden */
     </style>
 
-    <!-- External CSS Loaded Asynchronously -->
+    <!-- Externes CSS asynchron laden -->
     <link rel="preload" href="../styles.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="../styles.css"></noscript>
 
-    <!-- Meta Tags for SEO -->
-    <meta name="description" content="Max Sutter offers transformational executive coaching for founders and leaders to unleash authentic leadership. Book a free introductory session today.">
-    <meta name="keywords" content="Executive Coach, Founders, Leaders, Transformational Coaching, Authentic Leadership">
+    <!-- Meta-Tags für SEO -->
+    <meta name="description" content="Max Sutter bietet transformative Executive Coachings für Gründer und Führungskräfte, um authentische Führung freizusetzen. Buchen Sie heute eine kostenlose Kennenlern-Session.">
+    <meta name="keywords" content="Executive Coach, Gründer, Führungskräfte, Transformative Coaching, Authentische Führung">
     <meta name="author" content="Max Sutter">
 
     <!-- Wie die Sprachversionen zusammenhängen -->
@@ -294,21 +293,21 @@
 </head>
 <body>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <!-- Navigationsleiste -->
+    <nav class="navbar" role="navigation" aria-label="Hauptnavigation">
         <div class="container">
             <div class="logo">
                 <!-- <a href="#" aria-label="Homepage">Max Sutter</a> -->
             </div>
             <ul class="nav-links" id="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#approach">Approach</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#fit">Is This a Fit?</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="#about">Über mich</a></li>
+                <li><a href="#approach">Mein Ansatz</a></li>
+                <li><a href="#testimonials">Stimmen</a></li>
+                <li><a href="#fit">Passt das zu dir?</a></li>
+                <li><a href="contact">Kontakt</a></li>
                 <li><a href="/en/">EN</a> | <a href="/de/">DE</a></li>
             </ul>
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+            <button class="hamburger" aria-label="Navigation umschalten" aria-expanded="false" aria-controls="nav-links">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -316,84 +315,84 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero-Bereich -->
     <header class="hero" role="banner">
         <div class="overlay"></div>
         <div class="hero-content container">
             <h1 class="fade-in">MAX SUTTER</h1>
-            <h2 class="fade-in delay-1">Transformational Coaching to Unleash Your Authentic Leadership</h2>
+            <h2 class="fade-in delay-1">Transformative Coachings für authentische Führung</h2>
             <div class="button-group fade-in delay-2">
-                <button id="book-session-btn" class="btn" aria-haspopup="dialog">Experience a Free Session</button>
-                <a href="contact" class="btn secondary-cta">Message Me</a>
+                <button id="book-session-btn" class="btn" aria-haspopup="dialog">Kostenlose Session erleben</button>
+                <a href="contact" class="btn secondary-cta">Nachricht senden</a>
             </div>
         </div>
     </header>
 
-    <!-- About Section -->
+    <!-- Über mich -->
     <section id="about" class="about">
         <div class="container">
-            <h3 class="fade-in">About Me</h3>
+            <h3 class="fade-in">Über mich</h3>
             <div class="about-content">
                 <p class="fade-in delay-1">
-                    I've walked the path of entrepreneurship and leadership myself—as a founder, CEO, and leader navigating high-growth environments. Along the way, I've worked with incredible coaches who profoundly shaped my journey. I know the terrain because I've been in it.
+                    Ich bin selbst den Weg des Unternehmertums und der Führung gegangen—als Gründer, CEO und Leader in dynamischen Wachstumsumfeldern. Dabei habe ich mit unglaublichen Coaches zusammengearbeitet, die meinen Weg tiefgreifend geprägt haben. Ich kenne das Terrain, weil ich es selbst durchlaufen habe.
                 </p>
                 <p class="fade-in delay-2">
-                    What sets my approach apart is the integration of this firsthand experience with over 20 years of dedicated meditation practice and personal growth. I've trained with some of the best executive coaches in Silicon Valley, bringing depth to my work with clients.
+                    Was meinen Ansatz auszeichnet, ist die Integration dieser eigenen Erfahrungen mit über 20 Jahren intensiver Meditationspraxis und persönlicher Entwicklung. Ich habe bei einigen der besten Executive Coaches im Silicon Valley gelernt und bringe diese Tiefe in meine Arbeit mit Klienten ein.
                 </p>
                 <p class="fade-in delay-3">
-                    When I'm not coaching, building, or meditating, I spend my time with my wife and our two young children.
+                    Wenn ich nicht coache, baue oder meditiere, verbringe ich Zeit mit meiner Frau und unseren zwei kleinen Kindern.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Approach Section -->
+    <!-- Mein Ansatz -->
     <section id="approach" class="approach">
         <div class="container">
-            <h3 class="fade-in">My Approach</h3>
+            <h3 class="fade-in">Mein Ansatz</h3>
             <div class="approach-content">
                 <p class="fade-in delay-1">
-                    I don't subscribe to formulaic tools or surface-level techniques like "how to give feedback." Instead, I focus on the deeper truths: who you are and how you show up. Authenticity isn't just a concept; it's the foundation. If it's not real, people feel it. And real leadership starts from within.
+                    Ich halte nichts von formelhaften Tools oder oberflächlichen Techniken wie "Feedback geben". Stattdessen fokussiere ich mich auf die tieferen Wahrheiten: Wer du bist und wie du auftrittst. Authentizität ist nicht nur ein Konzept; sie ist die Basis. Wenn es nicht echt ist, spüren die Leute es. Wahre Führung beginnt von innen.
                 </p>
                 <p class="fade-in delay-2">
-                    My coaching comes from an awake space filled with love and compassion. I trust in your body's wisdom and hold a safe space that allows for the natural unfolding of clearing stored emotions and limiting beliefs. With sharp but gentle nudges, I guide you at your own pace towards loving resolution.
+                    Mein Coaching kommt aus einem wachen Raum voller Liebe und Mitgefühl. Ich vertraue auf die Weisheit deines Körpers und halte einen sicheren Raum, der es erlaubt, gespeicherte Emotionen und einschränkende Überzeugungen natürlich aufzulösen. Mit scharfen, aber sanften Impulsen begleite ich dich in deinem Tempo zu liebevoller Klarheit.
                 </p>
                 <p class="fade-in delay-3">
-                    In practice, I combine techniques from state-of-the-art Western modalities with Eastern insights, especially from the Buddhist path. It's not about a technique; it's a state—a way of being that comes from having walked the path myself.
+                    In der Praxis kombiniere ich Techniken aus modernen westlichen Modalitäten mit östlichen Einsichten, insbesondere aus dem buddhistischen Weg. Es geht nicht um eine Technik; es ist ein Zustand—eine Art zu sein, die aus meinem eigenen Weg resultiert.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- Testimonials -->
     <section id="testimonials" class="testimonials">
         <div class="container">
-            <h3 class="fade-in">What Others Say</h3>
+            <h3 class="fade-in">Was andere sagen</h3>
             <div class="testimonials-content">
                 <blockquote class="fade-in delay-1">
                     <p>
-                        “Max has an incredible ability to ask sharp questions from a place of wonder and curiosity. His gentle yet directed approach allowed me to explore deeply while feeling completely supported.”
+                        „Max hat eine unglaubliche Fähigkeit, scharfe Fragen aus einer Haltung des Wunderns und der Neugier zu stellen. Sein sanfter, aber zielgerichteter Ansatz erlaubte es mir, tief zu erkunden, während ich mich vollkommen unterstützt fühlte.“
                     </p>
-                    <cite>– Client Testimonial</cite>
+                    <cite>– Kundenfeedback</cite>
                 </blockquote>
-                <!-- Additional Testimonials Can Be Added Here -->
+                <!-- Weitere Testimonials können hier hinzugefügt werden -->
             </div>
         </div>
     </section>
 
-    <!-- Fit Section -->
+    <!-- Passt das zu dir? -->
     <section id="fit" class="fit">
         <div class="container">
-            <h3 class="fade-in">Is This a Fit for You?</h3>
+            <h3 class="fade-in">Passt das zu dir?</h3>
             <div class="fit-content">
                 <p class="fade-in delay-1">
-                    If you're looking for advice or someone to tell you what to do, there are experts for that (and that's not me). But if you want to remove the blocks that let your own wisdom and clarity flow—and along the way experience more joy, ease, and peace—then I might be your guy.
+                    Wenn du nach Ratschlägen oder jemandem suchst, der dir sagt, was zu tun ist, gibt es dafür Experten (das bin nicht ich). Aber wenn du die Blockaden entfernen möchtest, die deine eigene Weisheit und Klarheit fließen lassen—und dabei mehr Freude, Leichtigkeit und Frieden erleben willst—dann könnten wir gut zusammenpassen.
                 </p>
                 <p class="fade-in delay-2">
-                    I work with leaders ready to explore and expand their emotional fluidity, decision-making, communication, and authentic power. Together, we'll uncover the blocks and unleash your potential to lead with clarity, connection, and confidence.
+                    Ich arbeite mit Führungskräften, die bereit sind, ihre emotionale Flexibilität, Entscheidungsfindung, Kommunikation und authentische Kraft zu erweitern. Gemeinsam entdecken wir die Blockaden und setzen dein Potenzial frei, mit Klarheit, Verbindung und Vertrauen zu führen.
                 </p>
                 <p class="fade-in delay-3">
-                    P.S.: I offer coaching in both English and German (native German speaker).
+                    P.S.: Ich biete Coaching auf Deutsch und Englisch an (Muttersprache Deutsch).
                 </p>
             </div>
         </div>
@@ -402,26 +401,26 @@
     <!-- Call to Action Section -->
     <section id="contact" class="cta-section">
         <div class="container">
-            <h3 class="fade-in">Ready to Transform?</h3>
+            <h3 class="fade-in">Bereit für Transformation?</h3>
             <p class="fade-in delay-1">
-                If this resonates, let's have a conversation. Transformation starts here.
+                Wenn das mit dir resoniert, lass uns ins Gespräch kommen. Transformation beginnt hier.
             </p>
             <div class="button-group fade-in delay-2" style="justify-content: center;">
-                <button id="book-session-btn-bottom" class="btn" aria-haspopup="dialog">Book a Free Introductory Session</button>
-                <a href="contact" class="btn secondary-cta">Message Me</a>
+                <button id="book-session-btn-bottom" class="btn" aria-haspopup="dialog">Kostenlose Kennenlern-Session buchen</button>
+                <a href="contact" class="btn secondary-cta">Nachricht senden</a>
             </div>
         </div>
     </section>
 
-    <!-- Booking Modal -->
+    <!-- Buchungs-Modal -->
     <div id="booking-modal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="modal-title">
         <div class="modal-content">
-            <button id="close-modal" class="close-button" aria-label="Close modal">&times;</button>
-            <h2 id="modal-title" class="visually-hidden">Booking Session</h2>
-            <!-- Google Calendar Appointment Scheduling -->
+            <button id="close-modal" class="close-button" aria-label="Modal schließen">&times;</button>
+            <h2 id="modal-title" class="visually-hidden">Buchungssession</h2>
+            <!-- Google Calendar Terminplanung -->
             <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1GUis3m9ibraDTEy03JT5eWFCJiUkCMICCfqoIoXY6ItGlxemPsDTHfbHybYafZ45097K9NYU7?gv=true" 
                     class="calendar-iframe" 
-                    title="Google Calendar Appointment Scheduling" 
+                    title="Google Calendar Terminplanung" 
                     frameborder="0" 
                     loading="lazy" 
                     allowfullscreen>
@@ -433,20 +432,20 @@
     <footer>
         <div class="container footer-content">
             <ul class="footer-links">
-                <li><a href="imprint">Imprint</a></li>
-                <li><a href="privacy">Privacy Policy</a></li>
-                <li><a href="terms">Terms & Conditions</a></li>
+                <li><a href="impressum">Impressum</a></li>
+                <li><a href="datenschutz">Datenschutz</a></li>
+                <li><a href="agb">AGB</a></li>
                 <li>
                     <a href="https://www.linkedin.com/in/max-sutter/" target="_blank" rel="noopener noreferrer">
                         <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
                     </a>
                 </li>
             </ul>
-            <p>&copy; 2024 Max Sutter. All rights reserved.</p>
+            <p>&copy; 2024 Max Sutter. Alle Rechte vorbehalten.</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Interactions -->
+    <!-- JavaScript für Interaktionen -->
     <script src="../script.js" defer></script>
 </body>
 </html>
