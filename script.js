@@ -195,24 +195,59 @@ const ContactForm = (() => {
 
 /**
  * Navbar Module
- * Handles the background color change of the navbar on scroll.
+ * Handles the background color change of the navbar on scroll with performance optimization.
  */
 const Navbar = (() => {
     const navbar = document.querySelector('.navbar');
+    const scrollThreshold = 50; // Threshold in pixels to add the 'scrolled' class
 
+    /**
+     * Adds or removes the 'scrolled' class based on the scroll position.
+     */
     const handleScroll = () => {
-        if (window.scrollY > 50) { // Schwellenwert anpassen nach Bedarf
+        if (window.scrollY > scrollThreshold) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
     };
 
+    /**
+     * Throttle function to limit the rate at which a function can fire.
+     * @param {Function} func - The function to throttle.
+     * @param {number} limit - The time limit in milliseconds.
+     * @returns {Function} - The throttled function.
+     */
+    const throttle = (func, limit) => {
+        let lastFunc;
+        let lastRan;
+        return function(...args) {
+            const context = this;
+            if (!lastRan) {
+                func.apply(context, args);
+                lastRan = Date.now();
+            } else {
+                clearTimeout(lastFunc);
+                lastFunc = setTimeout(function() {
+                    if ((Date.now() - lastRan) >= limit) {
+                        func.apply(context, args);
+                        lastRan = Date.now();
+                    }
+                }, limit - (Date.now() - lastRan));
+            }
+        };
+    };
+
+    /**
+     * Binds the scroll event with throttling.
+     */
     const bindEvents = () => {
         if (navbar) {
-            window.addEventListener('scroll', handleScroll);
-            // Initialer Check beim Laden der Seite
+            window.addEventListener('scroll', throttle(handleScroll, 100)); // Throttle to fire every 100ms
+            // Initial check in case the page is loaded at a scrolled position
             handleScroll();
+        } else {
+            console.warn('Navbar element not found.');
         }
     };
 

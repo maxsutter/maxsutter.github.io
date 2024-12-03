@@ -80,18 +80,30 @@ body {
    Layout Components
    ======================= */
 
-/* Hamburger Toggle Animation */
-.hamburger.toggle span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
+    /* Hamburger Icon Styles */
+    .navbar.scrolled .hamburger span {
+        background: var(--color-text); /* Change to dark color when scrolled */
+    }
 
-.hamburger.toggle span:nth-child(2) {
-    opacity: 0;
-}
+    /* Hamburger Toggle Animation */
+    .hamburger.toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
 
-.hamburger.toggle span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
-}
+    .hamburger.toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .navbar.scrolled .hamburger {
+            background: rgba(255, 255, 255, 0.3); /* Adjust based on navbar background */
+        }
+    }
 
 /* Hero Section Styles Not Critical */
 
