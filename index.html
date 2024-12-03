@@ -47,6 +47,19 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
+        /* Navbar Links und Logo - Standardzustand (transparente Navbar) */
+        .navbar .nav-links li a,
+        .navbar .logo a {
+            color: #ffffff; /* Weißer Text */
+            transition: color var(--transition-speed);
+        }
+
+        /* Navbar Links und Logo - Beim Scrollen (weiße Hintergrundfarbe) */
+        .navbar.scrolled .nav-links li a,
+        .navbar.scrolled .logo a {
+            color: var(--color-text); /* Dunkler Text, definiert als #2c3e50 */
+        }
+
         .navbar .container {
             display: flex;
             justify-content: space-between;
@@ -57,15 +70,24 @@
         .logo a {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
-            color: #2c3e50;
+            color: #ffffff; /* Weißer Text */
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
         }
 
+        .navbar.scrolled .logo a {
+            color: var(--color-text); /* Dunkler Text beim Scrollen */
+        }
+
         .logo a:hover,
         .logo a:focus {
-            color: #1abc9c; /* Example primary color */
+            color: #1abc9c; /* Beispielhafte Primärfarbe */
+        }
+
+        .navbar .nav-links li a:hover,
+        .navbar .nav-links li a:focus {
+            color: var(--color-primary);
         }
 
         /* Hero Section */
@@ -78,9 +100,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-top: 70px; /* Höhe der Navbar */
             overflow: hidden;
-            /* Kein Hintergrundbild hier */
         }
         
         @media (max-width: 325px) {
@@ -152,6 +172,7 @@
             color: #fff;
             text-align: center;
             z-index: 1;
+            padding-top: 70px; /* Höhe der Navbar */
         }
 
         .hero-content h1 {
