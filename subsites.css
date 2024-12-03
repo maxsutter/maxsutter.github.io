@@ -202,7 +202,7 @@ body {
 }
 
 /* Zentrierung des Content-Boxes auf Desktop */
-.agb {
+.agb .impressum .privacy-policy {
     display: flex;
     justify-content: center;
     padding: 2rem;
