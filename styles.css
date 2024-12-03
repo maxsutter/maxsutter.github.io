@@ -351,31 +351,25 @@ footer {
         position: absolute;
         right: 0;
         top: 70px;
-        background-color: var(--color-bg);
         flex-direction: column;
         width: 100%;
         max-height: 0;
         overflow: hidden;
         transition: max-height var(--transition-speed) ease-in;
-        gap: 0
     }
 
     .nav-links.active {
         max-height: 300px;
-        box-shadow: 0 4px 6px var(--color-shadow);
     }
 
     .nav-links li {
-        text-align: center;
+        text-align: right;
         padding: 1rem 0;
+        padding-right: 2.5rem;
     }
 
     .navbar.scrolled .nav-links {
         background-color: var(--color-bg);
-    }
-
-    .navbar .nav-links.active {
-        box-shadow: none;
     }
 
     .hamburger {
