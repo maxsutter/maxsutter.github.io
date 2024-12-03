@@ -100,8 +100,16 @@ body {
 .approach,
 .testimonials,
 .fit {
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-sm) 0;
     background-color: var(--color-bg-section);
+}
+
+.about {
+    padding-top: var(--spacing-lg);
+}
+
+.fit {
+    padding-bottom: var(--spacing-lg);
 }
 
 .about h3,
@@ -120,7 +128,7 @@ body {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     color: var(--color-text-light);
-    max-width: 800px;
+    /* max-width: 800px; */
     margin-left: auto;
     margin-right: auto;
 }
