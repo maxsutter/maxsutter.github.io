@@ -340,6 +340,11 @@
     line-height: 1.6;
 }
 
+.agb a, .impressum a, .privacy-policy a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
 /* Mobile Anpassungen */
 @media (max-width: 768px) {
     .content-box {
