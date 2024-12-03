@@ -80,11 +80,6 @@ body {
    Layout Components
    ======================= */
 
-    /* Hamburger Icon Styles */
-    .navbar.scrolled .hamburger span {
-        background: var(--color-text); /* Change to dark color when scrolled */
-    }
-
     /* Hamburger Toggle Animation */
     .hamburger.toggle span:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
@@ -100,8 +95,25 @@ body {
 
     /* Responsive Styles */
     @media (max-width: 768px) {
+        .navbar .nav-links li a,
+        .navbar .logo a {
+            color: var(--color-text)
+        }
+        
         .navbar.scrolled .hamburger {
             background: rgba(255, 255, 255, 0.3); /* Adjust based on navbar background */
+        }
+        .navbar.scrolled .hamburger span {
+            background: var(--color-text); /* Change to dark color when scrolled */
+        }
+        .navbar.scrolled .nav-links {
+            background-color: var(--color-bg);
+        }
+        .navbar.scrolled .nav-links.active {
+            box-shadow: none;
+        }
+        .navbar.scrolled .navbar .nav-links {
+            gap: 0
         }
     }
 
