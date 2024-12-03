@@ -80,43 +80,6 @@ body {
    Layout Components
    ======================= */
 
-    /* Hamburger Toggle Animation */
-    .hamburger.toggle span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-
-    .hamburger.toggle span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .hamburger.toggle span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-        .navbar .nav-links li a,
-        .navbar .logo a {
-            color: var(--color-text)
-        }
-        
-        .navbar.scrolled .hamburger {
-            background: rgba(255, 255, 255, 0.3); /* Adjust based on navbar background */
-        }
-        .navbar.scrolled .hamburger span {
-            background: var(--color-text); /* Change to dark color when scrolled */
-        }
-        .navbar.scrolled .nav-links {
-            background-color: var(--color-bg);
-        }
-        .navbar.scrolled .nav-links.active {
-            box-shadow: none;
-        }
-        .navbar.scrolled .navbar .nav-links {
-            gap: 0
-        }
-    }
-
 /* Hero Section Styles Not Critical */
 
 /* About, Approach, Testimonials, Fit Sections */
@@ -381,6 +344,7 @@ footer {
 /* =======================
    Responsive Styles
    ======================= */
+
 @media (max-width: 768px) {
     /* Navbar */
     .nav-links {
@@ -393,6 +357,7 @@ footer {
         max-height: 0;
         overflow: hidden;
         transition: max-height var(--transition-speed) ease-in;
+        gap: 0
     }
 
     .nav-links.active {
@@ -405,8 +370,36 @@ footer {
         padding: 1rem 0;
     }
 
+    .navbar.scrolled .nav-links {
+        background-color: var(--color-bg);
+    }
+
+    .navbar .nav-links.active {
+        box-shadow: none;
+    }
+
     .hamburger {
         display: flex;
+    }
+
+    .navbar.scrolled .hamburger {
+        background: rgba(255, 255, 255, 0.3); /* Adjust based on navbar background */
+    }
+
+    .hamburger.toggle span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.toggle span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .hamburger.toggle span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    .navbar.scrolled .hamburger span {
+        background: var(--color-text); /* Change to dark color when scrolled */
     }
 
     /* Hero Content */
