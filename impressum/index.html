@@ -58,7 +58,20 @@
             <section>
                 <h2>Contact</h2>
                 <p>
-                    Email: <a href="mailto:sonden.dinkel_0w@icloud.com">sonden.dinkel_0w@icloud.com</a>
+                    Email: 
+                    <script type="text/javascript">
+                        (function(){
+                            var part1 = "impressum";
+                            var part2 = "maxsutter";
+                            var part3 = "de";
+                            var email = part1 + "@" + part2 + "." + part3;
+                            var link = document.createElement('a');
+                            link.href = "mailto:" + email;
+                            link.textContent = email;
+                            document.getElementById('email-container').appendChild(link);
+                        })();
+                    </script>
+                    <span id="email-container"></span>
                 </p>
             </section>
 
