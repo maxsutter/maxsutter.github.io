@@ -503,6 +503,14 @@ footer {
     animation-delay: 0.9s;
 }
 
+.delay-4 {
+    animation-delay: 1.2s;
+}
+
+.delay-5 {
+    animation-delay: 1.5s;
+}
+
 .slide-in {
     opacity: 0;
     transform: translateX(-20px);
