@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /index.html
+
+Allow: /en/
+Allow: /de/
+Allow: /images/
+Allow: /styles.css
+Allow: /script.js
+
+Sitemap: https://maxsutter.github.io/sitemap.xml

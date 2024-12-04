@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Sutter - Executive Coach</title>
+    <title>Max Sutter | Transformation Coaching für C-Level Executives</title>
     
     <!-- Favicon -->
     <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
@@ -11,10 +11,15 @@
     <!-- Preconnect and DNS-Prefetch to External Resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Asynchronously Load Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.rel='stylesheet'" integrity="sha512-p5Mgz+Mq0xv3Jt6DIFAzJfKj+Q0v6EYZmUuQ9JHLTqQK1V19jrC7yQvR+FnxWJ8UM1YZHA3YwEHV8kM2q0vxKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p5Mgz+Mq0xv3Jt6DIFAzJfKj+Q0v6EYZmUuQ9JHLTqQK1V19jrC7yQvR+FnxWJ8UM1YZHA3YwEHV8kM2q0vxKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </noscript>
 
     <!-- Inline Critical CSS -->
     <style>
@@ -42,7 +47,7 @@
 
         /* Navbar nach dem Scrollen */
         .navbar.scrolled {
-            background-color: var(--color-bg);
+            background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -56,16 +61,16 @@
         .navbar .nav-links li a,
         .navbar .logo a {
             color: #ffffff;
-            transition: color var(--transition-speed);
+            transition: color 0.3s;
             text-decoration: none;
             font-weight: 500;
-            font-family: var(--font-primary);
+            font-family: 'Roboto', sans-serif;
         }
 
         /* Navbar Links und Logo - Beim Scrollen (weiße Hintergrundfarbe) */
         .navbar.scrolled .nav-links li a,
         .navbar.scrolled .logo a {
-            color: var(--color-text); /* Dunkler Text, definiert als #2c3e50 */
+            color: #2c3e50;
         }
 
         .navbar .container {
@@ -85,14 +90,14 @@
         }
 
         .navbar.scrolled .logo a {
-            color: var(--color-text); /* Dunkler Text beim Scrollen */
+            color: #2c3e50; /* Dunkler Text beim Scrollen */
         }
 
         .logo a:hover,
         .logo a:focus,
         .navbar .nav-links li a:hover,
         .navbar .nav-links li a:focus {
-            color: var(--color-primary);
+            color: #1abc9c;
         }
 
         /* Hamburger Icon Styles */
@@ -110,7 +115,7 @@
             background: #ffffff; /* Default to white */
             margin-bottom: 4px;
             border-radius: 5px;
-            transition: background var(--transition-speed), transform var(--transition-speed), opacity var(--transition-speed), box-shadow var(--transition-speed);
+            transition: background 0.3s, transform 0.3s, opacity 0.3s, box-shadow 0.3s;
             box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* Optional shadow */
         }
         /* Responsive Styles */
@@ -281,12 +286,36 @@
     <link rel="preload" href="../styles.css" as="style" onload="this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="../styles.css"></noscript>
 
-    <!-- Meta Tags for SEO -->
-    <meta name="description" content="Max Sutter offers transformational executive coaching for founders and leaders to unleash authentic leadership. Book a free introductory session today.">
-    <meta name="keywords" content="Executive Coach, Founders, Leaders, Transformational Coaching, Authentic Leadership">
+    <!-- Meta-Tags für SEO -->
+    <meta name="description" content="Transformation coaching for C-level executives, founders, and leaders. Discover joy, connection, and effective leadership. Coaching with depth and impact.">
+    <meta name="keywords" content="Executive Coaching, Leadership Coaching, C-Level Coaching, Founder Coaching, Leadership Transformation, Authentic Leadership, Emotional Development, Entrepreneur Coaching, Leadership Development, Max Sutter Coaching, Executive Coaching Germany">
     <meta name="author" content="Max Sutter">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Max Sutter | Transformation Coaching for C-Level Executives">
+    <meta property="og:description" content="Discover transformation and authentic leadership. Coaching for leaders seeking joy, connection, and lasting impact.">
+    <meta property="og:image" content="https://maxsutter.de/images/hero-background-1920.avif">
+    <meta property="og:url" content="https://maxsutter.de/en">
+    <meta property="og:type" content="website">
+    
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Max Sutter",
+        "description": "Executive coach for C-level executives, founders, and leaders, focused on joy, connection, and effective leadership.",
+        "jobTitle": "Executive Coach",
+        "url": "https://maxsutter.de/en",
+        "sameAs": [
+        "https://www.linkedin.com/in/max-sutter/"
+        ]
+    }
+    </script>
 
-    <!-- Wie die Sprachversionen zusammenhängen -->
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://maxsutter.de/en/" />
+    
+    <!-- Hreflang Tags -->
     <link rel="alternate" hreflang="de" href="https://maxsutter.de/de/" />
     <link rel="alternate" hreflang="en" href="https://maxsutter.de/en/" />
     <link rel="alternate" hreflang="x-default" href="https://maxsutter.de/" />
@@ -305,7 +334,7 @@
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#fit">Is This a Fit?</a></li>
                 <li><a href="contact">Contact</a></li>
-                <li><a href="/de">🇩🇪</a></li>
+                <li><a href="/de" aria-label="Deutsch">🇩🇪</a></li>
             </ul>
             <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
                 <span></span>

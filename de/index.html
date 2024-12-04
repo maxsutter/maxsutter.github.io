@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Max Sutter - Executive Coach</title>
+    <title>Max Sutter | Transformation Coaching für C-Level Executives</title>
     
     <!-- Favicon -->
     <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
@@ -11,14 +11,19 @@
     <!-- Preconnect und DNS-Prefetch zu externen Ressourcen -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Asynchronously Load Font Awesome -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.rel='stylesheet'" integrity="sha512-p5Mgz+Mq0xv3Jt6DIFAzJfKj+Q0v6EYZmUuQ9JHLTqQK1V19jrC7yQvR+FnxWJ8UM1YZHA3YwEHV8kM2q0vxKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <noscript>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-p5Mgz+Mq0xv3Jt6DIFAzJfKj+Q0v6EYZmUuQ9JHLTqQK1V19jrC7yQvR+FnxWJ8UM1YZHA3YwEHV8kM2q0vxKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    </noscript>
 
     <!-- Inline Critical CSS -->
     <style>
-        /* Kritisches CSS für Above-the-Fold-Inhalte */
+        /* Critical CSS for Above-the-Fold Content */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #ffffff;
@@ -42,7 +47,7 @@
 
         /* Navbar nach dem Scrollen */
         .navbar.scrolled {
-            background-color: var(--color-bg);
+            background-color: #ffffff;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -56,16 +61,16 @@
         .navbar .nav-links li a,
         .navbar .logo a {
             color: #ffffff;
-            transition: color var(--transition-speed);
+            transition: color 0.3s;
             text-decoration: none;
             font-weight: 500;
-            font-family: var(--font-primary);
+            font-family: 'Roboto', sans-serif;
         }
 
         /* Navbar Links und Logo - Beim Scrollen (weiße Hintergrundfarbe) */
         .navbar.scrolled .nav-links li a,
         .navbar.scrolled .logo a {
-            color: var(--color-text);
+            color: #2c3e50;
         }
 
         .navbar .container {
@@ -85,14 +90,14 @@
         }
 
         .navbar.scrolled .logo a {
-            color: var(--color-text);
+            color: #2c3e50; /* Dunkler Text beim Scrollen */
         }
 
         .logo a:hover,
         .logo a:focus,
         .navbar .nav-links li a:hover,
         .navbar .nav-links li a:focus {
-            color: var(--color-primary);
+            color: #1abc9c;
         }
 
         /* Hamburger Icon Styles */
@@ -102,16 +107,16 @@
             cursor: pointer;
             border: none;
             background: none;
-            padding: 0.5rem;
+            padding: 0.5rem
         }
         .hamburger span {
             height: 3px;
             width: 25px;
-            background: #ffffff;
+            background: #ffffff; /* Default to white */
             margin-bottom: 4px;
             border-radius: 5px;
-            transition: background var(--transition-speed), transform var(--transition-speed), opacity var(--transition-speed), box-shadow var(--transition-speed);
-            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s, transform 0.3s, opacity 0.3s, box-shadow 0.3s;
+            box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* Optional shadow */
         }
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -232,7 +237,7 @@
         }
 
         .btn {
-            background-color: #1abc9c;
+            background-color: #1abc9c; /* Example primary color */
             color: #fff;
             padding: 0.75rem 1.5rem;
             border: none;
@@ -248,20 +253,20 @@
 
         .btn:hover,
         .btn:focus {
-            background-color: #16a085;
+            background-color: #16a085; /* Example primary dark color */
             transform: translateY(-3px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
         }
 
         .btn.secondary-cta {
-            background-color: #3498db;
+            background-color: #3498db; /* Example secondary color */
             color: #fff;
             text-decoration: none;
         }
 
         .btn.secondary-cta:hover,
         .btn.secondary-cta:focus {
-            background-color: #2980b9;
+            background-color: #2980b9; /* Example secondary dark color */
         }
 
         /* Keyframes */
@@ -274,7 +279,7 @@
             }
         }
 
-        /* Zusätzliche kritische Styles können hier hinzugefügt werden */
+        /* Additional critical styles can be added here */
     </style>
 
     <!-- Externes CSS asynchron laden -->
@@ -282,11 +287,35 @@
     <noscript><link rel="stylesheet" href="../styles.css"></noscript>
 
     <!-- Meta-Tags für SEO -->
-    <meta name="description" content="Max Sutter bietet transformative Executive Coachings für Gründer und Führungskräfte, um authentische Führung freizusetzen. Buchen Sie heute eine kostenlose Kennenlern-Session.">
-    <meta name="keywords" content="Executive Coach, Gründer, Führungskräfte, Transformative Coaching, Authentische Führung">
+    <meta name="description" content="Transformation Coaching für C-Level Executives, Gründer:innen und Führungskräfte. Entdecke Freude, Connection und effektive Leadership. Coaching mit Tiefe und Wirkung.">
+    <meta name="keywords" content="Executive Coaching, Leadership Coaching, C-Level Coaching, Gründer Coaching, Leadership Transformation, Authentische Führung, Emotionale Entwicklung, Unternehmer Coaching, Leadership Entwicklung, Max Sutter Coaching, Executive Coaching Deutschland">
     <meta name="author" content="Max Sutter">
 
-    <!-- Wie die Sprachversionen zusammenhängen -->
+    <!-- Open Graph Meta-Tags -->
+    <meta property="og:title" content="Max Sutter | Transformation Coaching für C-Level Executives">
+    <meta property="og:description" content="Entdecke Transformation und authentische Führung. Coaching für Leader, die Freude, Connection und nachhaltige Wirkung suchen.">
+    <meta property="og:image" content="https://maxsutter.de/images/hero-background-1920.avif">
+    <meta property="og:url" content="https://maxsutter.de/de">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Max Sutter",
+        "description": "Executive Coach für C-Level Executives, Gründer und Führungskräfte mit Fokus auf Freude, Connection und effektives Leadership.",
+        "jobTitle": "Executive Coach",
+        "url": "https://maxsutter.de",
+        "sameAs": [
+        "https://www.linkedin.com/in/max-sutter/"
+        ]
+    }
+    </script>
+
+    <!-- Canonical Tag -->
+    <link rel="canonical" href="https://maxsutter.de/de/" />
+    
+    <!-- Hreflang Tags -->
     <link rel="alternate" hreflang="de" href="https://maxsutter.de/de/" />
     <link rel="alternate" hreflang="en" href="https://maxsutter.de/en/" />
     <link rel="alternate" hreflang="x-default" href="https://maxsutter.de/" />
@@ -305,7 +334,7 @@
                 <li><a href="#testimonials">Stimmen</a></li>
                 <li><a href="#fit">Passt das zu dir?</a></li>
                 <li><a href="contact">Kontakt</a></li>
-                <li><a href="/en">🇬🇧</a></li>
+                <li><a href="/en" aria-label="English">🇬🇧</a></li>
             </ul>
             <button class="hamburger" aria-label="Navigation umschalten" aria-expanded="false" aria-controls="nav-links">
                 <span></span>
