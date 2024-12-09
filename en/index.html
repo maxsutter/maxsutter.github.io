@@ -456,6 +456,7 @@
     </section>
 
     <!-- Call to Action Section -->
+    <!--
     <section id="contact" class="cta-section">
         <div class="container">
             <h3 class="fade-in">Ready to Transform?</h3>
@@ -467,9 +468,44 @@
                 <button id="book-session-btn" class="btn" aria-haspopup="dialog">Book a Free Session</button>
                 <a href="contact" class="btn secondary-cta">Message Me</a>
             </div>
-            -->
+            ->
             <div class="button-group fade-in delay-2" style="justify-content: center;">
                 <a href="contact" class="btn secondary-cta">Work With Me</a>
+            </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Call to Action Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h3 class="fade-in">Ready to Transform?</h3>
+            <p class="fade-in delay-1">
+                If this resonates, let's have a conversation. Transformation starts here.
+            </p>
+
+            <!-- Contact Form Container -->
+            <div class="contact-form-section fade-in delay-2">
+                <h2>Contact Me</h2>
+                <form action="https://formspree.io/f/xbljqyzy" method="POST" class="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="email">Your Email Address</label>
+                        <input type="email" id="email" name="_replyto" required placeholder="you@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
+                    </div>
+                    <!-- Honeypot field for spam protection -->
+                    <div class="honeypot" aria-hidden="true">
+                        <label for="bot-field">Don’t fill this out if you're human:</label>
+                        <input type="text" id="bot-field" name="bot-field">
+                    </div>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                <div class="form-response" aria-live="polite">
+                    <!-- Success or error messages can be displayed here -->
+                </div>
             </div>
         </div>
     </section>
