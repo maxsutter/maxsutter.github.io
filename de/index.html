@@ -456,21 +456,52 @@
     </section>
 
     <!-- Call to Action Section -->
+     <!--
     <section id="contact" class="cta-section">
         <div class="container">
             <h3 class="fade-in">Bereit für Transformation?</h3>
             <p class="fade-in delay-1">
                 Wenn dich das anspricht, lass uns sprechen! Veränderung beginnt hier.
             </p>
-            <!-- 
             <div class="button-group fade-in delay-2" style="justify-content: center;">
                 <button id="book-session-btn" class="btn" aria-haspopup="dialog">Book a Free Session</button>
                 <a href="contact" class="btn secondary-cta">Message Me</a>
             </div>
-            -->
             <div class="button-group fade-in delay-2" style="justify-content: center;">
                 <a href="contact" class="btn secondary-cta">Arbeite mit mir</a>
             </div>
+        </div>
+    </section>
+    -->
+
+    <!-- Call to Action Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h3 class="fade-in">Bereit für Transformation?</h3>
+            <p class="fade-in delay-1">
+                Wenn dich das anspricht, lass uns sprechen! Veränderung beginnt hier.
+            </p>
+
+            <!-- Contact Form -->
+            <form action="https://formspree.io/f/xbljqyzy" method="POST" class="contact-form" novalidate>
+                <div class="form-group">
+                    <label for="email">Deine E-Mail Adresse</label>
+                    <input type="email" id="email" name="_replyto" required placeholder="du@beispiel.de">
+                </div>
+                <div class="form-group">
+                    <label for="message">Deine Nachricht</label>
+                    <textarea id="message" name="message" rows="5" required placeholder="Schreib deine Nachricht hier..."></textarea>
+                </div>
+                <!-- Honeypot field for spam protection -->
+                <div class="honeypot" aria-hidden="true">
+                    <label for="bot-field">Don’t fill this out if you're human:</label>
+                    <input type="text" id="bot-field" name="bot-field">
+                </div>
+                <button type="submit" class="btn">Nachricht senden</button>
+                <div class="form-response" aria-live="polite">
+                    <!-- Success or error messages will be displayed here -->
+                </div>
+        </form>
         </div>
     </section>
 
