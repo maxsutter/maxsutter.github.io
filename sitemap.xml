@@ -15,11 +15,6 @@
         <xhtml:link rel="alternate" hreflang="de" href="https://maxsutter.de/de/" />
     </url>
     <url>
-        <loc>https://maxsutter.de/en/contact/</loc>
-        <xhtml:link rel="alternate" hreflang="en" href="https://maxsutter.de/en/contact/" />
-        <xhtml:link rel="alternate" hreflang="de" href="https://maxsutter.de/de/contact/" />
-    </url>
-    <url>
         <loc>https://maxsutter.de/en/imprint/</loc>
         <xhtml:link rel="alternate" hreflang="en" href="https://maxsutter.de/en/imprint/" />
         <xhtml:link rel="alternate" hreflang="de" href="https://maxsutter.de/de/impressum/" />
@@ -40,11 +35,6 @@
         <loc>https://maxsutter.de/de/</loc>
         <xhtml:link rel="alternate" hreflang="de" href="https://maxsutter.de/de/" />
         <xhtml:link rel="alternate" hreflang="en" href="https://maxsutter.de/en/" />
-    </url>
-    <url>
-        <loc>https://maxsutter.de/de/contact/</loc>
-        <xhtml:link rel="alternate" hreflang="de" href="https://maxsutter.de/de/contact/" />
-        <xhtml:link rel="alternate" hreflang="en" href="https://maxsutter.de/en/contact/" />
     </url>
     <url>
         <loc>https://maxsutter.de/de/impressum/</loc>
