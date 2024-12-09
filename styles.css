@@ -541,3 +541,12 @@ footer {
 .honeypot {
     display: none;
 }
+
+.cta-section .contact-form-section h2 {
+    padding-top: 30px;
+}
+
+.btn:focus {
+    outline: 2px solid #1abc9c;
+    outline-offset: 2px;
+}
