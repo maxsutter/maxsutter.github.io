@@ -2,22 +2,33 @@
    :root - CSS Variables
    ======================= */
    :root {
-    /* Colors */
-    --color-primary: #1abc9c;
-    --color-primary-dark: #16a085;
-    --color-secondary: #3498db;
-    --color-secondary-dark: #2980b9;
-    --color-accent: #007BFF;
-    --color-text: #2c3e50;
-    --color-text-light: #555;
-    --color-bg: #ffffff;
-    --color-bg-alt: #f4f6f8;
-    --color-bg-section: #f9f9f9;
-    --color-footer-bg: #2c3e50;
-    --color-footer-text: #ecf0f1;
-    --color-error: #e74c3c;
-    --color-shadow: rgba(0, 0, 0, 0.1);
-    --color-shadow-dark: rgba(0, 0, 0, 0.2);
+    /* Primärfarben */
+    --color-primary: #003366; /* Tiefes Marineblau für Vertrauen und Seriosität */
+    --color-primary-dark: #002244; /* Dunkleres Blau für Akzente und Hervorhebungen */
+    --color-secondary: #006699; /* Klareres Blau für subtile Akzente */
+    --color-secondary-dark: #004466; /* Intensiveres Blau für Details */
+
+    /* Akzentfarben */
+    --color-accent: #FFA500; /* Dezentes Orange für Highlights (z.B. Call-to-Actions) */
+    --color-accent-light: #FFBF80; /* Helleres Orange für Hover-Effekte */
+
+    /* Textfarben */
+    --color-text: #333333; /* Dunkles Grau für Haupttexte */
+    --color-text-light: #555555; /* Mittleres Grau für sekundäre Texte */
+
+    /* Hintergrundfarben */
+    --color-bg: #F9FAFB; /* Heller, leicht grauer Hintergrund für Klarheit */
+    --color-bg-alt: #FFFFFF; /* Reines Weiß für Kontraste in Abschnitten */
+    --color-bg-section: #EDEFF1; /* Leicht abgetönter Hintergrund für Sektionen */
+
+    /* Footer und Highlights */
+    --color-footer-bg: #003366; /* Gleiche Farbe wie Primär, für Konsistenz */
+    --color-footer-text: #FFFFFF; /* Weiß für den Kontrast im Footer */
+
+    /* Fehler und Warnungen */
+    --color-error: #CC3300; /* Seriöses Rot für Fehler */
+    --color-shadow: rgba(0, 0, 0, 0.05); /* Sehr dezenter Schatten */
+    --color-shadow-dark: rgba(0, 0, 0, 0.15); /* Etwas stärkerer Schatten */
     
     /* Fonts */
     --font-primary: 'Roboto', sans-serif;
@@ -70,10 +81,15 @@ body {
 
 /* Container Utility */
 .container {
-    width: 90%;
+    width: 50%;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
+}
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
 }
 
 /* =======================
