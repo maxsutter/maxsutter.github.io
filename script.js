@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize all modules
-    Modal.init();
+    // Modal.init();
     HamburgerMenu.init();
     ScrollAnimations.init();
     ContactForm.init();
