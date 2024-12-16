@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modal.init();
     HamburgerMenu.init();
     ScrollAnimations.init();
-    ContactForm.init();
+    // ContactForm.init();
     Navbar.init(); // Initialisiere das Navbar-Modul
 });
 
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * Modal Module
  * Handles the opening and closing of modals, including accessibility features.
  */
-/*
+
 const Modal = (() => {
     const modal = document.getElementById('booking-modal');
     const triggerButtons = document.querySelectorAll('#book-session-btn, #book-session-btn-bottom');
@@ -59,7 +59,7 @@ const Modal = (() => {
         init: bindEvents
     };
 })();
-*/
+
 
 /**
  * HamburgerMenu Module
