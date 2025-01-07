@@ -576,12 +576,3 @@ footer {
         transition: none !important;
     }
 }
-
-/* =======================
-   Calendly
-   ======================= */
-
-   /* Remove unnecessary padding */
-.calendly-inline-widget [style*="margin-top: 66px"] {
-    margin-top: 0 !important;
-  }
