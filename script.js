@@ -25,10 +25,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const germanLink = document.querySelector('a[href="/de"]');
             const englishLink = document.querySelector('a[href="/en"]');
             if (germanLink) {
-                germanLink.href = `/de?ref=${encodeURIComponent(ref)}`;
+                germanLink.href = `/de?ref=${encodeURIComponent(refName)}`;
             }
             if (englishLink) {
-                englishLink.href = `/en?ref=${encodeURIComponent(ref)}`;
+                englishLink.href = `/en?ref=${encodeURIComponent(refName)}`;
             }
 
         }
@@ -232,7 +232,7 @@ const ContactForm = (() => {
  */
 const Navbar = (() => {
     const navbar = document.querySelector('.navbar');
-    const scrollThreshold = 50; // Threshold in pixels to add the 'scrolled' class
+    const scrollThreshold = 200; // Threshold in pixels to add the 'scrolled' class
 
     /**
      * Adds or removes the 'scrolled' class based on the scroll position.
