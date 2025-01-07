@@ -581,9 +581,7 @@ footer {
    Calendly
    ======================= */
 
-   /* Remove unnecessary padding */ /*
+   /* Remove unnecessary padding */
 .calendly-inline-widget [style*="margin-top: 66px"] {
     margin-top: 0 !important;
-  }*/
-
-  /* bottom: 30px */
+  }
