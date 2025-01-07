@@ -42,20 +42,24 @@
         // Unterstützte Sprachen und Standardwert
         const supportedLanguages = ['en', 'de'];
         const defaultLanguage = 'en';
-
+    
+        // Aktuelle URL analysieren
+        const currentUrl = new URL(window.location.href);
+        const params = currentUrl.search; // GET-Parameter (z. B. "?utm_source=google")
+    
         // Sprache erkennen
         const userLanguage = (navigator.language || navigator.userLanguage || defaultLanguage).slice(0, 2);
-
+    
         // Weiterleitung auf die passende Sprachseite
         if (supportedLanguages.includes(userLanguage)) {
             const currentPath = window.location.pathname;
             if (!currentPath.startsWith(`/${userLanguage}/`)) {
-                window.location.href = `/${userLanguage}/`;
+                window.location.href = `/${userLanguage}/${params}`;
             }
         } else {
             // Weiterleitung zur Standardsprache, falls die Sprache nicht unterstützt wird
             if (!window.location.pathname.startsWith(`/${defaultLanguage}/`)) {
-                window.location.href = `/${defaultLanguage}/`;
+                window.location.href = `/${defaultLanguage}/${params}`;
             }
         }
     </script>
