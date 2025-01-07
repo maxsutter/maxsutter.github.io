@@ -20,6 +20,17 @@ document.addEventListener('DOMContentLoaded', () => {
             refNameSpan.textContent = refName; // Insert the referral name into the text
             banner.style.display = 'block'; // Show the banner
             document.body.classList.add('referral-active'); // Add a class to body that pushes navbar down
+
+            // add "?ref=" to links
+            const germanLink = document.querySelector('a[href="/de"]');
+            const englishLink = document.querySelector('a[href="/en"]');
+            if (germanLink) {
+                germanLink.href = `/de?ref=${encodeURIComponent(ref)}`;
+            }
+            if (englishLink) {
+                englishLink.href = `/en?ref=${encodeURIComponent(ref)}`;
+            }
+
         }
     }
 
