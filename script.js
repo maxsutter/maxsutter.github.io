@@ -7,6 +7,25 @@ document.addEventListener('DOMContentLoaded', () => {
     Navbar.init(); // Initialisiere das Navbar-Modul
 });
 
+
+
+// Referral Discount Banner
+    const urlParams = new URLSearchParams(window.location.search); // Grab the query parameters
+    if (urlParams.has('ref')) {
+        const refName = urlParams.get('ref'); // e.g. "Christoph"
+        const banner = document.getElementById('referral-banner');
+        const refNameSpan = document.getElementById('ref-name');
+
+        if (refName === 'Christoph') {
+            refNameSpan.textContent = refName; // Insert the referral name into the text
+            banner.style.display = 'block'; // Show the banner
+        }
+    }
+
+
+
+
+
 /**
  * Modal Module
  * Handles the opening and closing of modals, including accessibility features.
