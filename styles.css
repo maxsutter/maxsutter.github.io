@@ -144,6 +144,10 @@ body {
     margin-right: auto;
 }
 
+.tldr-content li {
+    margin-left: 2.5rem;
+}
+
 .testimonials-content blockquote {
     font-style: italic;
     font-size: 1.3rem;
