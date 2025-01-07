@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (refName === 'Christoph') {
             refNameSpan.textContent = refName; // Insert the referral name into the text
             banner.style.display = 'block'; // Show the banner
+            document.body.classList.add('referral-active'); // Add a class to body that pushes navbar down
         }
     }
 
