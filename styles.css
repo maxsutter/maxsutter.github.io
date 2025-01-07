@@ -99,6 +99,7 @@ body {
 /* Hero Section Styles Not Critical */
 
 /* About, Approach, Testimonials, Fit Sections */
+.tldr,
 .whyCoaching,
 .about,
 .approach,
@@ -108,7 +109,7 @@ body {
     background-color: var(--color-bg-section);
 }
 
-.whyCoaching {
+.tldr {
     padding-top: var(--spacing-lg);
 }
 
@@ -117,6 +118,7 @@ body {
     padding-bottom: var(--spacing-lg);
 }
 
+.tldr h3,
 .whyCoaching h3,
 .about h3,
 .approach h3,
@@ -128,6 +130,7 @@ body {
     color: var(--color-primary);
 }
 
+.tldr-content p,
 .whyCoaching-content p,
 .about-content p,
 .approach-content p,
@@ -450,6 +453,7 @@ footer {
     }
 
     /* Sections Padding */
+    .tldr,
     .whyCoaching,
     .about,
     .approach,
@@ -459,6 +463,7 @@ footer {
     }
 
     /* Section Headings */
+    .tldr h3,
     .whyCoaching h3,
     .about h3,
     .approach h3,
