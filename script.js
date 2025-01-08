@@ -232,7 +232,7 @@ const ContactForm = (() => {
  */
 const Navbar = (() => {
     const navbar = document.querySelector('.navbar');
-    const scrollThreshold = 200; // Threshold in pixels to add the 'scrolled' class
+    const scrollThreshold = 500; // Threshold in pixels to add the 'scrolled' class
 
     /**
      * Adds or removes the 'scrolled' class based on the scroll position.
