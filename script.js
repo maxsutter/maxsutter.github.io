@@ -1,14 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize all modules
-    // Modal.init();
     HamburgerMenu.init();
+    Navbar.init(); // Initialisiere das Navbar-Modul
+    ReferralBanner.init(); // Initialize the ReferralBanner module
+    // Modal.init();
     ScrollAnimations.init();
     // ContactForm.init();
-    Navbar.init(); // Initialisiere das Navbar-Modul
 });
 
 
-
+/*
 // Referral Discount Banner
     const urlParams = new URLSearchParams(window.location.search); // Grab the query parameters
     if (urlParams.has('ref')) {
@@ -33,8 +34,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }
     }
+*/
+/**
+ * ReferralBanner Module
+ * Handles the display of the referral discount banner and updates links with referral parameters.
+ */
+const ReferralBanner = (() => {
+    const banner = document.getElementById('referral-banner');
+    const refNameSpan = document.getElementById('ref-name');
+    const urlParams = new URLSearchParams(window.location.search);
 
+    /**
+     * Updates links with the referral parameter.
+     * @param {string} refName - The referral name to append to the links.
+     */
+    const updateLinks = (refName) => {
+        const germanLink = document.querySelector('a[href="/de"]');
+        const englishLink = document.querySelector('a[href="/en"]');
 
+        if (germanLink) {
+            germanLink.href = `/de?ref=${encodeURIComponent(refName)}`;
+        }
+        if (englishLink) {
+            englishLink.href = `/en?ref=${encodeURIComponent(refName)}`;
+        }
+    };
+
+    /**
+     * Displays the referral banner and updates the UI.
+     * @param {string} refName - The referral name to display.
+     */
+    const showBanner = (refName) => {
+        if (refName === 'Christoph' && banner && refNameSpan) {
+            refNameSpan.textContent = refName;
+            banner.style.display = 'block';
+            document.body.classList.add('referral-active');
+            updateLinks(refName);
+        }
+    };
+
+    /**
+     * Initializes the module by checking for referral parameters and taking necessary actions.
+     */
+    const init = () => {
+        if (urlParams.has('ref')) {
+            const refName = urlParams.get('ref');
+            showBanner(refName);
+        }
+    };
+
+    return {
+        init
+    };
+})();
 
 
 
@@ -232,10 +284,10 @@ const ContactForm = (() => {
  */
 const Navbar = (() => {
     const navbar = document.querySelector('.navbar');
-    let scrollThreshold = window.innerHeight; // Dynamische Höhe basierend auf dem Viewport
+    let scrollThreshold = window.innerHeight - 100; // Dynamische Höhe basierend auf dem Viewport, abzgl. Navar und Banner
 
     const updateThreshold = () => {
-        scrollThreshold = window.innerHeight; // Aktualisiere die Höhe bei einer Änderung der Fenstergröße
+        scrollThreshold = window.innerHeight - 100; // Aktualisiere die Höhe bei einer Änderung der Fenstergröße
     };
 
     /**
