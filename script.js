@@ -232,7 +232,11 @@ const ContactForm = (() => {
  */
 const Navbar = (() => {
     const navbar = document.querySelector('.navbar');
-    const scrollThreshold = 500; // Threshold in pixels to add the 'scrolled' class
+    let scrollThreshold = window.innerHeight; // Dynamische Höhe basierend auf dem Viewport
+
+    const updateThreshold = () => {
+        scrollThreshold = window.innerHeight; // Aktualisiere die Höhe bei einer Änderung der Fenstergröße
+    };
 
     /**
      * Adds or removes the 'scrolled' class based on the scroll position.
@@ -254,14 +258,14 @@ const Navbar = (() => {
     const throttle = (func, limit) => {
         let lastFunc;
         let lastRan;
-        return function(...args) {
+        return function (...args) {
             const context = this;
             if (!lastRan) {
                 func.apply(context, args);
                 lastRan = Date.now();
             } else {
                 clearTimeout(lastFunc);
-                lastFunc = setTimeout(function() {
+                lastFunc = setTimeout(function () {
                     if ((Date.now() - lastRan) >= limit) {
                         func.apply(context, args);
                         lastRan = Date.now();
@@ -272,12 +276,14 @@ const Navbar = (() => {
     };
 
     /**
-     * Binds the scroll event with throttling.
+     * Binds the scroll and resize events with throttling.
      */
     const bindEvents = () => {
         if (navbar) {
             window.addEventListener('scroll', throttle(handleScroll, 100)); // Throttle to fire every 100ms
+            window.addEventListener('resize', throttle(updateThreshold, 200)); // Aktualisiere bei Fensteränderung
             // Initial check in case the page is loaded at a scrolled position
+            updateThreshold();
             handleScroll();
         } else {
             console.warn('Navbar element not found.');
