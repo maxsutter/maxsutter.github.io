@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modal.init();
     ScrollAnimations.init();
     // ContactForm.init();
+    CurrentYear.init(); // Initialize the CurrentYear module
 });
 
 
@@ -317,5 +318,27 @@ const Navbar = (() => {
 
     return {
         init: bindEvents
+    };
+})();
+
+
+/**
+ * CurrentYear Module
+ * Dynamically updates the current year in the footer or other designated elements.
+ */
+const CurrentYear = (() => {
+    const updateYear = () => {
+        const yearElement = document.getElementById('current-year');
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+    };
+
+    const init = () => {
+        updateYear();
+    };
+
+    return {
+        init
     };
 })();
