@@ -100,7 +100,7 @@ body {
 
 /* About, Approach, Testimonials, Fit Sections */
 .content-section {
-    padding: var(--spacing-sm) 0;
+    padding: var(--spacing-lg) 0;
     background-color: var(--color-bg-section);
 }
 
@@ -113,6 +113,7 @@ body {
     text-align: center;
     margin-bottom: 2rem;
     color: var(--color-primary);
+    font-family:'Montserrat', sans-serif;
 }
 
 .content-section p,
@@ -123,6 +124,12 @@ body {
     /* max-width: 800px; */
     margin-left: auto;
     margin-right: auto;
+    line-height:1.6;
+    margin-bottom:2rem;
+}
+
+.content-section ul {
+    line-height:1.8;
 }
 
 .content-section li {
