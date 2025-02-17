@@ -99,43 +99,24 @@ body {
 /* Hero Section Styles Not Critical */
 
 /* About, Approach, Testimonials, Fit Sections */
-.tldr,
-.whyCoaching,
-.about,
-.approach,
-.testimonials,
-.fit {
+.content-section {
     padding: var(--spacing-sm) 0;
     background-color: var(--color-bg-section);
 }
 
-.tldr {
+.first-content-section {
     padding-top: var(--spacing-lg);
 }
 
-.fit {
-    padding-top: var(--spacing-md);
-    padding-bottom: var(--spacing-lg);
-}
-
-.tldr h3,
-.whyCoaching h3,
-.about h3,
-.approach h3,
-.testimonials h3,
-.fit h3 {
+.content-section h3 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2rem;
     color: var(--color-primary);
 }
 
-.tldr-content p,
-.tldr-content ul,
-.whyCoaching-content p,
-.about-content p,
-.approach-content p,
-.fit-content p {
+.content-section p,
+.content-section ul {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
     color: var(--color-text-light);
@@ -144,7 +125,7 @@ body {
     margin-right: auto;
 }
 
-.tldr-content li {
+.content-section li {
     margin-left: 2.5rem;
 }
 
@@ -458,23 +439,12 @@ footer {
     }
 
     /* Sections Padding */
-    .tldr,
-    .whyCoaching,
-    .about,
-    .approach,
-    .testimonials,
-    .fit {
+    .content-section {
         padding: 3rem 0;
     }
 
     /* Section Headings */
-    .tldr h3,
-    .whyCoaching h3,
-    .about h3,
-    .approach h3,
-    .testimonials h3,
-    .fit h3,
-    .cta-section h3 {
+    .content-section h3 {
         font-size: 2rem;
     }
 
