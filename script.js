@@ -3,5 +3,5 @@ document.addEventListener("DOMContentLoaded", () => {
     if (yearSpan) {
       yearSpan.textContent = new Date().getFullYear();
     }
-    // Add any other scripts you want.
+    // Add any other scripts you want here.
   });

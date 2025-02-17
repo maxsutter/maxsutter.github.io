@@ -7,42 +7,48 @@
 
   <!-- SEO / OpenGraph -->
   <meta name="description" content="Transform your leadership from the inside out. Coaching for executives seeking clarity, connection, and ease. Book a free intro chat with Max Sutter today." />
+  <!-- Canonical & hreflang references (use your actual domain) -->
   <link rel="canonical" href="https://maxsutter.de/en" />
   <link rel="alternate" hreflang="de" href="https://maxsutter.de/de" />
-  
+
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Inner Work for Leaders | Max Sutter" />
   <meta property="og:description" content="Transform your leadership from the inside out. Coaching for executives seeking clarity, connection, and ease." />
   <meta property="og:url" content="https://maxsutter.de/en" />
-  <meta property="og:image" content="https://maxsutter.de/hero-background-open-graph.jpg" />
+  <meta property="og:image" content="https://maxsutter.de/images/hero-background-open-graph.jpg" />
 
-  <!-- Lazy-Load CSS -->
-  <link rel="preload" href="/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/style.css"></noscript>
+  <!-- Lazy-Load CSS (relative path) -->
+  <link
+    rel="preload"
+    href="../style.css"
+    as="style"
+    onload="this.onload=null;this.rel='stylesheet'"
+  >
+  <noscript><link rel="stylesheet" href="../style.css"></noscript>
 </head>
 <body>
   <header>
-    <!-- Language Switcher (top-right) -->
+    <!-- Language Switcher -->
     <nav class="language-switcher">
-      <a href="/en/" aria-current="page">EN</a> |
-      <a href="/de/">DE</a>
+      <a href="../en/" aria-current="page">EN</a> |
+      <a href="../de/">DE</a>
     </nav>
   </header>
 
-  <!-- HERO SECTION (FULL-SCREEN) -->
+  <!-- HERO SECTION -->
   <section class="hero">
-    <!-- Responsive background image -->
     <picture>
-      <source srcset="/hero-background-3840.avif" media="(min-width:1921px)" type="image/avif">
-      <source srcset="/hero-background-2560.avif" media="(min-width:1601px)" type="image/avif">
-      <source srcset="/hero-background-1920.avif" media="(min-width:1281px)" type="image/avif">
-      <source srcset="/hero-background-1280.avif" media="(min-width:769px)" type="image/avif">
-      <source srcset="/hero-background-768.avif" media="(min-width:321px)" type="image/avif">
-      <source srcset="/hero-background-320.avif" type="image/avif">
+      <!-- min-width checks from largest to smaller -->
+      <source srcset="../images/hero-background-3840.avif" media="(min-width:1921px)" type="image/avif">
+      <source srcset="../images/hero-background-2560.avif" media="(min-width:1601px)" type="image/avif">
+      <source srcset="../images/hero-background-1920.avif" media="(min-width:1281px)" type="image/avif">
+      <source srcset="../images/hero-background-1280.avif" media="(min-width:769px)" type="image/avif">
+      <source srcset="../images/hero-background-768.avif" media="(min-width:321px)" type="image/avif">
+      <source srcset="../images/hero-background-320.avif" type="image/avif">
       <!-- JPG fallback -->
-      <img 
-        src="/hero-background-3840.jpg" 
-        alt="Max Sutter Hero Background" 
+      <img
+        src="../images/hero-background-3840.jpg"
+        alt="Max Sutter Hero Background"
         class="hero-bg-image"
       >
     </picture>
@@ -155,6 +161,7 @@
   <section class="section" id="calendly-section">
     <h2>Ready? Let’s Talk.</h2>
     <p>If you want to explore how coaching might help you right now, let’s jump on a call.</p>
+    <!-- Calendly Embed -->
     <div
       class="calendly-inline-widget"
       data-url="https://calendly.com/max-sutter/coaching-intro?hide_event_type_details=1"
@@ -167,9 +174,10 @@
   <footer>
     <div class="container footer-content">
       <ul class="footer-links">
-        <li><a href="imprint">Imprint</a></li>
-        <li><a href="privacy">Privacy Policy</a></li>
-        <li><a href="terms">Terms &amp; Conditions</a></li>
+        <!-- These subpages are placeholders; you can add actual .html files if you want. -->
+        <li><a href="../imprint">Imprint</a></li>
+        <li><a href="../privacy">Privacy Policy</a></li>
+        <li><a href="../terms">Terms &amp; Conditions</a></li>
         <li>
           <a href="https://www.linkedin.com/in/max-sutter/" target="_blank" rel="noopener noreferrer">
             Linked<i class="fa-brands fa-linkedin" aria-hidden="true"></i>
@@ -185,7 +193,7 @@
     </div>
   </footer>
 
-  <!-- Lazy-loaded JS -->
-  <script src="/script.js" defer></script>
+  <!-- Lazy-loaded JS (relative path) -->
+  <script src="../script.js" defer></script>
 </body>
 </html>
