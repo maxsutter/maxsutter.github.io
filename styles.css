@@ -118,10 +118,8 @@ body {
 
 .content-section p,
 .content-section ul {
-    margin-bottom: 1.5rem;
     font-size: 1.1rem;
     color: var(--color-text-light);
-    /* max-width: 800px; */
     margin-left: auto;
     margin-right: auto;
     line-height:1.6;

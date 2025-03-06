@@ -143,12 +143,11 @@
         @media (max-width: 325px) {
             .hero {
                 background-image: image-set(
-                    url('../images/hero-background-320. ') type('image/avif') 1x,
+                    url('../images/hero-background-320.avif') type('image/avif') 1x,
                     url('../images/hero-background-768.avif') type('image/avif') 2x,
                     url('../images/hero-background-1280.avif') type('image/avif') 3x,
-
                     /* JPG als Fallback */
-                    url('hero-background-3840.jpg') type('image/jpeg') 1x
+                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
             }
         }
@@ -158,9 +157,8 @@
                     url('../images/hero-background-768.avif') type('image/avif') 1x,
                     url('../images/hero-background-1280.avif') type('image/avif') 2x,
                     url('../images/hero-background-1920.avif') type('image/avif') 3x,
-
                     /* JPG als Fallback */
-                    url('hero-background-3840.jpg') type('image/jpeg') 1x
+                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
             }
         }
@@ -170,9 +168,8 @@
                 background-image: image-set(
                     url('../images/hero-background-1280.avif') type('image/avif') 1x,
                     url('../images/hero-background-2560.avif') type('image/avif') 2x,
-
                     /* JPG als Fallback */
-                    url('hero-background-3840.jpg') type('image/jpeg') 1x
+                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
             }
         }
@@ -182,9 +179,8 @@
                 background-image: image-set(
                     url('../images/hero-background-1920.avif') type('image/avif') 1x,
                     url('../images/hero-background-3840.avif') type('image/avif') 2x,
-
                     /* JPG als Fallback */
-                    url('hero-background-3840.jpg') type('image/jpeg') 1x
+                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
             }
         }
@@ -196,7 +192,7 @@
                     url('../images/hero-background-3840.avif') type('image/avif') 2x,
 
                     /* JPG als Fallback */
-                    url('hero-background-3840.jpg') type('image/jpeg') 1x
+                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
             }
         }
@@ -208,7 +204,7 @@
                     url('../images/hero-background-3840.avif') type('image/avif') 2x,
 
                     /* JPG als Fallback */
-                    url('hero-background-3840.jpg') type('image/jpeg') 1x
+                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
             }
         }
@@ -301,7 +297,6 @@
             left: 0;
             right: 0;
             z-index: 9999; /* ensure the banner is on top */
-            position: fixed;
             width: 100%;
             background-color: #F9A825;
             color: #fff;
