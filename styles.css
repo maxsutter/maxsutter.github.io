@@ -80,19 +80,6 @@ body {
     border: 0;
 }
 
-/* Container Utility */
-.container {
-    width: 50%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-@media (max-width: 768px) {
-    .container {
-        width: 90%;
-    }
-}
-
 /* =======================
    Layout Components
    ======================= */
