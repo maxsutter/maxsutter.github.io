@@ -223,17 +223,32 @@
             /* background: rgba(44, 62, 80, 0.15); */
         }
 
-        .hero-content {
-            position: relative;
+        .hero-content, .testimonial {
+            font-family: 'Montserrat', sans-serif;
             color: #fff;
+            text-shadow: 0 5px 10px #0006;
             text-align: left;
+            position: relative;
+            max-width: 50%;
+            margin-left: 15% !important;
             z-index: 1;
+        }
+
+        .hero-content {
             padding-top: 70px; /* Höhe der Navbar */
         }
+
         @media (min-width: 771px) {
             .hero-content {
                 margin-top:100px;
             }
+        }
+
+        .testimonial {
+            margin-top: 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
         }
 
         .hero-content h1 {
@@ -288,16 +303,6 @@
         .btn.secondary-cta:hover,
         .btn.secondary-cta:focus {
             background-color: #003366; /* Example secondary dark color */
-        }
-
-        .testimonial {
-            font-family: 'Montserrat', sans-serif;
-            color: #fff;
-            text-shadow: 0 5px 10px #0006;
-            margin-top: 5rem;
-            display: flex;
-            flex-direction: column;
-            align-items: start;
         }
 
         /* Keyframes */
