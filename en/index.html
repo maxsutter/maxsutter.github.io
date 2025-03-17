@@ -32,6 +32,19 @@
             overflow-x: hidden;
         }
 
+        /* Container Utility */
+        .container {
+            width: 50%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        @media (max-width: 1200px) {
+            .container {
+                width: 90%;
+            }
+        }
+
         /* Navbar */
         .navbar {
             background-color: transparent;
@@ -294,7 +307,6 @@
         .container.hero-content {
             padding-top: 70px; /* Höhe der Navbar */
             padding-bottom: 50px;
-            max-width: 50%;
         }
 
         @media (min-width: 771px) {
