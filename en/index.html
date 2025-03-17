@@ -166,6 +166,7 @@
                     /* JPG als Fallback */
                     url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
+                background-position: 70% center;
             }
         }
         @media (min-width: 326px) and (max-width: 770px) {
@@ -178,18 +179,12 @@
                     /* JPG als Fallback */
                     url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
+                background-position: 70% center;
             }
         }
         /* Laptops */
         @media (min-width: 771px) and (max-width: 1300px) {
             .hero {
-                background-image: image-set(
-                    url('../images/hero-background-1280.avif') type('image/avif') 1x,
-                    url('../images/hero-background-2560.avif') type('image/avif') 2x,
-
-                    /* JPG als Fallback */
-                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
-                );
                 background-image:
                     linear-gradient(to bottom right,#00000060,#0000 40%),
                     linear-gradient(#00000080,#0000 20%),
@@ -209,13 +204,6 @@
         /* Desktops */
         @media (min-width: 1301px) and (max-width: 1930px) {
             .hero {
-                background-image: image-set(
-                    url('../images/hero-background-1920.avif') type('image/avif') 1x,
-                    url('../images/hero-background-3840.avif') type('image/avif') 2x,
-
-                    /* JPG als Fallback */
-                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
-                );
                 background-image:
                     linear-gradient(to bottom right,#00000060,#0000 40%),
                     linear-gradient(#00000080,#0000 20%),
@@ -235,13 +223,6 @@
         /* Großbildschirme */
         @media (min-width: 1931px) and (max-width: 2570px) {
             .hero {
-                background-image: image-set(
-                    url('../images/hero-background-2560.avif') type('image/avif') 1x,
-                    url('../images/hero-background-3840.avif') type('image/avif') 2x,
-
-                    /* JPG als Fallback */
-                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
-                );
                 background-image:
                     linear-gradient(to bottom right,#00000060,#0000 40%),
                     linear-gradient(#00000080,#0000 20%),
@@ -261,13 +242,6 @@
         /* Ultra-Großbildschirme */
         @media (min-width: 2571px) {
             .hero {
-                background-image: image-set(
-                    url('../images/hero-background-3840.avif') type('image/avif') 1x,
-                    url('../images/hero-background-3840.avif') type('image/avif') 2x,
-
-                    /* JPG als Fallback */
-                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
-                );
                 background-image:
                     linear-gradient(to bottom right,#00000060,#0000 40%),
                     linear-gradient(#00000080,#0000 20%),
@@ -300,7 +274,6 @@
             text-shadow: 0 5px 10px #0006;
             text-align: left;
             position: relative;
-            margin-left: 15%;
             z-index: 1;
         }
 
@@ -312,6 +285,9 @@
         @media (min-width: 771px) {
             .container.hero-content {
                 margin-top: 10rem;
+            }
+            .container.hero-content, .container.testimonial {
+                margin-left: 15%;
             }
         }
 
