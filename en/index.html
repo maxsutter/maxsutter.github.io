@@ -175,6 +175,20 @@
                     /* JPG als Fallback */
                     url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
+                background-image:
+                    linear-gradient(to bottom right,#00000060,#0000 40%),
+                    linear-gradient(#00000080,#0000 20%),
+                    linear-gradient(to top right,#495533,#9dbfd300 50%),
+                    image-set(
+                        url('../images/hero-background-1280.avif') type('image/avif') 1x,
+                        url('../images/hero-background-2560.avif') type('image/avif') 2x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 3x,
+
+                        /* JPG als Fallback */
+                        url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
+                    );
+                background-size: auto, auto, auto, cover;
+                background-position:  0 0, 0 0, 0 0, center;
             }
         }
         /* Desktops */
@@ -187,6 +201,20 @@
                     /* JPG als Fallback */
                     url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
+                background-image:
+                    linear-gradient(to bottom right,#00000060,#0000 40%),
+                    linear-gradient(#00000080,#0000 20%),
+                    linear-gradient(to top right,#495533,#9dbfd300 50%),
+                    image-set(
+                        url('../images/hero-background-1920.avif') type('image/avif') 1x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 2x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 3x,
+
+                        /* JPG als Fallback */
+                        url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
+                    );
+                background-size: auto, auto, auto, cover;
+                background-position:  0 0, 0 0, 0 0, center;
             }
         }
         /* Großbildschirme */
@@ -199,6 +227,20 @@
                     /* JPG als Fallback */
                     url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
+                background-image:
+                    linear-gradient(to bottom right,#00000060,#0000 40%),
+                    linear-gradient(#00000080,#0000 20%),
+                    linear-gradient(to top right,#495533,#9dbfd300 50%),
+                    image-set(
+                        url('../images/hero-background-2560.avif') type('image/avif') 1x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 2x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 3x,
+
+                        /* JPG als Fallback */
+                        url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
+                    );
+                background-size: auto, auto, auto, cover;
+                background-position:  0 0, 0 0, 0 0, center;
             }
         }
         /* Ultra-Großbildschirme */
@@ -211,6 +253,20 @@
                     /* JPG als Fallback */
                     url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
+                background-image:
+                    linear-gradient(to bottom right,#00000060,#0000 40%),
+                    linear-gradient(#00000080,#0000 20%),
+                    linear-gradient(to top right,#495533,#9dbfd300 50%),
+                    image-set(
+                        url('../images/hero-background-3840.avif') type('image/avif') 1x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 2x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 3x,
+
+                        /* JPG als Fallback */
+                        url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
+                    );
+                background-size: auto, auto, auto, cover;
+                background-position:  0 0, 0 0, 0 0, center;
             }
         }
 
@@ -235,6 +291,7 @@
 
         .container.hero-content {
             padding-top: 70px; /* Höhe der Navbar */
+            padding-bottom: 50px;
             max-width: 50%;
         }
 
@@ -250,6 +307,7 @@
             flex-direction: column;
             align-items: start;
             max-width: 600px;
+            padding-bottom: 120px;
         }
 
         .hero-content h1 {
