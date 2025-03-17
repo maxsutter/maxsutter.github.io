@@ -135,6 +135,7 @@
             height: 100vh;
             position: relative;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow: hidden;
@@ -229,6 +230,11 @@
             z-index: 1;
             padding-top: 70px; /* Höhe der Navbar */
         }
+        @media (min-width: 771px) {
+            .hero-content {
+                margin-top:100px;
+            }
+        }
 
         .hero-content h1 {
             font-family: 'Montserrat', sans-serif;
@@ -282,6 +288,12 @@
         .btn.secondary-cta:hover,
         .btn.secondary-cta:focus {
             background-color: #003366; /* Example secondary dark color */
+        }
+
+        .testimonial {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            text-shadow: 0 5px 10px #0006;
         }
 
         /* Keyframes */
@@ -388,7 +400,7 @@
     <!-- Hero Section -->
     <header class="hero" role="banner">
         <div class="overlay"></div>
-        <div class="hero-content container">
+        <div class="container hero-content">
             <h1 class="fade-in">MAX SUTTER</h1>
             <!-- <h2 class="fade-in delay-1">Empowering Leaders to Thrive with Joy and Connection</h2>-->
             <!-- Higher Productivity | Better Decisions | Deeper Relationships-->
