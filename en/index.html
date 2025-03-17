@@ -276,18 +276,19 @@
             position: relative;
             z-index: 1;
         }
+        @media (min-width: 1000px) {
+            .container.hero-content, .container.testimonial {
+                margin-left: 15%;
+            }
+        }
 
         .container.hero-content {
             padding-top: 70px; /* Höhe der Navbar */
             padding-bottom: 50px;
         }
-
         @media (min-width: 771px) {
             .container.hero-content {
                 margin-top: 10rem;
-            }
-            .container.hero-content, .container.testimonial {
-                margin-left: 15%;
             }
         }
 
