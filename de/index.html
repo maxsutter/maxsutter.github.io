@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -23,8 +23,7 @@
     <style>
         /* Critical CSS for Above-the-Fold Content */
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #F9FAFB;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             color: #003366;
@@ -58,7 +57,7 @@
 
         /* Navbar nach dem Scrollen */
         .navbar.scrolled {
-            background-color: #F9FAFB;
+            background-color: #FFF;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -71,10 +70,9 @@
         /* Navbar Links und Logo - Standardzustand (transparente Navbar) */
         .navbar .nav-links li a,
         .navbar .logo a {
-            color: #F9FAFB;
+            color: #FFF;
             transition: color 0.3s;
             text-decoration: none;
-            font-family: 'Roboto', sans-serif;
             font-weight: 500;
         }
 
@@ -93,7 +91,6 @@
         }
 
         .logo a {
-            font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
             color: #ffffff;
             text-decoration: none;
@@ -124,7 +121,7 @@
         .hamburger span {
             height: 3px;
             width: 25px;
-            background: #F9FAFB; /* Default to white */
+            background: #FFF; /* Default to white */
             margin-bottom: 4px;
             border-radius: 5px;
             transition: background 0.3s, transform 0.3s, opacity 0.3s, box-shadow 0.3s;
@@ -269,7 +266,6 @@
         }
 
         .container.hero-content, .container.testimonial {
-            font-family: 'Montserrat', sans-serif;
             color: #fff;
             text-shadow: 0 5px 10px #0006;
             text-align: left;
@@ -304,7 +300,6 @@
         }
 
         .hero-content h1 {
-            font-family: 'Montserrat', sans-serif;
             font-size: 5rem;
             font-weight: 600;
             text-shadow: 0 5px 10px #0006;
@@ -334,7 +329,6 @@
             font-size: 1rem;
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             display: inline-block;
-            font-family: 'Montserrat', sans-serif;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-decoration: none;
             font-weight: 600;
@@ -498,7 +492,7 @@
 
 
     <!-- QUICK REALITY CHECK -->
-    <section class="fade-in content-section first-content-section" id="reality-check" style="background-color:#fff;">
+    <section class="fade-in content-section first-content-section" id="reality-check">
         <div class="container">
             <h3>
                 Schneller Reality Check
@@ -517,7 +511,7 @@
     </section>
 
     <!-- WHAT IF YOU DON’T CHANGE -->
-    <section id="what-if" class="fade-in content-section" style="background-color:#F9FAFB;">
+    <section id="what-if" class="fade-in content-section">
         <div class="container">
             <h3>
                 Was, wenn du nichts veränderst?
@@ -533,7 +527,7 @@
     </section>
 
     <!-- MY PROMISE -->
-    <section id="promise" class="fade-in content-section" style="background-color:#fff;">
+    <section id="promise" class="fade-in content-section">
         <div class="container">
             <h3>
                 Mein Versprechen
@@ -557,7 +551,7 @@
     </section>
 
     <!-- MY APPROACH -->
-    <section id="approach" class="fade-in content-section" style="background-color:#F9FAFB;">
+    <section id="approach" class="fade-in content-section">
         <div class="container">
             <h3>
                 Mein Ansatz
@@ -585,7 +579,7 @@
     </section>
 
     <!-- ABOUT ME -->
-    <section id="about" class="fade-in content-section" style="background-color:#fff;">
+    <section id="about" class="fade-in content-section">
         <div class="container">
             <h3>
                 Über mich
@@ -610,8 +604,25 @@
         </div>
     </section>
 
+    <!-- TESTIMONIAL -->
+    <section class="fade-in testimonial-box container">
+        <div class="testimonial-content">
+            <picture>
+                <source srcset="../images/testimonials/benjamin_schwarz.avif" type="image/avif">
+                <img src="../images/testimonials/benjamin_schwarz.jpg" alt="Benjamin Schwarz">
+            </picture>
+            <div class="testimonial-info">
+                <p class="testimonial-text">
+                    Max hat mich als Gründer durch eine sehr schwierige Phase begleitet und entscheidend dazu beigetragen, ein neues Level an mentaler Stärke und innerer Ruhe zu erreichen. Schon nach kurzer Zeit hat sich meine Entwicklung spürbar auf mein Team übertragen. Jede Session mit ihm liefert echte ‚Aha-Momente‘, die meine Sichtweise grundlegend verändern.
+                </p>
+                <strong class="testimonial-name">Benjamin Schwarz</strong>
+                <p class="testimonial-role">CEO & Founder, HYDR8</p>
+            </div>
+        </div>
+    </section>
+
     <!-- HOW WE CAN WORK TOGETHER -->
-    <section id="work-with-me" class="fade-in content-section" style="background-color:#fff;">
+    <section id="work-with-me" class="fade-in content-section">
         <div class="container">
             <h3>
                 So können wir zusammenarbeiten
@@ -637,7 +648,7 @@
     <!-- CONTACT / CTA -->
     <section id="contact" class="cta-section content-section" style="background-color:#003366; color:#fff; text-align:center;">
         <div class="container">
-            <h3 class="fade-in" style="font-family:'Montserrat', sans-serif; margin-bottom:1rem; color:#fff;">
+            <h3 class="fade-in" style="margin-bottom:1rem; color:#fff;">
                 Bereit? Let's Talk.
             </h3>
             <p class="fade-in" style="max-width:700px;">

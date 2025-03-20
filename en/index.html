@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
@@ -23,13 +23,14 @@
     <style>
         /* Critical CSS for Above-the-Fold Content */
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #F9FAFB;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             color: #003366;
             line-height: 1.6;
             overflow-x: hidden;
+            font-weight: 500;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Container Utility */
@@ -58,7 +59,7 @@
 
         /* Navbar nach dem Scrollen */
         .navbar.scrolled {
-            background-color: #F9FAFB;
+            background-color: #FFF;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -71,10 +72,9 @@
         /* Navbar Links und Logo - Standardzustand (transparente Navbar) */
         .navbar .nav-links li a,
         .navbar .logo a {
-            color: #F9FAFB;
+            color: #FFF;
             transition: color 0.3s;
             text-decoration: none;
-            font-family: 'Roboto', sans-serif;
             font-weight: 500;
         }
 
@@ -93,7 +93,6 @@
         }
 
         .logo a {
-            font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
             color: #ffffff;
             text-decoration: none;
@@ -124,7 +123,7 @@
         .hamburger span {
             height: 3px;
             width: 25px;
-            background: #F9FAFB; /* Default to white */
+            background: #FFF; /* Default to white */
             margin-bottom: 4px;
             border-radius: 5px;
             transition: background 0.3s, transform 0.3s, opacity 0.3s, box-shadow 0.3s;
@@ -269,7 +268,6 @@
         }
 
         .container.hero-content, .container.testimonial {
-            font-family: 'Montserrat', sans-serif;
             color: #fff;
             text-shadow: 0 5px 10px #0006;
             text-align: left;
@@ -278,6 +276,7 @@
         }
         .container.testimonial {
             margin-left: 5%;
+            font-weight: 400;
         }
         @media (min-width: 1200px) {
             .container.hero-content, .container.testimonial {
@@ -304,7 +303,6 @@
         }
 
         .hero-content h1 {
-            font-family: 'Montserrat', sans-serif;
             font-size: 5rem;
             font-weight: 600;
             text-shadow: 0 5px 10px #0006;
@@ -334,7 +332,6 @@
             font-size: 1rem;
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             display: inline-block;
-            font-family: 'Montserrat', sans-serif;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-decoration: none;
             font-weight: 600;
@@ -497,7 +494,7 @@
     </header>
 
     <!-- QUICK REALITY CHECK -->
-    <section class="fade-in content-section first-content-section" id="reality-check" style="background-color:#fff;">
+    <section class="fade-in content-section first-content-section" id="reality-check">
         <div class="container">
             <h3>
                 Quick Reality Check
@@ -516,7 +513,7 @@
     </section>
 
     <!-- WHAT IF YOU DON’T CHANGE -->
-    <section id="what-if" class="fade-in content-section" style="background-color:#F9FAFB;">
+    <section id="what-if" class="fade-in content-section">
         <div class="container">
             <h3>
                 What if you don’t change?
@@ -532,7 +529,7 @@
     </section>
 
     <!-- MY PROMISE -->
-    <section id="promise" class="fade-in content-section" style="background-color:#fff;">
+    <section id="promise" class="fade-in content-section">
         <div class="container">
             <h3>
                 My Promise
@@ -556,7 +553,7 @@
     </section>
 
     <!-- MY APPROACH -->
-    <section id="approach" class="fade-in content-section" style="background-color:#F9FAFB;">
+    <section id="approach" class="fade-in content-section">
         <div class="container">
             <h3>
                 My Approach
@@ -584,7 +581,7 @@
     </section>
 
     <!-- ABOUT ME -->
-    <section id="about" class="fade-in content-section" style="background-color:#fff;">
+    <section id="about" class="fade-in content-section">
         <div class="container">
             <h3>
                 About Me
@@ -611,89 +608,24 @@
 
 
     <!-- TESTIMONIAL -->
-    <section class="testimonial-box">
+    <section class="fade-in testimonial-box container">
         <div class="testimonial-content">
-            <div class="testimonial-header">
-                <picture>
-                    <source srcset="../images/testimonials/benjamin_schwarz.avif" type="image/avif">
-                    <img src="../images/testimonials/benjamin_schwarz.jpg" alt="Benjamin Schwarz">
-                </picture>
-                <div class="testimonial-info">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">
-                        “Max guided me through an extremely challenging phase as a founder and played a crucial role in helping me build resilience. He significantly contributed to my reaching a new level of clarity and strength. Every session brings profound insights, revealing blind spots and shifting my perspective fundamentally. I’m incredibly grateful to have Max by my side as I navigate the intense challenges of a high-growth startup.”
-                    </p>
-                    <strong class="testimonial-name">Benjamin Schwarz</strong>
-                    <p class="testimonial-role">CEO & Founder, HYDR8</p>
-                </div>
+            <picture>
+                <source srcset="../images/testimonials/benjamin_schwarz.avif" type="image/avif">
+                <img src="../images/testimonials/benjamin_schwarz.jpg" alt="Benjamin Schwarz">
+            </picture>
+            <div class="testimonial-info">
+                <p class="testimonial-text">
+                    Max guided me through an extremely challenging phase as a founder and played a crucial role in helping me build resilience. He significantly contributed to my reaching a new level of clarity and strength. Every session brings profound insights, revealing blind spots and shifting my perspective fundamentally.
+                </p>
+                <strong class="testimonial-name">Benjamin Schwarz</strong>
+                <p class="testimonial-role">CEO & Founder, HYDR8</p>
             </div>
         </div>
     </section>
 
-    <!-- CSS -->
-    <style>
-    .testimonial-box {
-        background: #fff;
-        border: 1px solid #E0E0E0;
-        border-radius: 10px;
-        padding: 20px;
-        max-width: 700px;
-        margin: 2rem auto;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .testimonial-header {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-    }
-
-    .testimonial-header picture {
-        width: 65px;
-        height: 65px;
-        border-radius: 50%;
-        object-fit: cover;
-        margin-right: 1rem;
-    }
-
-    .testimonial-header img {
-        width:100%;
-        height:100%;
-        border-radius: inherit;
-        object-fit: inherit;
-        margin-right: inherit;
-    }
-
-    .testimonial-info {
-        flex: 1;
-    }
-
-    .testimonial-stars {
-        color: #FFC107;
-        font-size: 1.2rem;
-    }
-
-    .testimonial-text {
-        font-style: italic;
-        font-size: 1rem;
-        color: #333;
-        margin: 0.5rem 0;
-    }
-
-    .testimonial-name {
-        font-weight: bold;
-        font-size: 1rem;
-        color: #003366;
-    }
-
-    .testimonial-role {
-        font-size: 0.9rem;
-        color: #666;
-    }
-    </style>
-
     <!-- HOW WE CAN WORK TOGETHER -->
-    <section id="work-with-me" class="fade-in content-section" style="background-color:#fff;">
+    <section id="work-with-me" class="fade-in content-section">
         <div class="container">
             <h3>
                 How We Can Work Together
@@ -719,7 +651,7 @@
     <!-- CONTACT / CTA -->
     <section id="contact" class="cta-section content-section" style="background-color:#003366; color:#fff; text-align:center;">
         <div class="container">
-        <h3 class="fade-in" style="font-family:'Montserrat', sans-serif; margin-bottom:1rem; color:#fff;">
+        <h3 class="fade-in" style="margin-bottom:1rem; color:#fff;">
             Ready? Let’s Talk.
         </h3>
         <p class="fade-in" style="max-width:700px; ">
