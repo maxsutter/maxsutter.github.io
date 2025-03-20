@@ -19,8 +19,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
 
 
-     <!-- Inline Critical CSS -->
-     <style>
+    <!-- Inline Critical CSS -->
+    <style>
         /* Critical CSS for Above-the-Fold Content */
         body {
             font-family: 'Roboto', sans-serif;
@@ -30,6 +30,19 @@
             color: #003366;
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* Container Utility */
+        .container {
+            width: 50%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        @media (max-width: 1200px) {
+            .container {
+                width: 90%;
+            }
         }
 
         /* Navbar */
@@ -62,6 +75,7 @@
             transition: color 0.3s;
             text-decoration: none;
             font-family: 'Roboto', sans-serif;
+            font-weight: 500;
         }
 
         /* Navbar Links und Logo - Beim Scrollen (weiße Hintergrundfarbe) */
@@ -75,6 +89,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
+            width: 100%;
         }
 
         .logo a {
@@ -135,6 +150,7 @@
             height: 100vh;
             position: relative;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             overflow: hidden;
@@ -146,9 +162,11 @@
                     url('../images/hero-background-320.avif') type('image/avif') 1x,
                     url('../images/hero-background-768.avif') type('image/avif') 2x,
                     url('../images/hero-background-1280.avif') type('image/avif') 3x,
+
                     /* JPG als Fallback */
                     url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
+                background-position: 70% center;
             }
         }
         @media (min-width: 326px) and (max-width: 770px) {
@@ -157,58 +175,90 @@
                     url('../images/hero-background-768.avif') type('image/avif') 1x,
                     url('../images/hero-background-1280.avif') type('image/avif') 2x,
                     url('../images/hero-background-1920.avif') type('image/avif') 3x,
+
                     /* JPG als Fallback */
                     url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
+                background-position: 70% center;
             }
         }
         /* Laptops */
         @media (min-width: 771px) and (max-width: 1300px) {
             .hero {
-                background-image: image-set(
-                    url('../images/hero-background-1280.avif') type('image/avif') 1x,
-                    url('../images/hero-background-2560.avif') type('image/avif') 2x,
-                    /* JPG als Fallback */
-                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
-                );
+                background-image:
+                    linear-gradient(to bottom right,#00000060,#0000 40%),
+                    linear-gradient(#00000080,#0000 20%),
+                    linear-gradient(to top right,#495533,#9dbfd300 50%),
+                    image-set(
+                        url('../images/hero-background-1280.avif') type('image/avif') 1x,
+                        url('../images/hero-background-2560.avif') type('image/avif') 2x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 3x,
+
+                        /* JPG als Fallback */
+                        url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
+                    );
+                background-size: auto, auto, auto, cover;
+                background-position:  0 0, 0 0, 0 0, center;
             }
         }
         /* Desktops */
         @media (min-width: 1301px) and (max-width: 1930px) {
             .hero {
-                background-image: image-set(
-                    url('../images/hero-background-1920.avif') type('image/avif') 1x,
-                    url('../images/hero-background-3840.avif') type('image/avif') 2x,
-                    /* JPG als Fallback */
-                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
-                );
+                background-image:
+                    linear-gradient(to bottom right,#00000060,#0000 40%),
+                    linear-gradient(#00000080,#0000 20%),
+                    linear-gradient(to top right,#495533,#9dbfd300 50%),
+                    image-set(
+                        url('../images/hero-background-1920.avif') type('image/avif') 1x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 2x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 3x,
+
+                        /* JPG als Fallback */
+                        url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
+                    );
+                background-size: auto, auto, auto, cover;
+                background-position:  0 0, 0 0, 0 0, center;
             }
         }
         /* Großbildschirme */
         @media (min-width: 1931px) and (max-width: 2570px) {
             .hero {
-                background-image: image-set(
-                    url('../images/hero-background-2560.avif') type('image/avif') 1x,
-                    url('../images/hero-background-3840.avif') type('image/avif') 2x,
+                background-image:
+                    linear-gradient(to bottom right,#00000060,#0000 40%),
+                    linear-gradient(#00000080,#0000 20%),
+                    linear-gradient(to top right,#495533,#9dbfd300 50%),
+                    image-set(
+                        url('../images/hero-background-2560.avif') type('image/avif') 1x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 2x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 3x,
 
-                    /* JPG als Fallback */
-                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
-                );
+                        /* JPG als Fallback */
+                        url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
+                    );
+                background-size: auto, auto, auto, cover;
+                background-position:  0 0, 0 0, 0 0, center;
             }
         }
         /* Ultra-Großbildschirme */
         @media (min-width: 2571px) {
             .hero {
-                background-image: image-set(
-                    url('../images/hero-background-3840.avif') type('image/avif') 1x,
-                    url('../images/hero-background-3840.avif') type('image/avif') 2x,
+                background-image:
+                    linear-gradient(to bottom right,#00000060,#0000 40%),
+                    linear-gradient(#00000080,#0000 20%),
+                    linear-gradient(to top right,#495533,#9dbfd300 50%),
+                    image-set(
+                        url('../images/hero-background-3840.avif') type('image/avif') 1x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 2x,
+                        url('../images/hero-background-3840.avif') type('image/avif') 3x,
 
-                    /* JPG als Fallback */
-                    url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
-                );
+                        /* JPG als Fallback */
+                        url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
+                    );
+                background-size: auto, auto, auto, cover;
+                background-position:  0 0, 0 0, 0 0, center;
             }
         }
-        
+
         .hero .overlay {
             position: absolute;
             top: 0;
@@ -217,27 +267,54 @@
             bottom: 0;
             /* background: rgba(44, 62, 80, 0.15); */
         }
-        
-        .hero-content {
-            position: relative;
+
+        .container.hero-content, .container.testimonial {
+            font-family: 'Montserrat', sans-serif;
             color: #fff;
+            text-shadow: 0 5px 10px #0006;
             text-align: left;
+            position: relative;
             z-index: 1;
+        }
+        .container.testimonial {
+            margin-left: 5%;
+        }
+        @media (min-width: 1200px) {
+            .container.hero-content, .container.testimonial {
+                margin-left: 15%;
+            }
+        }
+
+        .container.hero-content {
             padding-top: 70px; /* Höhe der Navbar */
+            padding-bottom: 50px;
+        }
+        @media (min-width: 771px) {
+            .container.hero-content {
+                margin-top: 10rem;
+            }
+        }
+
+        .container.testimonial {
+            margin-top: 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            max-width: 600px;
         }
 
         .hero-content h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 5rem;
             font-weight: 600;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 5px 10px #0006;
         }
 
         .hero-content h2 {
             font-size: 1.5rem;
             margin-bottom: 2rem;
-            font-weight: 400;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 500;
+            text-shadow: 0 5px 10px #0006;
         }
 
         .button-group {
@@ -260,6 +337,7 @@
             font-family: 'Montserrat', sans-serif;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-decoration: none;
+            font-weight: 600;
         }
 
         .btn:hover,
@@ -311,8 +389,6 @@
                 top: calc(1rem + 3rem); /* 2 lines on mobile */
             }
         }
-
-        /* Additional critical styles can be added here */
     </style>
 
     <!-- Externes CSS asynchron laden -->
@@ -386,7 +462,7 @@
     <!-- Hero Section -->
     <header class="hero" role="banner">
         <div class="overlay"></div>
-        <div class="hero-content container">
+        <div class="container hero-content">
             <h1 class="fade-in">MAX SUTTER</h1>
             <!-- <h2 class="fade-in delay-1">Empowering Leaders to Thrive with Joy and Connection</h2>-->
             <!-- Higher Productivity | Better Decisions | Deeper Relationships-->
@@ -402,7 +478,25 @@
                 <a href="#contact" class="btn secondary-cta">Let's Talk!</a>
             </div>
         </div>
+        <!-- Testimonial -->
+        <div class="container testimonial fade-in delay-3">
+            <blockquote style="font-style:italic; margin:0; font-size:1.2rem;">
+                <!--“Max guided me through an extremely challenging phase as a founder and played a crucial role in helping me build resilience. He significantly contributed to my reaching a new level of clarity and strength. Every session brings profound insights, revealing blind spots and shifting my perspective fundamentally. I’m incredibly grateful to have Max by my side as I navigate the intense challenges of a high-growth startup.”-->
+                “I’m incredibly grateful to have Max by my side as I navigate the intense challenges of a high-growth startup.”
+            </blockquote>
+            <div style="margin-top:1rem; display:flex; align-items:center;">
+                <picture style="width:65px; height:65px; border-radius:50%; object-fit:cover; margin-right:1rem;">
+                    <source srcset="../images/testimonials/benjamin_schwarz.avif" type="image/avif">
+                    <img src="../images/testimonials/benjamin_schwarz.jpg" alt="Benjamin Schwarz" style="width:100%; height:100%; border-radius:inherit; object-fit:inherit; margin-right:inherit;">
+                </picture>
+                <div>
+                    <div style="font-weight:bold;">Benjamin Schwarz</div>
+                    <div style="font-size:0.9rem;">CEO & Founder, HYDR8</div>
+                </div>
+            </div>
+        </div>
     </header>
+
 
     <!-- QUICK REALITY CHECK -->
     <section class="fade-in content-section first-content-section" id="reality-check" style="background-color:#fff;">
@@ -512,37 +606,6 @@
                 <li>Familienmensch, Montessori-Papa, großer Fan von Real Talk</li>
             </ul>
             <div class="button-group fade-in delay-1" style="text-align: center; display: block;">
-                <a href="#contact" class="btn secondary-cta">Let's Talk!</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- TESTIMONIALS -->
-    <section id="testimonials" class="fade-in content-section" style="background-color:#F9FAFB;">
-        <div class="container">
-            <h3>
-                Das sagen meine Klienten
-            </h3>
-            <div style="display:flex; flex-direction:column; gap:2rem; align-items:center;">
-                <blockquote style="max-width:700px; background:#fff; padding:1.5rem; border-left:4px solid #003366; border-radius:4px; position:relative;">
-                    <p style="font-style:italic; margin-bottom:1rem;">
-                        „Max hat mir geholfen zu sehen, wie ich selbst meine Investorenkrise ausgelöst habe—and hat mich dabei unterstützt, meine Power zurückzuholen.“
-                    </p>
-                    <cite style="display:block; text-align:right; font-weight:bold;">
-                        — Ein Gründer &amp; CEO
-                    </cite>
-                </blockquote>
-
-                <blockquote style="max-width:700px; background:#fff; padding:1.5rem; border-left:4px solid #003366; border-radius:4px; position:relative;">
-                    <p style="font-style:italic; margin-bottom:1rem;">
-                        „Mit Max bin ich wirklich in meine Leadership-Rolle hineingewachsen—kein Verstecken mehr. Es hat verändert, wie ich führe und wie ich lebe.“
-                    </p>
-                    <cite style="display:block; text-align:right; font-weight:bold;">
-                        — Eine kürzlich beförderte Führungskraft
-                    </cite>
-                </blockquote>
-            </div>
-            <div class="button-group fade-in delay-1" style="text-align: center; display: block; margin-top: 2rem;">
                 <a href="#contact" class="btn secondary-cta">Let's Talk!</a>
             </div>
         </div>
