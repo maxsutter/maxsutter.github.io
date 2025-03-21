@@ -129,20 +129,17 @@
             transition: background 0.3s, transform 0.3s, opacity 0.3s, box-shadow 0.3s;
             box-shadow: 0 0 2px rgba(0, 0, 0, 0.5); /* Optional shadow */
         }
-        /* Responsive Styles */
         @media (max-width: 768px) {
             .hamburger {
                 display: flex;
                 border-radius: 5px;
             }
-
             .navbar .nav-links {
                 gap: 0;
             }
         }
 
         /* Hero Section */
-        /* Basis-Stile ohne Hintergrundbild */
         .hero {
             background-size: cover;
             background-position: center;
@@ -154,15 +151,12 @@
             justify-content: center;
             overflow: hidden;
         }
-        
         @media (max-width: 325px) {
             .hero {
                 background-image: image-set(
                     url('../images/hero-background-320.avif') type('image/avif') 1x,
                     url('../images/hero-background-768.avif') type('image/avif') 2x,
                     url('../images/hero-background-1280.avif') type('image/avif') 3x,
-
-                    /* JPG als Fallback */
                     url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
                 background-position: 70% center;
@@ -174,8 +168,6 @@
                     url('../images/hero-background-768.avif') type('image/avif') 1x,
                     url('../images/hero-background-1280.avif') type('image/avif') 2x,
                     url('../images/hero-background-1920.avif') type('image/avif') 3x,
-
-                    /* JPG als Fallback */
                     url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                 );
                 background-position: 70% center;
@@ -192,8 +184,6 @@
                         url('../images/hero-background-1280.avif') type('image/avif') 1x,
                         url('../images/hero-background-2560.avif') type('image/avif') 2x,
                         url('../images/hero-background-3840.avif') type('image/avif') 3x,
-
-                        /* JPG als Fallback */
                         url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                     );
                 background-size: auto, auto, auto, cover;
@@ -211,8 +201,6 @@
                         url('../images/hero-background-1920.avif') type('image/avif') 1x,
                         url('../images/hero-background-3840.avif') type('image/avif') 2x,
                         url('../images/hero-background-3840.avif') type('image/avif') 3x,
-
-                        /* JPG als Fallback */
                         url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                     );
                 background-size: auto, auto, auto, cover;
@@ -230,8 +218,6 @@
                         url('../images/hero-background-2560.avif') type('image/avif') 1x,
                         url('../images/hero-background-3840.avif') type('image/avif') 2x,
                         url('../images/hero-background-3840.avif') type('image/avif') 3x,
-
-                        /* JPG als Fallback */
                         url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                     );
                 background-size: auto, auto, auto, cover;
@@ -249,8 +235,6 @@
                         url('../images/hero-background-3840.avif') type('image/avif') 1x,
                         url('../images/hero-background-3840.avif') type('image/avif') 2x,
                         url('../images/hero-background-3840.avif') type('image/avif') 3x,
-
-                        /* JPG als Fallback */
                         url('../images/hero-background-3840.jpg') type('image/jpeg') 1x
                     );
                 background-size: auto, auto, auto, cover;
@@ -307,12 +291,22 @@
             font-weight: 600;
             text-shadow: 0 5px 10px #0006;
         }
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+        }
 
         .hero-content h2 {
             font-size: 1.5rem;
             margin-bottom: 2rem;
             font-weight: 500;
             text-shadow: 0 5px 10px #0006;
+        }
+        @media (max-width: 768px) {
+            .hero-content h2 {
+                font-size: 1.2rem;
+            }
         }
 
         .button-group {
@@ -335,6 +329,12 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-decoration: none;
             font-weight: 600;
+        }
+        @media (max-width: 768px) {
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+            }
         }
 
         .btn:hover,
