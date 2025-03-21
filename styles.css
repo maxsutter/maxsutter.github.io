@@ -67,6 +67,27 @@ body {
     font-weight: 500;
 }
 
+h3 {
+    font-size: 3.7rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-primary);
+}
+
+p,
+ul {
+    color: var(--color-text-light);
+    margin-left: auto;
+    margin-right: auto;
+    line-height:1.6;
+    margin-bottom:2rem;
+    font-size: 1.25rem;
+}
+
+ul {
+    line-height:1.8;
+}
+
 /* Visually Hidden (for accessibility) */
 .visually-hidden {
     position: absolute;
@@ -96,59 +117,8 @@ body {
     padding-top: var(--spacing-lg);
 }
 
-.content-section h3 {
-    font-size: 3.7rem;
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
-}
-
-.content-section p,
-.content-section ul {
-    font-size: 1.1rem;
-    color: var(--color-text-light);
-    margin-left: auto;
-    margin-right: auto;
-    line-height:1.6;
-    margin-bottom:2rem;
-}
-
-.content-section ul {
-    line-height:1.8;
-}
-
 .content-section li {
     margin-left: 2.5rem;
-}
-
-.testimonials-content blockquote {
-    font-style: italic;
-    font-size: 1.3rem;
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    padding: 2rem;
-    background: #fff;
-    border-left: 5px solid var(--color-primary);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-radius: 5px;
-}
-
-.testimonials-content blockquote::before {
-    content: open-quote;
-    font-size: 4rem;
-    color: var(--color-primary);
-    position: absolute;
-    top: -20px;
-    left: 10px;
-}
-
-.testimonials-content cite {
-    display: block;
-    text-align: right;
-    margin-top: 1rem;
-    font-weight: 700;
-    color: var(--color-primary);
 }
 
 /* CTA Section */
@@ -156,96 +126,16 @@ body {
     padding-top: var(--spacing-lg);
     background-color: var(--color-primary);
     text-align: center;
-    color: #fff;
+    color: var(--color-footer-text);
 }
 
 .cta-section h3 {
-    font-size: 2.5rem;
     margin-bottom: 1rem;
 }
 
 .cta-section p {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-    color: #ecf0f1;
+    color: var(--color-footer-text);
 }
-
-/* Contact Form Section */
-.contact-form-section {
-    padding: var(--spacing-lg) 0;
-    background-color: var(--color-bg-section);
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.contact-form-section h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-    color: var(--color-primary);
-    padding-top: 30px;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background-color: #fff;
-    padding: 2rem 3rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-    color: var(--color-text);
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: border-color var(--transition-speed);
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: var(--color-primary);
-    outline: none;
-}
-
-.contact-form .btn {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1.1rem;
-}
-
-.form-response {
-    margin-top: 1rem;
-    text-align: center;
-    font-size: 1rem;
-    color: var(--color-error);
-}
-
-.honeypot {
-    display: none;
-}
-
-.btn:focus {
-    outline: 2px solid #1abc9c;
-    outline-offset: 2px;
-}
-
 
 /* TESTIMONIAL SECTIONS */
 .testimonial-box {
@@ -284,7 +174,7 @@ body {
 }
 
 .testimonial-text {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: var(--color-primary-dark);
     margin: 1rem 0;
     line-height: 1.7em;
@@ -297,75 +187,10 @@ body {
 }
 
 .testimonial-role {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: var(--color-primary-dark);
 }
 
-
-/* =======================
-   Modal Styles
-   ======================= */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(44, 62, 80, 0.8);
-    padding-top: 60px;
-    opacity: 0;
-    transition: opacity var(--transition-speed) ease;
-}
-
-.modal.show {
-    display: block;
-    opacity: 1;
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 900px;
-    position: relative;
-    animation: scaleUp 0.3s ease-out;
-}
-
-.close-button {
-    color: #aaa;
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    font-size: 2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: color var(--transition-speed);
-    background: none;
-    border: none;
-}
-
-.close-button:hover,
-.close-button:focus {
-    color: var(--color-text);
-}
-
-.calendar-iframe {
-    width: 100%;
-    height: 80vh;
-    max-height: 800px;
-    border: none;
-    border-radius: 10px;
-    transition: transform var(--transition-speed) ease;
-}
-
-.calendar-iframe:hover {
-    transform: scale(1.02);
-}
 
 /* =======================
    Footer Styles
@@ -427,6 +252,10 @@ footer {
         max-height: 300px;
     }
 
+    .content-section li {
+        margin-left: 1.5rem;
+    }
+
     .nav-links li {
         text-align: right;
         padding: 1rem 0;
@@ -470,11 +299,6 @@ footer {
         font-size: 1.2rem;
     }
 
-    /* Testimonials */
-    .testimonials-content blockquote {
-        font-size: 1.1rem;
-    }
-
     /* Buttons */
     .hero-content .btn {
         padding: 0.6rem 1.2rem;
@@ -487,30 +311,8 @@ footer {
     }
 
     /* Section Headings */
-    .content-section h3 {
-        font-size: 3rem;
-    }
-
-    /* Modal Content */
-    .modal-content {
-        width: 95%;
-        max-width: 95%;
-        padding: 1rem;
-    }
-
-    /* Calendar Iframe */
-    .calendar-iframe {
-        height: 60vh;
-        max-height: 600px;
-    }
-
-    /* Contact Form */
-    .contact-form {
-        padding: 1.5rem 2rem;
-    }
-
-    .contact-form-section h2 {
-        font-size: 2rem;
+    h3 {
+        font-size: 2.5rem;
     }
 }
 
