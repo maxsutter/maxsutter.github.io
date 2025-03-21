@@ -126,12 +126,16 @@ ul {
 .content-section li {
     margin-left: 2.5rem;
 }
+.content-section ul {
+    padding-left: 1.5rem;
+    list-style: disc;
+}
 @media (max-width: 768px) {
     .content-section {
         padding: 3rem 0;
     }
     .content-section li {
-        margin-left: 1.5rem;
+        margin-left: 0.5rem;
     }
 }
 
@@ -256,6 +260,12 @@ footer {
 .footer-content p {
     font-size: 0.9rem;
     color: var(--color-bg);
+}
+
+@media (max-width: 768px) {
+    .footer-links {
+        display: block;
+    }
 }
 
 /* =======================
