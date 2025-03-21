@@ -42,7 +42,7 @@
         }
         @media (max-width: 1200px) {
             .container {
-                width: 90%;
+                width: 99%;
             }
         }
 
@@ -386,6 +386,19 @@
                 top: calc(1rem + 3rem); /* 2 lines on mobile */
             }
         }
+
+        /* Shorten Things on Mobile */
+        .mobile-only {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none;
+            }
+            .mobile-only {
+                display: inline;
+            }
+        }
     </style>
 
     <!-- External CSS Loaded Asynchronously -->
@@ -478,7 +491,7 @@
         <!-- Testimonial -->
         <div class="container testimonial fade-in delay-3">
             <blockquote style="font-style:italic; margin:0; font-size:1.2rem;">
-                “I’m incredibly grateful to have Max by my side as I navigate the intense challenges of a high-growth startup.”
+                “I’m incredibly grateful to have Max by my side<span class="desktop-only"> as I navigate the intense challenges of a high-growth startup</span>.”
             </blockquote>
             <div style="margin-top:1rem; display:flex; align-items:center;">
                 <picture style="width:65px; height:65px; border-radius:50%; object-fit:cover; margin-right:1rem;">
