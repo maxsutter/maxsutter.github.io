@@ -139,11 +139,6 @@ ul {
     }
 }
 
-.twitter-tweet {
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /* CTA Section */
 .cta-section {
     padding-top: var(--spacing-lg);
