@@ -108,7 +108,7 @@ ul {
 
 /* Content Sections */
 .content-section {
-    padding: var(--spacing-lg) 0;
+    padding: var(--spacing-md) 0;
     background-color: var(--color-bg);
 }
 .first-content-section {
