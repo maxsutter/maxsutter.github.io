@@ -42,7 +42,7 @@
         }
         @media (max-width: 1200px) {
             .container {
-                width: 90%;
+                width: 99%;
             }
         }
 
@@ -384,6 +384,19 @@
         @media (max-width: 768px) {
             body.referral-active .navbar {
                 top: calc(1rem + 3rem); /* 2 lines on mobile */
+            }
+        }
+
+        /* Shorten Things on Mobile */
+        .mobile-only {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .desktop-only {
+                display: none;
+            }
+            .mobile-only {
+                display: inline;
             }
         }
     </style>
