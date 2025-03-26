@@ -121,7 +121,8 @@ ul {
     background-color: var(--color-bg);
 }
 .first-content-section {
-    padding-top: var(--spacing-lg);
+    /* padding-top: var(--spacing-lg); --> jetzt mit Logos auf 0, aber lasse das noch kurzfristig bis ich sicher bin dass ich Logos behalte */
+    padding-top: 0;
 }
 .content-section li {
     margin-left: 2.5rem;
