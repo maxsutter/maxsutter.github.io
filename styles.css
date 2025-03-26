@@ -154,6 +154,9 @@ ul {
 }
 
 #company-logos .logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1 1 calc(20% - 2rem);
     text-align: center;
 }
@@ -162,6 +165,16 @@ ul {
     max-width: 100%;
     height: auto;
 }
+
+@media (max-width: 768px) {
+    #company-logos .container {
+        width: 100%;
+    }
+    #company-logos .logo-grid {
+        gap: 0.5rem;
+    }
+}
+
 
 /* CTA Section */
 .cta-section {
