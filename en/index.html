@@ -8,22 +8,23 @@
     <!-- Favicon -->
     <!-- <link rel="icon" href="favicon.ico" type="image/x-icon"> -->
 
-    <!-- Preconnect and DNS-Prefetch to External Resources -->
+    <!-- Preconnect und DNS-Prefetch zu externen Ressourcen -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-
     <!-- Critical CSS for Above-the-Fold Content -->
     <link rel="stylesheet" href="../styles-critical.css">
 
-    <!-- Non-Critical CSS Loaded Asynchronously -->
-    <link rel="preload" href="../styles.css" as="style" onload="this.rel='stylesheet'">
+    <!-- Non-Critical CSS asynchron laden -->
+    <link rel="preload" href="../styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="../styles.css"></noscript>
+
+    <!-- Icons -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
     <!-- Meta-Tags für SEO -->
     <meta name="description" content="Inner Work for Leaders: Create the life and business you enjoy. Discover joy, connection, and effective leadership. Coaching with depth and impact.">

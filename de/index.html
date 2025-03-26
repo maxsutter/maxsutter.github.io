@@ -15,15 +15,16 @@
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'">
-
     <!-- Critical CSS for Above-the-Fold Content -->
     <link rel="stylesheet" href="../styles-critical.css">
 
     <!-- Non-Critical CSS asynchron laden -->
-    <link rel="preload" href="../styles.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="../styles.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="../styles.css"></noscript>
+
+    <!-- Icons -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
     <!-- Meta-Tags für SEO -->
     <meta name="description" content="Inner Work for Leaders: Erschaffe das Leben und Business, das du liebst. Entdecke Freude, Connection und effektive Leadership. Coaching mit Tiefe und Wirkung.">
