@@ -157,7 +157,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    flex: 1 1 calc(20% - 2rem);
+    flex: 1 1 calc(20% - 2rem); /* entspricht gap bei #company-logos .logo-grid */
     text-align: center;
 }
 
@@ -166,16 +166,35 @@ ul {
     height: auto;
 }
 
+@media (max-width: 1200px) {
+    #company-logos {
+        padding-top: 0.5rem;
+        padding-bottom: 0;
+    }
+    #company-logos .container {
+        width: 95%;
+    }
+    #company-logos .logo-grid {
+        gap: 1rem;
+    }
+    #company-logos .logo-item {
+        flex: 1 1 calc(20% - 1rem); /* entspricht gap bei #company-logos .logo-grid */
+    }
+}
+
 @media (max-width: 768px) {
     #company-logos {
         padding-top: 0.3rem;
         padding-bottom: 0;
     }
     #company-logos .container {
-        width: 100%;
+        width: 99%;
     }
     #company-logos .logo-grid {
         gap: 0.5rem;
+    }
+    #company-logos .logo-item {
+        flex: 1 1 calc(20% - 0.5rem); /* entspricht gap bei #company-logos .logo-grid */
     }
 }
 
