@@ -140,6 +140,29 @@ ul {
     }
 }
 
+/* Company Logos Section */
+#company-logos .container {
+    width: 70%;
+}
+
+#company-logos .logo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+}
+
+#company-logos .logo-item {
+    flex: 1 1 calc(20% - 2rem);
+    text-align: center;
+}
+
+#company-logos .logo-item img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* CTA Section */
 .cta-section {
     padding-top: var(--spacing-lg);
