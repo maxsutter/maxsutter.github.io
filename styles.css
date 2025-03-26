@@ -167,6 +167,10 @@ ul {
 }
 
 @media (max-width: 768px) {
+    #company-logos {
+        padding-top: 0.3rem;
+        padding-bottom: 0;
+    }
     #company-logos .container {
         width: 100%;
     }
