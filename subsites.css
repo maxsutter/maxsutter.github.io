@@ -73,6 +73,7 @@
         text-decoration: none;
         font-weight: 600;
         transition: color 0.3s;
+        margin-left: 50px;
     }
 
     .navbar.scrolled .logo a {
@@ -358,6 +359,10 @@
 .agb a, .impressum a, .privacy-policy a {
     color: #2c3e50;
     text-decoration: none;
+}
+
+.footer-content {
+    padding-top: 50px;
 }
 
 /* Mobile Anpassungen */
