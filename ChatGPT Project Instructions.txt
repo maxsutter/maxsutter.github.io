@@ -1,1 +1,0 @@
-Hosting-Umgebung: GitHub Pages. Nur statische Seiten ohne serverseitigen Code sind möglich.
