@@ -350,3 +350,36 @@ footer {
         transition: none !important;
     }
 }
+
+/* =======================
+   Google Calendar Appointment Scheduling Widget Styles
+   ======================= */
+.calendar-iframe-container {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+  max-width: 70%;
+  margin: 2rem auto;
+}
+.calendar-iframe-container iframe {
+  border:0;
+  width:100%;
+  padding-top: 10px;
+  height:760px;
+  background: #fff;
+  border-radius: 12px;
+}
+@media (max-width: 1200px) {
+  .calendar-iframe-container {
+    max-width: 95%;
+  }
+}
+@media (max-width: 768px) {
+  .calendar-iframe-container {
+    max-width: 95%;
+  }
+  .calendar-iframe-container iframe {
+    height: 1170px;
+    padding-top: 0;
+  }
+}
