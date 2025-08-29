@@ -32,3 +32,64 @@
     if (window.innerWidth > 900) close();
   });
 })();
+
+// Language toggle (DE/EN)
+(function () {
+  const toggle = document.getElementById('langToggle');
+  const de = document.getElementById('terms-de');
+  const en = document.getElementById('terms-en');
+  if (!toggle || !de || !en) return;
+
+  const labels = document.querySelectorAll('.lang-switcher .lang-label');
+  const labelDE = labels[0];
+  const labelEN = labels[1];
+
+  const setActive = (lang) => {
+    const isEN = lang === 'en';
+    toggle.checked = isEN;
+    de.hidden = isEN;
+    en.hidden = !isEN;
+    document.documentElement.setAttribute('lang', isEN ? 'en' : 'de');
+    if (labelDE) labelDE.dataset.active = (!isEN).toString();
+    if (labelEN) labelEN.dataset.active = isEN.toString();
+    toggle.setAttribute('aria-label', isEN ? 'Toggle language to German' : 'Toggle language to English');
+
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set('lang', isEN ? 'en' : 'de');
+      history.replaceState({}, '', url);
+    } catch (_) {}
+  };
+
+  const getInitial = () => {
+    try {
+      const url = new URL(window.location.href);
+      const q = (url.searchParams.get('lang') || '').toLowerCase();
+      if (q === 'en' || q === 'de') return q;
+      const h = (url.hash || '').replace('#', '').toLowerCase();
+      if (h === 'en' || h === 'de') return h;
+    } catch (_) {}
+    try {
+      const saved = localStorage.getItem('prefLang');
+      if (saved === 'en' || saved === 'de') return saved;
+    } catch (_) {}
+    return 'de';
+  };
+
+  setActive(getInitial());
+
+  toggle.addEventListener('change', () => {
+    const lang = toggle.checked ? 'en' : 'de';
+    setActive(lang);
+    try { localStorage.setItem('prefLang', lang); } catch (_) {}
+  });
+
+  if (labelDE) labelDE.addEventListener('click', () => {
+    setActive('de');
+    try { localStorage.setItem('prefLang', 'de'); } catch (_) {}
+  });
+  if (labelEN) labelEN.addEventListener('click', () => {
+    setActive('en');
+    try { localStorage.setItem('prefLang', 'en'); } catch (_) {}
+  });
+})();
