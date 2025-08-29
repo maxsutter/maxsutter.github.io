@@ -180,9 +180,9 @@ p { margin: 12px 0 0; }
 b, strong { font-weight: 800; }
 
 /* Links styled subtly */
-a { color: inherit; text-decoration-color: var(--link-underline); }
+ a { color: inherit; text-decoration-color: var(--link-underline); }
 
-a:hover { text-decoration-color: currentColor; }
+ a:hover { text-decoration-color: currentColor; }
 
 /* Language switcher */
 .lang-switcher {
