@@ -64,6 +64,46 @@
   const labelDE = labels[0];
   const labelEN = labels[1];
 
+  // i18n strings for shared nav/footer labels
+  const i18n = {
+    de: {
+      nav: { imprint: 'Impressum', privacy: 'Datenschutz', terms: 'AGB' },
+      rights: 'Alle Rechte vorbehalten.',
+    },
+    en: {
+      nav: { imprint: 'Imprint', privacy: 'Privacy', terms: 'Terms' },
+      rights: 'All rights reserved.',
+    },
+  };
+
+  // Update header/footer link labels and footer rights line
+  const updateGlobalStrings = (lang) => {
+    const dict = i18n[lang] || i18n.de;
+    // Update nav/footer anchors (only these three)
+    document.querySelectorAll('nav a, footer a').forEach((a) => {
+      try {
+        const abs = new URL(a.href, window.location.href);
+        const path = abs.pathname.replace(/\/+$/, '');
+        if (path.endsWith('/imprint')) a.textContent = dict.nav.imprint;
+        else if (path.endsWith('/privacy')) a.textContent = dict.nav.privacy;
+        else if (path.endsWith('/terms')) a.textContent = dict.nav.terms;
+      } catch (_) {
+        const href = a.getAttribute('href') || '';
+        if (href.endsWith('imprint') || href.endsWith('/imprint')) a.textContent = dict.nav.imprint;
+        else if (href.endsWith('privacy') || href.endsWith('/privacy')) a.textContent = dict.nav.privacy;
+        else if (href.endsWith('terms') || href.endsWith('/terms')) a.textContent = dict.nav.terms;
+      }
+    });
+    // Update footer copyright/rights line
+    const rightsEl = document.querySelector('footer p');
+    if (rightsEl) {
+      const existing = rightsEl.textContent || '';
+      const yearMatch = existing.match(/\b(20\d{2})\b/);
+      const year = yearMatch ? yearMatch[1] : String(new Date().getFullYear());
+      rightsEl.textContent = `© ${year} Max Sutter. ${dict.rights}`;
+    }
+  };
+
   const setActive = (lang) => {
     const isEN = lang === 'en';
     toggle.checked = isEN;
@@ -73,6 +113,7 @@
     if (labelDE) labelDE.dataset.active = (!isEN).toString();
     if (labelEN) labelEN.dataset.active = isEN.toString();
     toggle.setAttribute('aria-label', isEN ? 'Toggle language to German' : 'Toggle language to English');
+    updateGlobalStrings(lang);
 
     try {
       const url = new URL(window.location.href);
