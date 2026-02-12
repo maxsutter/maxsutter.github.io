@@ -40,3 +40,6 @@ coverage/
 out/
 .tmp/
 tmp/
+
+# Local agent instructions (must not be published)
+AGENTS.md
