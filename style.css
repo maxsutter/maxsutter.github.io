@@ -184,6 +184,8 @@ b, strong { font-weight: 800; }
 
  a:hover { text-decoration-color: currentColor; }
 
+.legal-email { white-space: nowrap; }
+
 /* Language switcher */
 .lang-switcher {
   display: flex;

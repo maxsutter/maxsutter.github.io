@@ -33,25 +33,6 @@
   });
 })();
 
-// Email obfuscation: fill any placeholders with the address
-(function () {
-  const els = document.querySelectorAll('.email-container, #email-container');
-  if (!els.length) return;
-  const user = 'impressum';
-  const domain = 'maxsutter.de';
-  const email = `${user}@${domain}`;
-  els.forEach((slot) => {
-    if (!slot) return;
-    // Avoid duplicating content if already filled
-    if (slot.dataset.filled === 'true' || slot.childElementCount > 0 || slot.textContent.trim()) return;
-    const a = document.createElement('a');
-    a.href = `mailto:${email}`;
-    a.textContent = email;
-    slot.appendChild(a);
-    slot.dataset.filled = 'true';
-  });
-})();
-
 // Language toggle (DE/EN)
 (function () {
   const toggle = document.getElementById('langToggle');
