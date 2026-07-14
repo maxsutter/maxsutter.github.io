@@ -32,6 +32,10 @@ node_modules/
 dist/
 build/
 coverage/
+test-results/
+playwright-report/
+.lighthouseci/
+artifacts/lighthouse/
 .cache/
 .parcel-cache/
 .next/
@@ -43,6 +47,7 @@ tmp/
 
 # Local agent instructions (must not be published)
 AGENTS.md
+.agents/
 
 # Archived legacy site
 old/
