@@ -14,6 +14,12 @@ const routes = [
 
 const formEndpoint = 'https://formcarry.com/s/c037Ctr8vBU';
 
+test('/agb redirects to the German terms page', async ({ page }) => {
+  await page.goto('/agb');
+  await expect(page).toHaveURL('/de/agb/');
+  await expect(page.getByRole('heading', { name: 'Allgemeine Geschäftsbedingungen' })).toBeVisible();
+});
+
 for (const route of routes) {
   test(`${route} loads without local errors or overflow`, async ({ page }) => {
     const consoleErrors = [];

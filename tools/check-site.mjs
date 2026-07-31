@@ -11,6 +11,7 @@ const pages = [
   { file: 'index.html', route: '/', lang: 'en', canonical: '/', indexable: true },
   { file: 'de/index.html', route: '/de/', lang: 'de', canonical: '/de/', indexable: true },
   { file: '404.html', route: '/404.html', lang: 'en', noindex: true, bilingual: true },
+  { file: 'agb/index.html', route: '/agb/', lang: 'de', canonical: '/de/agb/', noindex: true },
   { file: 'legal-notice/index.html', route: '/legal-notice/', lang: 'en', canonical: '/legal-notice/', noindex: true, alternate: '/de/impressum/' },
   { file: 'privacy/index.html', route: '/privacy/', lang: 'en', canonical: '/privacy/', noindex: true, alternate: '/de/datenschutz/' },
   { file: 'terms/index.html', route: '/terms/', lang: 'en', canonical: '/terms/', noindex: true, alternate: '/de/agb/' },

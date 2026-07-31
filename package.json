@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint assets/site.js main.js tools tests playwright.config.js eslint.config.js",
-    "validate:html": "html-validate index.html de/index.html 404.html legal-notice/index.html privacy/index.html terms/index.html de/impressum/index.html de/datenschutz/index.html de/agb/index.html",
+    "validate:html": "html-validate index.html de/index.html 404.html agb/index.html legal-notice/index.html privacy/index.html terms/index.html de/impressum/index.html de/datenschutz/index.html de/agb/index.html",
     "check:site": "node tools/check-site.mjs",
     "test:unit": "node --test tests/*.test.js",
     "test:e2e": "playwright test",
