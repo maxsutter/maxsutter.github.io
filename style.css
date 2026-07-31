@@ -242,6 +242,12 @@ strong {
   white-space: nowrap;
 }
 
+.form-line {
+  width: 100%;
+  min-height: 1.7em;
+  border-bottom: 1px solid currentColor;
+}
+
 footer {
   border-top: 1px solid var(--border);
   padding: 26px 0;
