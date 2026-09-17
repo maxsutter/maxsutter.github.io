@@ -184,7 +184,7 @@ test('form success sends one sanitized request', async ({ page }) => {
   await page.getByLabel('Email').fill('test@example.com');
   await page.getByLabel('Role and organization').fill('CEO, Test GmbH');
   await page.getByLabel('What leadership challenge would make this coaching worthwhile?').fill('Test outcome');
-  const submit = page.getByRole('button', { name: 'Request a Coaching Partnership' });
+  const submit = page.getByRole('button', { name: 'Request a discovery call' });
   await submit.click();
   await page.evaluate(() => {
     document.querySelector('[data-contact-form]').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
@@ -211,7 +211,7 @@ test('form failures preserve values and allow manual retry', async ({ page }) =>
   await page.getByLabel('E-Mail').fill('test@example.com');
   await page.getByLabel('Rolle und Organisation').fill('CEO, Test GmbH');
   await page.getByLabel('Bei welcher Führungsherausforderung würde dieses Coaching den größten Unterschied machen?').fill('Testziel');
-  await page.getByRole('button', { name: 'Coaching-Partnerschaft anfragen' }).click();
+  await page.getByRole('button', { name: 'Kennenlerngespräch anfragen' }).click();
 
   await expect(page.getByLabel('Name')).toHaveValue('Test Nutzer');
   await expect(page.getByRole('button', { name: 'Erneut versuchen' })).toBeEnabled();
@@ -228,7 +228,7 @@ test('form timeout is honest and retryable', async ({ page }) => {
   await page.getByLabel('Email').fill('timeout@example.com');
   await page.getByLabel('Role and organization').fill('CEO, Timeout GmbH');
   await page.getByLabel('What leadership challenge would make this coaching worthwhile?').fill('Timeout behavior');
-  await page.getByRole('button', { name: 'Request a Coaching Partnership' }).click();
+  await page.getByRole('button', { name: 'Request a discovery call' }).click();
 
   await expect(page.getByRole('button', { name: 'Try again' })).toBeEnabled({ timeout: 17_000 });
   await expect(page.locator('[data-form-status]')).toContainText('too long to confirm');
