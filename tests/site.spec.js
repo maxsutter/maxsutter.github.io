@@ -14,6 +14,31 @@ const routes = [
 
 const formEndpoint = 'https://formcarry.com/s/c037Ctr8vBU';
 
+const landingPages = [
+  {
+    route: '/', language: 'en', about: 'About me', email: 'Email', role: 'Role and organization',
+    outcome: 'What brings you here, and what would you like to change?',
+    submit: 'Request an intro call', retry: 'Try again', timeout: 'too long to confirm',
+  },
+  {
+    route: '/de/', language: 'de', about: 'Über mich', email: 'E-Mail', role: 'Rolle und Organisation',
+    outcome: 'Was führt dich gerade hierher – und was möchtest du verändern?',
+    submit: 'Kennenlerngespräch anfragen', retry: 'Erneut versuchen', timeout: 'konnte nicht bestätigt werden',
+  },
+];
+
+test.beforeEach(async ({ page }) => {
+  await page.route(formEndpoint, (route) => route.abort());
+});
+
+async function fillInquiry(page, copy) {
+  await page.getByLabel('Name', { exact: true }).fill('Test User');
+  await page.getByLabel(copy.email, { exact: true }).fill('test@example.com');
+  await page.getByLabel(copy.role, { exact: true }).fill('CEO, Test GmbH');
+  await page.getByLabel(copy.outcome, { exact: true }).fill('Test coaching inquiry');
+}
+
+
 test('/agb redirects to the German terms page', async ({ page }) => {
   await page.goto('/agb');
   await expect(page).toHaveURL('/de/agb/');
@@ -71,35 +96,72 @@ test('legal routes reflow without horizontal scrolling at 320px', async ({ page 
   }
 });
 
-test('landing navigation and FAQ remain keyboard-friendly', async ({ page }, testInfo) => {
-  await page.goto('/');
-  const isMobile = testInfo.project.name === 'chromium-mobile';
+for (const copy of landingPages) {
+  test(`${copy.route} navigation and FAQ remain keyboard-friendly`, async ({ page }, testInfo) => {
+    await page.goto(copy.route);
+    const isMobile = testInfo.project.use.viewport.width <= 900;
 
-  if (isMobile) {
-    const menuButton = page.locator('[data-menu-button]');
-    await menuButton.click();
-    await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
-    await expect(page.getByRole('link', { name: 'Reviews' })).toBeFocused();
-    await page.keyboard.press('Escape');
-    await expect(menuButton).toBeFocused();
-    await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
+    if (isMobile) {
+      const menuButton = page.locator('[data-menu-button]');
+      const nav = page.locator('[data-mobile-nav]');
+      await menuButton.click();
+      await expect(menuButton).toHaveAttribute('aria-expanded', 'true');
+      await expect(nav.getByRole('link', { name: 'Coaching', exact: true })).toBeFocused();
+      await page.keyboard.press('Shift+Tab');
+      await expect(menuButton).toBeFocused();
+      await page.keyboard.press('Shift+Tab');
+      await expect(nav.getByRole('link').last()).toBeFocused();
+      await page.keyboard.press('Tab');
+      await expect(menuButton).toBeFocused();
+      await page.keyboard.press('Escape');
+      await expect(menuButton).toBeFocused();
+      await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
 
-    await menuButton.click();
-    await expect(page.getByRole('link', { name: 'Reviews' })).toBeFocused();
-    await page.keyboard.press('Tab');
-    await expect(page.getByRole('link', { name: 'FAQ', exact: true })).toBeFocused();
+      await menuButton.click();
+      await page.keyboard.press('Tab');
+      await expect(nav.getByRole('link', { name: copy.about, exact: true })).toBeFocused();
+      await page.keyboard.press('Enter');
+      await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
+      await expect(page.locator('#about-title')).toBeFocused();
+    } else {
+      const nav = page.locator('.desktop-nav');
+      await expect(nav).toBeVisible();
+      for (const anchor of ['coaching', 'about', 'partnership', 'get-in-touch']) {
+        await nav.locator(`a[href="#${anchor}"]`).click();
+        await expect(page).toHaveURL(new RegExp(`#${anchor}$`));
+        await expect(page.locator(`#${anchor}`)).toBeInViewport();
+      }
+    }
+
+    const first = page.locator('.faq details').nth(0);
+    const second = page.locator('.faq details').nth(1);
+    await first.locator('summary').click();
+    await expect(page.locator('#about-title')).not.toHaveAttribute('tabindex');
+    await expect(first).toHaveAttribute('open', '');
+    await second.locator('summary').focus();
     await page.keyboard.press('Enter');
-    await expect(menuButton).toHaveAttribute('aria-expanded', 'false');
-    await expect(page.locator('#faq-title')).toBeFocused();
-  } else {
-    await expect(page.getByRole('navigation', { name: 'Main navigation' })).toBeVisible();
-  }
+    await expect(second).toHaveAttribute('open', '');
+    await expect(page.locator('.faq details[open]')).toHaveCount(1);
+    await page.keyboard.press('Enter');
+    await expect(page.locator('.faq details[open]')).toHaveCount(0);
+  });
 
-  await page.getByText('How do we start?', { exact: true }).click();
-  await expect(page.locator('#faq-title')).not.toHaveAttribute('tabindex');
-  await expect(page.locator('.faq details[open]')).toHaveCount(1);
-  await expect(page.locator('.faq details').filter({ hasText: 'How do we start?' })).toHaveAttribute('open', '');
-});
+  test(`${copy.route} new sections reflow at small and tablet widths`, async ({ page }) => {
+    for (const width of [320, 768]) {
+      await page.setViewportSize({ width, height: 900 });
+      await page.goto(copy.route);
+      for (const anchor of ['hero', 'coaching', 'about', 'reviews', 'work', 'partnership', 'faq', 'get-in-touch']) {
+        const section = page.locator(`#${anchor}`);
+        await section.scrollIntoViewIfNeeded();
+        await expect(section).toBeVisible();
+        expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
+      }
+      await page.locator('#about').scrollIntoViewIfNeeded();
+      await expect(page.locator('.about-portrait img')).toHaveJSProperty('complete', true);
+      expect(await page.locator('.about-portrait img').evaluate((img) => img.naturalWidth)).toBeGreaterThan(0);
+    }
+  });
+}
 
 test('mobile navigation remains reachable in a short landscape viewport', async ({ page }) => {
   await page.setViewportSize({ width: 568, height: 320 });
@@ -108,7 +170,7 @@ test('mobile navigation remains reachable in a short landscape viewport', async 
   await page.locator('[data-menu-button]').click();
   const mobileNav = page.locator('[data-mobile-nav]');
   const menuLinks = mobileNav.getByRole('link');
-  await expect(menuLinks).toHaveCount(4);
+  await expect(menuLinks).toHaveCount(5);
 
   for (let index = 0; index < await menuLinks.count(); index += 1) {
     const link = menuLinks.nth(index);
@@ -169,68 +231,82 @@ test('legal routes expose the expected language counterpart', async ({ page }) =
   }
 });
 
-test('form success sends one sanitized request', async ({ page }) => {
-  let requestCount = 0;
-  let submittedBody = '';
-  await page.route(formEndpoint, async (route) => {
-    requestCount += 1;
-    submittedBody = route.request().postData() ?? '';
-    await new Promise((resolve) => setTimeout(resolve, 200));
-    await route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+for (const copy of landingPages) {
+  test(`${copy.route} form validates required fields before sending`, async ({ page }) => {
+    let requestCount = 0;
+    await page.route(formEndpoint, (route) => {
+      requestCount += 1;
+      return route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+    });
+    await page.goto(copy.route);
+    const submit = page.getByRole('button', { name: copy.submit, exact: true });
+    await submit.click();
+    expect(requestCount).toBe(0);
+    await fillInquiry(page, copy);
+    await page.getByLabel(copy.email, { exact: true }).fill('invalid-email');
+    await submit.click();
+    await expect(page.locator('#email:invalid')).toBeVisible();
+    expect(requestCount).toBe(0);
+    await page.getByLabel(copy.email, { exact: true }).fill('test@example.com');
+    await page.getByLabel(copy.outcome, { exact: true }).fill('');
+    await submit.click();
+    expect(requestCount).toBe(0);
+    await expect(page.locator('[data-contact-form]')).not.toHaveAttribute('aria-busy', 'true');
   });
 
-  await page.goto('/?utm_source=ci#apply');
-  await page.getByLabel('Name').fill('Test User');
-  await page.getByLabel('Email').fill('test@example.com');
-  await page.getByLabel('Role and organization').fill('CEO, Test GmbH');
-  await page.getByLabel('What leadership challenge would make this coaching worthwhile?').fill('Test outcome');
-  const submit = page.getByRole('button', { name: 'Request a discovery call' });
-  await submit.click();
-  await page.evaluate(() => {
-    document.querySelector('[data-contact-form]').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+  test(`${copy.route} form success sends one sanitized request`, async ({ page }) => {
+    let requestCount = 0;
+    let submittedBody = '';
+    await page.route(formEndpoint, async (route) => {
+      requestCount += 1;
+      submittedBody = route.request().postData() ?? '';
+      await new Promise((resolve) => setTimeout(resolve, 200));
+      await route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+    });
+    await page.goto(`${copy.route}?utm_source=ci#get-in-touch`);
+    await fillInquiry(page, copy);
+    await page.getByRole('button', { name: copy.submit, exact: true }).click();
+    await page.evaluate(() => {
+      document.querySelector('[data-contact-form]').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    });
+    await expect(page.locator('[data-form-status]')).toHaveClass(/is-success/);
+    expect(requestCount).toBe(1);
+    expect(submittedBody).toContain('name="role_company"');
+    expect(submittedBody).toContain('name="outcome"');
+    expect(submittedBody).toContain(`name="language"\r\n\r\n${copy.language}`);
+    expect(submittedBody).toContain('CEO, Test GmbH');
+    expect(submittedBody).toContain('Test coaching inquiry');
+    expect(submittedBody).toContain(`http://127.0.0.1:4173${copy.route}`);
+    expect(submittedBody).not.toContain('utm_source');
+    expect(submittedBody).not.toContain('get-in-touch');
+    expect(submittedBody).not.toContain('name="readiness"');
   });
-  await expect(page.locator('[data-form-status]')).toHaveClass(/is-success/);
 
-  expect(requestCount).toBe(1);
-  expect(submittedBody).toContain('name="role_company"');
-  expect(submittedBody).toContain('CEO, Test GmbH');
-  expect(submittedBody).toContain('http://127.0.0.1:4173/');
-  expect(submittedBody).not.toContain('utm_source');
-  expect(submittedBody).not.toContain('apply');
-});
-
-test('form failures preserve values and allow manual retry', async ({ page }) => {
-  let shouldSucceed = false;
-  await page.route(formEndpoint, (route) => {
-    if (shouldSucceed) return route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
-    return route.fulfill({ status: 500, contentType: 'application/json', body: '{}' });
+  test(`${copy.route} form failures preserve values and allow manual retry`, async ({ page }) => {
+    let shouldSucceed = false;
+    await page.route(formEndpoint, (route) => route.fulfill({
+      status: shouldSucceed ? 200 : 500, contentType: 'application/json', body: '{}',
+    }));
+    await page.goto(copy.route);
+    await fillInquiry(page, copy);
+    await page.getByRole('button', { name: copy.submit, exact: true }).click();
+    await expect(page.locator('[data-form-status]')).toHaveClass(/is-error/);
+    await expect(page.getByLabel('Name', { exact: true })).toHaveValue('Test User');
+    await expect(page.getByLabel(copy.outcome, { exact: true })).toHaveValue('Test coaching inquiry');
+    await expect(page.getByRole('button', { name: copy.retry })).toBeEnabled();
+    shouldSucceed = true;
+    await page.getByRole('button', { name: copy.retry }).click();
+    await expect(page.locator('[data-form-status]')).toHaveClass(/is-success/);
   });
 
-  await page.goto('/de/');
-  await page.getByLabel('Name').fill('Test Nutzer');
-  await page.getByLabel('E-Mail').fill('test@example.com');
-  await page.getByLabel('Rolle und Organisation').fill('CEO, Test GmbH');
-  await page.getByLabel('Bei welcher Führungsherausforderung würde dieses Coaching den größten Unterschied machen?').fill('Testziel');
-  await page.getByRole('button', { name: 'Kennenlerngespräch anfragen' }).click();
-
-  await expect(page.getByLabel('Name')).toHaveValue('Test Nutzer');
-  await expect(page.getByRole('button', { name: 'Erneut versuchen' })).toBeEnabled();
-  shouldSucceed = true;
-  await page.getByRole('button', { name: 'Erneut versuchen' }).click();
-  await expect(page.locator('[data-form-status]')).toHaveClass(/is-success/);
-});
-
-test('form timeout is honest and retryable', async ({ page }) => {
-  test.setTimeout(25_000);
-  await page.route(formEndpoint, () => new Promise(() => {}));
-  await page.goto('/');
-  await page.getByLabel('Name').fill('Timeout Test');
-  await page.getByLabel('Email').fill('timeout@example.com');
-  await page.getByLabel('Role and organization').fill('CEO, Timeout GmbH');
-  await page.getByLabel('What leadership challenge would make this coaching worthwhile?').fill('Timeout behavior');
-  await page.getByRole('button', { name: 'Request a discovery call' }).click();
-
-  await expect(page.getByRole('button', { name: 'Try again' })).toBeEnabled({ timeout: 17_000 });
-  await expect(page.locator('[data-form-status]')).toContainText('too long to confirm');
-  await expect(page.getByLabel('Name')).toHaveValue('Timeout Test');
-});
+  test(`${copy.route} form timeout is honest and retryable`, async ({ page }) => {
+    test.setTimeout(25_000);
+    await page.route(formEndpoint, () => new Promise(() => {}));
+    await page.goto(copy.route);
+    await fillInquiry(page, copy);
+    await page.getByRole('button', { name: copy.submit, exact: true }).click();
+    await expect(page.getByRole('button', { name: copy.retry })).toBeEnabled({ timeout: 17_000 });
+    await expect(page.locator('[data-form-status]')).toContainText(copy.timeout);
+    await expect(page.getByLabel(copy.outcome, { exact: true })).toHaveValue('Test coaching inquiry');
+  });
+}
