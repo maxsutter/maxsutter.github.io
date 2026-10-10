@@ -176,24 +176,26 @@
   if (!form) return;
 
   const status = form.querySelector('[data-form-status]');
+  const confirmation = document.querySelector('[data-form-confirmation]');
   const submit = form.querySelector('button[type="submit"]');
   const defaultLabel = submit ? submit.querySelector('[data-submit-label]') : null;
   const requestTimeout = 15000;
   let isSubmitting = false;
+  let hasSubmitted = false;
   const messages = {
     en: {
       sending: 'Sending…',
-      success: 'Thank you — your message is on its way. I’ll get back to you soon.',
       error: 'Something went wrong. Your entries are still here — please try again.',
-      timeout: 'The submission took too long to confirm. Your entries are still here — please try again.',
+      uncertain: 'I couldn’t confirm whether your inquiry arrived. It may already have arrived. Your entries are still here. If you send it again, I may receive it twice.',
+      resend: 'Send again anyway',
       retry: 'Try again',
       preview: 'Preview mode: add the Formcarry endpoint before launch.'
     },
     de: {
       sending: 'Wird gesendet…',
-      success: 'Vielen Dank — deine Nachricht ist unterwegs. Ich melde mich zeitnah.',
       error: 'Etwas ist schiefgelaufen. Deine Eingaben sind noch da — bitte versuche es erneut.',
-      timeout: 'Das Senden hat zu lange gedauert und konnte nicht bestätigt werden. Deine Eingaben sind noch da — bitte versuche es erneut.',
+      uncertain: 'Ich konnte nicht bestätigen, ob deine Anfrage angekommen ist. Sie kann bereits angekommen sein. Deine Eingaben bleiben erhalten. Wenn du erneut sendest, kann deine Anfrage doppelt ankommen.',
+      resend: 'Trotzdem erneut senden',
       retry: 'Erneut versuchen',
       preview: 'Preview-Modus: Vor dem Launch muss noch der Formcarry-Endpunkt ergänzt werden.'
     }
@@ -205,13 +207,13 @@
   const setStatus = (message, type) => {
     if (!status) return;
     status.textContent = message;
-    status.classList.remove('is-success', 'is-error');
+    status.classList.remove('is-error', 'is-uncertain');
     if (type) status.classList.add(`is-${type}`);
   };
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
-    if (isSubmitting || !form.reportValidity()) return;
+    if (isSubmitting || hasSubmitted || !form.reportValidity()) return;
 
     const endpoint = form.getAttribute('action') || form.dataset.endpoint || '';
     if (!endpoint) {
@@ -226,10 +228,8 @@
     setStatus('', '');
 
     const controller = new AbortController();
-    let didTimeout = false;
     let labelAfterRequest = submit ? submit.dataset.defaultLabel || '' : '';
     const timeoutId = window.setTimeout(() => {
-      didTimeout = true;
       controller.abort();
     }, requestTimeout);
 
@@ -242,18 +242,27 @@
         headers: { Accept: 'application/json' },
         signal: controller.signal
       });
-      if (!response.ok) throw new Error('Form submission failed');
-      form.reset();
-      setStatus(copy.success, 'success');
+      if (!response.ok) {
+        labelAfterRequest = copy.retry;
+        setStatus(copy.error, 'error');
+        return;
+      }
+      hasSubmitted = true;
     } catch (_) {
-      labelAfterRequest = copy.retry;
-      setStatus(didTimeout ? copy.timeout : copy.error, 'error');
+      labelAfterRequest = copy.resend;
+      setStatus(copy.uncertain, 'uncertain');
+      return;
     } finally {
       window.clearTimeout(timeoutId);
       isSubmitting = false;
       form.removeAttribute('aria-busy');
-      if (submit) submit.disabled = false;
+      if (submit) submit.disabled = hasSubmitted;
       if (defaultLabel) defaultLabel.textContent = labelAfterRequest;
     }
+
+    form.hidden = true;
+    confirmation.hidden = false;
+    confirmation.focus({ preventScroll: true });
+    confirmation.scrollIntoView({ behavior: reducedMotion ? 'instant' : 'smooth', block: 'center' });
   });
 })();

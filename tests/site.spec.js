@@ -18,12 +18,12 @@ const landingPages = [
   {
     route: '/', language: 'en', about: 'About me', email: 'Email', role: 'Role and organization',
     outcome: 'What brings you here, and what would you like to change?',
-    submit: 'Request an intro call', retry: 'Try again', timeout: 'too long to confirm',
+    submit: 'Request an intro call', retry: 'Try again', resend: 'Send again anyway', uncertain: 'may already have arrived',
   },
   {
     route: '/de/', language: 'de', about: 'Über mich', email: 'E-Mail', role: 'Rolle und Organisation',
     outcome: 'Was führt dich gerade hierher – und was möchtest du verändern?',
-    submit: 'Kennenlerngespräch anfragen', retry: 'Erneut versuchen', timeout: 'konnte nicht bestätigt werden',
+    submit: 'Kennenlerngespräch anfragen', retry: 'Erneut versuchen', resend: 'Trotzdem erneut senden', uncertain: 'kann bereits angekommen sein',
   },
 ];
 
@@ -269,7 +269,17 @@ for (const copy of landingPages) {
     await page.evaluate(() => {
       document.querySelector('[data-contact-form]').dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
     });
-    await expect(page.locator('[data-form-status]')).toHaveClass(/is-success/);
+    const confirmation = page.locator('[data-form-confirmation]');
+    await expect(confirmation).toBeVisible();
+    await expect(confirmation).toBeFocused();
+    await expect(confirmation).toBeInViewport({ ratio: 1 });
+    await expect(page.locator('[data-contact-form]')).toBeHidden();
+    await expect(page.getByRole('button', { name: copy.submit, exact: true })).toHaveCount(0);
+    const startedAgain = await page.locator('[data-contact-form]').evaluate((form) => {
+      form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+      return form.getAttribute('aria-busy');
+    });
+    expect(startedAgain).toBeNull();
     expect(requestCount).toBe(1);
     expect(submittedBody).toContain('name="role_company"');
     expect(submittedBody).toContain('name="outcome"');
@@ -296,17 +306,47 @@ for (const copy of landingPages) {
     await expect(page.getByRole('button', { name: copy.retry })).toBeEnabled();
     shouldSucceed = true;
     await page.getByRole('button', { name: copy.retry }).click();
-    await expect(page.locator('[data-form-status]')).toHaveClass(/is-success/);
+    await expect(page.locator('[data-form-confirmation]')).toBeVisible();
   });
 
-  test(`${copy.route} form timeout is honest and retryable`, async ({ page }) => {
-    test.setTimeout(25_000);
-    await page.route(formEndpoint, () => new Promise(() => {}));
+  for (const failure of ['timeout', 'network']) {
+    test(`${copy.route} form ${failure} explains uncertainty before an intentional resend`, async ({ page }) => {
+      await page.clock.install();
+      let requestCount = 0;
+      await page.route(formEndpoint, (route) => {
+        requestCount += 1;
+        if (requestCount > 1) return route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+        if (failure === 'network') return route.abort('failed');
+      });
+      await page.goto(copy.route);
+      await fillInquiry(page, copy);
+      await page.getByRole('button', { name: copy.submit, exact: true }).click();
+      await expect.poll(() => requestCount).toBe(1);
+      if (failure === 'timeout') await page.clock.fastForward(15_001);
+      await expect(page.locator('[data-form-status]')).toHaveClass(/is-uncertain/);
+      await expect(page.locator('[data-form-status]')).toContainText(copy.uncertain);
+      await expect(page.locator('[data-form-confirmation]')).toBeHidden();
+      await expect(page.getByLabel(copy.outcome, { exact: true })).toHaveValue('Test coaching inquiry');
+      const resend = page.getByRole('button', { name: copy.resend, exact: true });
+      await expect(resend).toBeEnabled();
+      await page.clock.fastForward(30_000);
+      expect(requestCount).toBe(1);
+      await resend.click();
+      await expect(page.locator('[data-form-confirmation]')).toBeVisible();
+      expect(requestCount).toBe(2);
+    });
+  }
+
+  test(`${copy.route} form confirmation fits at 320px with reduced motion`, async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 568 });
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.route(formEndpoint, (route) => route.fulfill({ status: 200, contentType: 'application/json', body: '{}' }));
     await page.goto(copy.route);
     await fillInquiry(page, copy);
     await page.getByRole('button', { name: copy.submit, exact: true }).click();
-    await expect(page.getByRole('button', { name: copy.retry })).toBeEnabled({ timeout: 17_000 });
-    await expect(page.locator('[data-form-status]')).toContainText(copy.timeout);
-    await expect(page.getByLabel(copy.outcome, { exact: true })).toHaveValue('Test coaching inquiry');
+    const confirmation = page.locator('[data-form-confirmation]');
+    await expect(confirmation).toBeFocused();
+    await expect(confirmation).toBeInViewport({ ratio: 1 });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
   });
 }
