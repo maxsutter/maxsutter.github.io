@@ -58,8 +58,8 @@ em { font-weight: inherit; }
 /* Navigation stays compact; mobile navigation uses the same links and focus handling. */
 .site-header { position: sticky; z-index: 100; top: 0; background: var(--paper); border-bottom: 1px solid var(--line); }
 .site-header > .container { display: flex; justify-content: space-between; align-items: center; min-height: 88px; gap: 28px; }
-.brand { display: inline-flex; align-items: center; flex-shrink: 0; gap: 12px; font-size: 21px; font-weight: 600; letter-spacing: -.055em; text-decoration: none; }
-.brand-mark { width: 35px; height: 35px; object-fit: contain; }
+.brand { display: inline-flex; align-items: center; flex-shrink: 0; text-decoration: none; }
+.brand-logo { width: 200px; height: auto; }
 .desktop-nav { display: flex; align-items: center; gap: 30px; }
 .desktop-nav a { font-size: 12px; font-weight: 650; text-decoration: none; }
 .desktop-nav a:hover { color: var(--accent); }
@@ -326,8 +326,7 @@ details[open] .faq-icon .minus { display: block; }
   .container { width: calc(100% - 40px); }
   .section-space { padding-block: 64px; }
   .eyebrow { margin-bottom: 20px; font-size: 10px; }
-  .brand { font-size: 20px; }
-  .brand-mark { width: 30px; height: 30px; }
+  .brand-logo { width: 176px; }
   .site-header > .container { gap: 12px; }
   .desktop-nav { gap: 8px 14px; }
   .desktop-nav a { font-size: 10px; }

@@ -116,10 +116,15 @@ main:focus {
 }
 
 .logo a {
-  font-size: 14px;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  display: inline-flex;
+  vertical-align: middle;
   text-decoration: none;
+}
+
+.brand-logo {
+  display: block;
+  width: 180px;
+  height: auto;
 }
 
 .legal-navigation {
@@ -299,6 +304,10 @@ footer {
   border-radius: 24px;
   padding: clamp(28px, 6vw, 64px);
   background: var(--surface);
+}
+
+.not-found-card .logo {
+  margin-bottom: 24px;
 }
 
 .not-found-code {

@@ -18,6 +18,8 @@ const pages = [
   { file: 'de/impressum/index.html', route: '/de/impressum/', lang: 'de', canonical: '/de/impressum/', noindex: true, alternate: '/legal-notice/' },
   { file: 'de/datenschutz/index.html', route: '/de/datenschutz/', lang: 'de', canonical: '/de/datenschutz/', noindex: true, alternate: '/privacy/' },
   { file: 'de/agb/index.html', route: '/de/agb/', lang: 'de', canonical: '/de/agb/', noindex: true, alternate: '/terms/' },
+  { file: 'flying-speaker-notes/index.html', route: '/flying-speaker-notes/', lang: 'en', canonical: '/flying-speaker-notes/', noindex: true, alternate: '/de/flying-speaker-notes/' },
+  { file: 'de/flying-speaker-notes/index.html', route: '/de/flying-speaker-notes/', lang: 'de', canonical: '/de/flying-speaker-notes/', noindex: true, alternate: '/flying-speaker-notes/' },
 ];
 
 const read = (relativePath) => readFileSync(path.join(root, relativePath), 'utf8');
@@ -52,9 +54,9 @@ for (const page of pages) {
     }
   }
 
-  const favicon = html.match(/<link\b[^>]*\brel=["']icon["'][^>]*>/i)?.[0] ?? '';
-  if (attribute(favicon, /<link\b[^>]*>/i, 'href') !== '/assets/images/favicon-32.png' && !page.indexable) {
-    fail(`${page.route}: missing standard favicon`);
+  const favicon = html.match(/<link\b(?=[^>]*\brel=["']icon["'])(?=[^>]*\btype=["']image\/svg\+xml["'])[^>]*>/i)?.[0] ?? '';
+  if (attribute(favicon, /<link\b[^>]*>/i, 'href') !== '/brand/max-sutter/web-icons/favicon.svg') {
+    fail(`${page.route}: missing brand favicon`);
   }
 
   if (page.indexable) {
