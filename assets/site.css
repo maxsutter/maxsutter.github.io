@@ -159,9 +159,6 @@ h1 em { display: inline-block; }
 .story-dialog-content { min-height: 0; padding: 38px 64px 16px; overflow-y: auto; overscroll-behavior: contain; }
 .story-dialog-footer { flex-shrink: 0; padding: 10px 24px; border-top: 1px solid var(--line); }
 .story-dialog-footer .story-return { margin-left: auto; }
-.about-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 48px 0 0; padding-block: 30px; border-block: 1px solid var(--line); }
-.about-facts dt { font-family: var(--serif); font-size: 25px; letter-spacing: -.025em; }
-.about-facts dd { margin: 7px 0 0; color: var(--muted); font-size: 11px; }
 .depth { display: grid; grid-template-columns: .8fr 1.2fr; gap: 95px; padding-top: 52px; }
 .depth .eyebrow { margin-bottom: 16px; }
 .depth h3 { max-width: 360px; margin-bottom: 0; font-family: var(--serif); font-size: 30px; line-height: 1.2; font-weight: 400; letter-spacing: -.025em; }
@@ -310,7 +307,6 @@ details[open] .faq-icon .minus { display: block; }
   .portrait-name { font-size: 25px; }
   .portrait-role { font-size: 10px; }
   .about-story .section-title { font-size: 37px; }
-  .about-facts dt { font-size: 22px; }
   .depth { gap: 40px; }
   .testimonial-list { grid-template-columns: 1fr; gap: 32px; }
   .testimonial-card { display: grid; grid-template-columns: 1fr 220px; gap: 40px; padding: 30px 0 0; border-top: 1px solid #c5bdaf; }
@@ -378,10 +374,6 @@ details[open] .faq-icon .minus { display: block; }
   .story-article > .eyebrow { font-size: 10px; }
   .story-article > .story-lede { font-size: 17px; }
   .story-article > .story-insight { padding-left: 18px; font-size: 26px; }
-  .about-facts { grid-template-columns: 1fr; gap: 24px; margin-top: 38px; }
-  .about-facts > div { display: grid; grid-template-columns: 1fr 1fr; align-items: baseline; gap: 20px; }
-  .about-facts dt { font-size: 22px; line-height: 1.2; }
-  .about-facts dd { margin: 0; font-size: 11px; }
   .depth { padding-top: 38px; gap: 24px; }
   .depth h3 { max-width: 340px; font-size: 31px; }
   .depth > p { font-size: 13px; }
