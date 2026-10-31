@@ -22,7 +22,7 @@ const landingPages = [
   },
   {
     route: '/de/', language: 'de', about: 'Über mich', email: 'E-Mail', role: 'Rolle und Organisation',
-    outcome: 'Was führt dich gerade hierher – und was möchtest du verändern?',
+    outcome: 'Was führt dich gerade hierher, und was möchtest du verändern?',
     submit: 'Kennenlerngespräch anfragen', retry: 'Erneut versuchen', resend: 'Trotzdem erneut senden', uncertain: 'kann bereits angekommen sein',
   },
 ];

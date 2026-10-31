@@ -59,15 +59,14 @@
       }
       if (event.key !== 'Tab') return;
       const focusable = [menuButton, ...menuLinks];
-      const first = focusable[0];
-      const last = focusable[focusable.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
+      const currentIndex = focusable.indexOf(document.activeElement);
+      const direction = event.shiftKey ? -1 : 1;
+      const nextIndex = currentIndex === -1
+        ? (event.shiftKey ? focusable.length - 1 : 0)
+        : (currentIndex + direction + focusable.length) % focusable.length;
+      // Keep every menu control reachable regardless of Safari's native tab preferences.
+      event.preventDefault();
+      focusable[nextIndex].focus();
     });
     window.addEventListener('resize', () => {
       if (window.innerWidth > 900) closeMenu();
@@ -185,7 +184,7 @@
   const messages = {
     en: {
       sending: 'Sending…',
-      error: 'Something went wrong. Your entries are still here — please try again.',
+      error: 'Something went wrong. Your entries are still here. Please try again.',
       uncertain: 'I couldn’t confirm whether your inquiry arrived. It may already have arrived. Your entries are still here. If you send it again, I may receive it twice.',
       resend: 'Send again anyway',
       retry: 'Try again',
@@ -193,7 +192,7 @@
     },
     de: {
       sending: 'Wird gesendet…',
-      error: 'Etwas ist schiefgelaufen. Deine Eingaben sind noch da — bitte versuche es erneut.',
+      error: 'Etwas ist schiefgelaufen. Deine Eingaben sind noch da. Bitte versuche es erneut.',
       uncertain: 'Ich konnte nicht bestätigen, ob deine Anfrage angekommen ist. Sie kann bereits angekommen sein. Deine Eingaben bleiben erhalten. Wenn du erneut sendest, kann deine Anfrage doppelt ankommen.',
       resend: 'Trotzdem erneut senden',
       retry: 'Erneut versuchen',
