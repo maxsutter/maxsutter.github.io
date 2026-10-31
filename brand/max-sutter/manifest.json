@@ -1,0 +1,183 @@
+{
+  "name": "max sutter",
+  "descriptor": "Executive Coaching & Facilitation",
+  "wordmark": {
+    "family": "Manrope",
+    "weight": 500,
+    "tracking_em": -0.03,
+    "case": "lowercase"
+  },
+  "descriptor_style": {
+    "family": "Manrope",
+    "weight": 400,
+    "tracking_em": 0.12,
+    "case": "uppercase",
+    "font_size_at_master_scale": 21.985458945869656
+  },
+  "colors": {
+    "ink_srgb": "#292722",
+    "black_srgb": "#000000",
+    "white_srgb": "#ffffff",
+    "print_CMYK": [
+      0,
+      0,
+      0,
+      100
+    ]
+  },
+  "icon_paths": 2,
+  "reference_silhouette_iou": 0.9857157432915009,
+  "source_font_url": "https://github.com/google/fonts/blob/main/ofl/manrope/Manrope%5Bwght%5D.ttf",
+  "font_sha256": "3ae11c49db0455a3cc33e37d380f20fdb8c7f8b41dc07625c177e3d87a9d6ae6",
+  "dimensions": {
+    "icon": {
+      "viewBox_width": 256,
+      "viewBox_height": 256
+    },
+    "horizontal": {
+      "viewBox_width": 678.7163832167555,
+      "viewBox_height": 144
+    },
+    "signature": {
+      "viewBox_width": 678.7163832167555,
+      "viewBox_height": 166.73909420940225
+    }
+  },
+  "exports": [
+    {
+      "path": "png/max-sutter-horizontal-4096.png",
+      "bytes": 104630,
+      "sha256": "13d18555fc7e33ef5d8542139d4f65b00ebd463183b67b8a576375bd4e959cda"
+    },
+    {
+      "path": "png/max-sutter-horizontal-white-4096.png",
+      "bytes": 80138,
+      "sha256": "01a1ef2f0dfe393addd80768fe2af8074f45bbda0e8fa784cf2d5df33dcbd029"
+    },
+    {
+      "path": "png/max-sutter-icon-2048.png",
+      "bytes": 64646,
+      "sha256": "7ca53a7a38258fc3c612a838b6ad7073ba2ec9058bf7b017002c330e55864acc"
+    },
+    {
+      "path": "png/max-sutter-icon-white-2048.png",
+      "bytes": 53127,
+      "sha256": "aaf264c84eb1ad99f87e91a0053003100a294f48008efaa805b74102a55ac471"
+    },
+    {
+      "path": "png/max-sutter-signature-4096.png",
+      "bytes": 152071,
+      "sha256": "e9183f6c3e431f776ff8408e1f0c58638b74eeaeeed73740c956e88b3145fbb2"
+    },
+    {
+      "path": "png/max-sutter-signature-white-4096.png",
+      "bytes": 114487,
+      "sha256": "b2d6a2ab0110fc4a5e8b7e32a93654ddbdcb992da60267af6ba203684a122332"
+    },
+    {
+      "path": "print/max-sutter-horizontal-K100.pdf",
+      "bytes": 6427,
+      "sha256": "3d0e844da66bde9adb2055227abea078b37a4fde13856898f578ca2e54ebda9e"
+    },
+    {
+      "path": "print/max-sutter-icon-K100.pdf",
+      "bytes": 2174,
+      "sha256": "c52467811a5eaaf8894bdb0381621dd295264897dcf866a749e4dbef6d998b1b"
+    },
+    {
+      "path": "print/max-sutter-signature-K100.pdf",
+      "bytes": 13433,
+      "sha256": "278ab727d8a76a55bdc3f43d704777a8af5c986bcb20426c89460ebb53140997"
+    },
+    {
+      "path": "svg/max-sutter-horizontal-black.svg",
+      "bytes": 6993,
+      "sha256": "18011a300e39a229583fcefc7bc9bdf5eb2643edaa52d2e97e78b87bd4e8c2c3"
+    },
+    {
+      "path": "svg/max-sutter-horizontal-white.svg",
+      "bytes": 6993,
+      "sha256": "62c756b5eb8ba6442898579df0f2d47f61caf309939333a24db88217b64e79fb"
+    },
+    {
+      "path": "svg/max-sutter-horizontal.svg",
+      "bytes": 6993,
+      "sha256": "1e5a763b928acf2b1cf241392e70a1637f9f5ddd46cbc9174aabdf617ca3d64e"
+    },
+    {
+      "path": "svg/max-sutter-icon-black.svg",
+      "bytes": 1485,
+      "sha256": "482c5fc5cf4df6c5b0df71e5e373ffcaa578c4c4fde3de5520a51b395919318a"
+    },
+    {
+      "path": "svg/max-sutter-icon-white.svg",
+      "bytes": 1485,
+      "sha256": "8036bb778f587d500616c81b14e7ebd04071e94af421abaaf9db4b926c07b20b"
+    },
+    {
+      "path": "svg/max-sutter-icon.svg",
+      "bytes": 1485,
+      "sha256": "bf88f54affed43a197b0c028cd5f859d621ad8b335fa121e0eb2a90e3cf34fc7"
+    },
+    {
+      "path": "svg/max-sutter-signature-black.svg",
+      "bytes": 17607,
+      "sha256": "c31de65bf8660c8a54a5c2d694839afd6179de5ed86b96a8dc98953b2c96611a"
+    },
+    {
+      "path": "svg/max-sutter-signature-white.svg",
+      "bytes": 17607,
+      "sha256": "287bcc93fd7a9b456291b4ae2c902a7150adc10d2b87f798a3edbf2b0441f9f0"
+    },
+    {
+      "path": "svg/max-sutter-signature.svg",
+      "bytes": 17607,
+      "sha256": "aebbafe2099027eb8163b517e62f24bc34ffc93b5ed6d602ac7b94049c7b2f63"
+    },
+    {
+      "path": "web-icons/apple-touch-icon.png",
+      "bytes": 4095,
+      "sha256": "4df54a5552d81d1721f157ba4195b600a8e610edbf3886f54d41d4491411ddba"
+    },
+    {
+      "path": "web-icons/favicon.ico",
+      "bytes": 3515,
+      "sha256": "12a6c8a8a5ef9829a6c686abcb284535b088c69e5e8724e4da1a94552913738b"
+    },
+    {
+      "path": "web-icons/favicon.svg",
+      "bytes": 1571,
+      "sha256": "29b2ae25d2f3c96401be3dfe30b9e430d9caf2681eb5e3735af940229df0adb2"
+    },
+    {
+      "path": "web-icons/icon-16.png",
+      "bytes": 385,
+      "sha256": "4e1bf6ad3f852011fb039dee40aa0d2163eb318d82275c1580b1fce0bc03daa5"
+    },
+    {
+      "path": "web-icons/icon-180.png",
+      "bytes": 4016,
+      "sha256": "dd1715d8cbb29cd9b3851f3125e01b04b0050d2b442104a22dda1dffb6029855"
+    },
+    {
+      "path": "web-icons/icon-192.png",
+      "bytes": 4309,
+      "sha256": "284fe220ebcbaef70eca3c922a46812dc6b40288d5058ff62ba930dc82b4e6ca"
+    },
+    {
+      "path": "web-icons/icon-32.png",
+      "bytes": 753,
+      "sha256": "904069818d2b344c00b0fcac3b7bf1f059b904af19c1330f8d3b3d0c2854f060"
+    },
+    {
+      "path": "web-icons/icon-48.png",
+      "bytes": 1108,
+      "sha256": "817e9f98b9eee1b6125333fd8279ae00ada6f07a0ec9dfdb127cf9b3f8e63f48"
+    },
+    {
+      "path": "web-icons/icon-512.png",
+      "bytes": 12675,
+      "sha256": "1745c16e630eae8b69cf0c3243cc268fc1525d63431a34c997f48032a0b308e3"
+    }
+  ]
+}
