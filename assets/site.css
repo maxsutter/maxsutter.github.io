@@ -32,7 +32,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-body.menu-open { overflow: hidden; }
+body.menu-open, body.story-open { overflow: hidden; }
 img { display: block; max-width: 100%; height: auto; }
 figure, blockquote { margin: 0; }
 button, input, textarea { font: inherit; }
@@ -138,6 +138,27 @@ h1 em { display: inline-block; }
 .about-story .section-title { font-size: clamp(38px, 3.5vw, 51px); }
 .about-story > p:not(.eyebrow) { margin: 21px 0 0; color: var(--muted); font-size: 14px; }
 .about-story > .about-intro { color: var(--ink) !important; font-size: 19px !important; line-height: 1.6; }
+.personal-story { margin-top: 26px; }
+.story-trigger, .story-return { display: flex; align-items: center; justify-content: space-between; gap: 28px; width: fit-content; min-height: 44px; padding: 8px 0; border: 0; border-bottom: 1px solid var(--accent); background: transparent; color: var(--accent); font-size: 13px; font-weight: 700; list-style: none; }
+.story-trigger::-webkit-details-marker { display: none; }
+.story-trigger:hover, .story-return:hover { color: var(--ink); border-color: var(--ink); }
+.personal-story[open] > .story-article { margin-top: 30px; padding-top: 30px; border-top: 1px solid var(--line); }
+.story-article h3 { margin: 0 0 28px; font-family: var(--serif); font-size: clamp(32px, 4vw, 46px); font-weight: 400; line-height: 1.15; letter-spacing: -.035em; }
+.story-article .story-pointer-focus:focus { outline: none; }
+.story-article h4 { margin: 38px 0 18px; font-family: var(--serif); font-size: 27px; font-weight: 400; line-height: 1.25; letter-spacing: -.02em; }
+.story-article > p { margin: 0 0 22px; font-size: 16px; line-height: 1.85; }
+.story-article > .eyebrow { margin-bottom: 18px; font-size: 11px; }
+.story-article > .story-lede { color: var(--muted); font-size: 18px; line-height: 1.7; }
+.story-article > .story-insight { margin-block: 32px; padding-left: 24px; border-left: 2px solid var(--accent); color: var(--accent); font-family: var(--serif); font-size: 29px; line-height: 1.35; }
+.story-dialog { width: min(820px, calc(100% - 48px)); max-width: none; max-height: calc(100dvh - 64px); margin: auto; padding: 0; border: 1px solid var(--line); background: var(--paper); color: var(--ink); overflow: hidden; box-shadow: 0 24px 80px rgb(30 20 15 / .2); }
+.story-dialog[open] { display: flex; flex-direction: column; }
+.story-dialog::backdrop { background: rgb(30 25 20 / .55); backdrop-filter: blur(4px); }
+.story-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-shrink: 0; padding: 14px 24px; border-bottom: 1px solid var(--line); font-size: 12px; }
+.story-close { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); background: transparent; color: var(--ink); font-size: 28px; font-weight: 400; line-height: 1; }
+.story-close:hover { background: var(--paper-deep); }
+.story-dialog-content { min-height: 0; padding: 38px 64px 16px; overflow-y: auto; overscroll-behavior: contain; }
+.story-dialog-footer { flex-shrink: 0; padding: 10px 24px; border-top: 1px solid var(--line); }
+.story-dialog-footer .story-return { margin-left: auto; }
 .about-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 48px 0 0; padding-block: 30px; border-block: 1px solid var(--line); }
 .about-facts dt { font-family: var(--serif); font-size: 25px; letter-spacing: -.025em; }
 .about-facts dd { margin: 7px 0 0; color: var(--muted); font-size: 11px; }
@@ -349,6 +370,14 @@ details[open] .faq-icon .minus { display: block; }
   .work-steps p { font-size: 13px; }
   .about-portrait { max-width: 380px; margin-inline: auto; }
   .about-story > .about-intro { font-size: 18px !important; }
+  .story-dialog { width: calc(100% - 20px); max-height: calc(100dvh - 24px); }
+  .story-dialog-header { padding: 10px 16px; }
+  .story-dialog-content { padding: 28px 22px 8px; }
+  .story-dialog-footer { padding: 8px 16px; }
+  .story-article > p { font-size: 15px; line-height: 1.8; }
+  .story-article > .eyebrow { font-size: 10px; }
+  .story-article > .story-lede { font-size: 17px; }
+  .story-article > .story-insight { padding-left: 18px; font-size: 26px; }
   .about-facts { grid-template-columns: 1fr; gap: 24px; margin-top: 38px; }
   .about-facts > div { display: grid; grid-template-columns: 1fr 1fr; align-items: baseline; gap: 20px; }
   .about-facts dt { font-size: 22px; line-height: 1.2; }

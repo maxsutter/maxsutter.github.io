@@ -100,6 +100,50 @@
     });
   }
 
+  const story = document.querySelector('.personal-story');
+  const storyDialog = document.querySelector('#story-dialog');
+  if (story && storyDialog && typeof storyDialog.showModal === 'function') {
+    const trigger = story.querySelector('summary');
+    const article = story.querySelector('.story-article');
+    const title = article.querySelector('h3');
+    const content = storyDialog.querySelector('[data-story-content]');
+    let backdropPointerDown = false;
+
+    // Move the same article into the dialog; without JS it stays readable inline.
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    trigger.setAttribute('aria-controls', storyDialog.id);
+    trigger.addEventListener('click', (event) => {
+      event.preventDefault();
+      content.append(article);
+      storyDialog.showModal();
+      document.body.classList.add('story-open');
+      content.scrollTop = 0;
+      title.classList.toggle('story-pointer-focus', event.detail > 0);
+      title.focus({ preventScroll: true });
+    });
+    storyDialog.querySelectorAll('[data-story-close]').forEach((button) => {
+      button.addEventListener('click', () => storyDialog.close());
+    });
+    storyDialog.addEventListener('close', () => {
+      document.body.classList.remove('story-open');
+      story.append(article);
+      story.open = false;
+      trigger.focus({ preventScroll: true });
+    });
+    const outsideDialog = (event) => {
+      const bounds = storyDialog.getBoundingClientRect();
+      return event.clientX < bounds.left || event.clientX > bounds.right
+        || event.clientY < bounds.top || event.clientY > bounds.bottom;
+    };
+    storyDialog.addEventListener('pointerdown', (event) => {
+      backdropPointerDown = event.target === storyDialog && outsideDialog(event);
+    });
+    storyDialog.addEventListener('click', (event) => {
+      if (backdropPointerDown && event.target === storyDialog && outsideDialog(event)) storyDialog.close();
+      backdropPointerDown = false;
+    });
+  }
+
   const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const faqItems = Array.from(document.querySelectorAll('.faq details'));
   const faqAnimations = new WeakMap();
