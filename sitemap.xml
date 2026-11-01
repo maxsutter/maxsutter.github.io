@@ -13,4 +13,16 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://maxsutter.de/de/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://maxsutter.de/" />
   </url>
+  <url>
+    <loc>https://maxsutter.de/team-offsites/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maxsutter.de/team-offsites/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://maxsutter.de/de/teams-offsites/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maxsutter.de/team-offsites/" />
+  </url>
+  <url>
+    <loc>https://maxsutter.de/de/teams-offsites/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://maxsutter.de/team-offsites/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://maxsutter.de/de/teams-offsites/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://maxsutter.de/team-offsites/" />
+  </url>
 </urlset>

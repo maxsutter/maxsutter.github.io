@@ -8,8 +8,10 @@ const productionOrigin = 'https://maxsutter.de';
 const errors = [];
 
 const pages = [
-  { file: 'index.html', route: '/', lang: 'en', canonical: '/', indexable: true },
-  { file: 'de/index.html', route: '/de/', lang: 'de', canonical: '/de/', indexable: true },
+  { file: 'index.html', route: '/', lang: 'en', canonical: '/', indexable: true, alternate: '/de/' },
+  { file: 'de/index.html', route: '/de/', lang: 'de', canonical: '/de/', indexable: true, alternate: '/' },
+  { file: 'team-offsites/index.html', route: '/team-offsites/', lang: 'en', canonical: '/team-offsites/', indexable: true, alternate: '/de/teams-offsites/' },
+  { file: 'de/teams-offsites/index.html', route: '/de/teams-offsites/', lang: 'de', canonical: '/de/teams-offsites/', indexable: true, alternate: '/team-offsites/' },
   { file: '404.html', route: '/404.html', lang: 'en', noindex: true, bilingual: true },
   { file: 'agb/index.html', route: '/agb/', lang: 'de', canonical: '/de/agb/', noindex: true },
   { file: 'legal-notice/index.html', route: '/legal-notice/', lang: 'en', canonical: '/legal-notice/', noindex: true, alternate: '/de/impressum/' },
@@ -24,6 +26,11 @@ const pages = [
 
 const read = (relativePath) => readFileSync(path.join(root, relativePath), 'utf8');
 const fail = (message) => errors.push(message);
+const languageAlternates = (page) => ({
+  en: `${productionOrigin}${page.lang === 'en' ? page.route : page.alternate}`,
+  de: `${productionOrigin}${page.lang === 'de' ? page.route : page.alternate}`,
+  'x-default': `${productionOrigin}${page.lang === 'en' ? page.route : page.alternate}`,
+});
 const attribute = (html, tagPattern, name) => {
   const tag = html.match(tagPattern)?.[0] ?? '';
   return tag.match(new RegExp(`\\b${name}=["']([^"']+)["']`, 'i'))?.[1] ?? '';
@@ -60,11 +67,7 @@ for (const page of pages) {
   }
 
   if (page.indexable) {
-    const expectedAlternates = {
-      en: `${productionOrigin}/`,
-      de: `${productionOrigin}/de/`,
-      'x-default': `${productionOrigin}/`,
-    };
+    const expectedAlternates = languageAlternates(page);
     for (const [lang, href] of Object.entries(expectedAlternates)) {
       const alternate = html.match(new RegExp(`<link\\b(?=[^>]*\\brel=["']alternate["'])(?=[^>]*\\bhreflang=["']${lang}["'])[^>]*>`, 'i'))?.[0] ?? '';
       if (attribute(alternate, /<link\b[^>]*>/i, 'href') !== href) fail(`${page.route}: missing or incorrect ${lang} alternate`);
@@ -137,9 +140,9 @@ for (const file of [...productionFiles, 'assets/site.js', 'main.js']) {
   }
 }
 
-const landingHtml = ['index.html', 'de/index.html'].map(read);
+const landingHtml = pages.filter((page) => page.indexable).map((page) => read(page.file));
 const endpoints = landingHtml.map((html) => attribute(html, /<form\b[^>]*\bdata-contact-form[^>]*>/i, 'action'));
-if (!endpoints[0] || endpoints[0] !== endpoints[1]) fail('landing forms must use one identical non-empty endpoint');
+if (!endpoints[0] || endpoints.some((endpoint) => endpoint !== endpoints[0])) fail('landing forms must use one identical non-empty endpoint');
 
 const privacyReleaseBlockers = [
   /legal basis\s*[–-]\s*draft/i,
@@ -157,12 +160,18 @@ for (const privacyFile of ['privacy/index.html', 'de/datenschutz/index.html']) {
 }
 
 const sitemap = read('sitemap.xml');
+const indexablePages = pages.filter((page) => page.indexable);
 const sitemapLocations = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-if (JSON.stringify(sitemapLocations) !== JSON.stringify([`${productionOrigin}/`, `${productionOrigin}/de/`])) {
+if (JSON.stringify(sitemapLocations) !== JSON.stringify(indexablePages.map((page) => `${productionOrigin}${page.route}`))) {
   fail(`sitemap locations mismatch: ${sitemapLocations.join(', ')}`);
 }
-if (!sitemap.includes('hreflang="en"') || !sitemap.includes('hreflang="de"') || !sitemap.includes('hreflang="x-default"')) {
-  fail('sitemap is missing language alternates');
+for (const page of indexablePages) {
+  const entry = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)]
+    .find((match) => match[1].includes(`<loc>${productionOrigin}${page.route}</loc>`))?.[1] ?? '';
+  for (const [lang, href] of Object.entries(languageAlternates(page))) {
+    const link = entry.match(new RegExp(`<xhtml:link\\b(?=[^>]*\\bhreflang="${lang}")[^>]*>`))?.[0] ?? '';
+    if (attribute(link, /<xhtml:link\b[^>]*>/, 'href') !== href) fail(`${page.route}: sitemap ${lang} alternate mismatch`);
+  }
 }
 
 const robots = read('robots.txt');

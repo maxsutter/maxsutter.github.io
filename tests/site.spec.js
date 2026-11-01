@@ -10,6 +10,8 @@ const routes = [
   '/de/impressum/',
   '/de/datenschutz/',
   '/de/agb/',
+  '/team-offsites/',
+  '/de/teams-offsites/',
 ];
 
 const formEndpoint = 'https://formcarry.com/s/c037Ctr8vBU';
@@ -25,6 +27,20 @@ const landingPages = [
     route: '/de/', language: 'de', about: 'Über mich', email: 'E-Mail', role: 'Rolle und Organisation (optional)',
     outcome: 'Was führt dich gerade hierher, und was möchtest du verändern?',
     submit: 'Kennenlerngespräch anfragen', retry: 'Erneut versuchen', resend: 'Trotzdem erneut senden', uncertain: 'kann bereits angekommen sein',
+  },
+];
+
+const contactPages = [
+  ...landingPages,
+  {
+    ...landingPages[0], route: '/team-offsites/',
+    outcome: 'What is happening in your team, and what would you like to work on?',
+    submit: 'Discuss your team offsite',
+  },
+  {
+    ...landingPages[1], route: '/de/teams-offsites/',
+    outcome: 'Was beschäftigt euer Team, und woran möchtet ihr arbeiten?',
+    submit: 'Euer Offsite besprechen',
   },
 ];
 
@@ -86,7 +102,7 @@ for (const route of routes) {
 test('legal routes reflow without horizontal scrolling at 320px', async ({ page }) => {
   await page.setViewportSize({ width: 320, height: 800 });
 
-  for (const route of routes.slice(3)) {
+  for (const route of routes.slice(3, 9)) {
     await page.goto(route);
     const dimensions = await page.evaluate(() => ({
       viewportWidth: window.innerWidth,
@@ -127,7 +143,7 @@ for (const copy of landingPages) {
     } else {
       const nav = page.locator('.desktop-nav');
       await expect(nav).toBeVisible();
-      for (const anchor of ['coaching', 'about', 'partnership', 'get-in-touch']) {
+      for (const anchor of ['coaching', 'about', 'get-in-touch']) {
         await nav.locator(`a[href="#${anchor}"]`).click();
         await expect(page).toHaveURL(new RegExp(`#${anchor}$`));
         await expect(page.locator(`#${anchor}`)).toBeInViewport();
@@ -232,7 +248,7 @@ test('legal routes expose the expected language counterpart', async ({ page }) =
   }
 });
 
-for (const copy of landingPages) {
+for (const copy of contactPages) {
   test(`${copy.route} an inquiry does not require a role or organization`, async ({ page }) => {
     let requests = 0;
     await page.route(formEndpoint, async (route) => {

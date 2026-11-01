@@ -5,6 +5,8 @@ module.exports = {
       url: [
         'http://localhost/',
         'http://localhost/de/',
+        'http://localhost/team-offsites/',
+        'http://localhost/de/teams-offsites/',
       ],
       numberOfRuns: 3,
       settings: {
