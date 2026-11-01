@@ -229,6 +229,7 @@ details[open] .faq-icon .minus { display: block; }
 .contact .section-title { font-size: clamp(46px, 4.8vw, 68px); }
 .contact .section-title em { color: #e9b493; }
 .contact-intro { max-width: 405px; margin: 32px 0 0; color: var(--light-muted); font-size: 16px; }
+.contact-note { max-width: 320px; margin: 40px 0 0; color: #e9b493; font-family: var(--serif); font-size: 25px; font-style: italic; line-height: 1.35; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px 20px; }
 .field { min-width: 0; }
 .field-wide { grid-column: 1 / -1; }
@@ -344,8 +345,8 @@ details[open] .faq-icon .minus { display: block; }
   .desktop-nav .language-link { padding-left: 12px; }
   .hero-grid { min-height: 0; padding-block: 160px 32px; }
   .hero-copy { width: 100%; max-width: none; }
-  .hero-media { bottom: auto; height: 300px; }
-  .hero-media img { object-position: 74% top; }
+  .hero-media { bottom: auto; height: 300px; overflow: hidden; }
+  .hero-media img { object-position: 74% top; transform: translateY(-64px); }
   .hero::after { background: linear-gradient(180deg, rgb(245 242 235 / 0) 100px, rgb(245 242 235 / .1) 130px, rgb(245 242 235 / .95) 190px, var(--paper) 245px); }
   .hero h1 { font-size: clamp(38px, 10.6vw, 60px); margin-bottom: 20px; }
   .hero .eyebrow { margin-bottom: 14px; font-size: 11px; letter-spacing: .08em; }
@@ -416,6 +417,7 @@ details[open] .faq-icon .minus { display: block; }
   .faq-answer p { font-size: 16px; }
   .contact .section-title { font-size: clamp(36px, 10vw, 46px); }
   .contact-intro { margin-top: 22px; font-size: 16px; }
+  .contact-note { margin-top: 28px; font-size: 24px; }
   .form-grid { grid-template-columns: 1fr; gap: 22px; }
   .field input, .field textarea { font-size: 16px; }
   .submit-button { font-size: 14px; padding-inline: 17px; }
