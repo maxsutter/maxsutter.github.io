@@ -3,9 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isFullyCrawlableRobotsPolicy } from './robots-policy.mjs';
 
-const root = process.argv[2]
-  ? path.resolve(process.argv[2])
-  : path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const productionOrigin = 'https://maxsutter.de';
 const errors = [];
 

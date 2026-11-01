@@ -11,28 +11,6 @@ causes startup to fail. Press Ctrl+C to stop the server.
 For the existing quality checks, install Node.js as specified in `package.json`
 and run `npm ci` once. The checks are listed in `package.json`.
 
-## Publication
-
-`npm run build` creates a clean `dist/` directory from the explicit file allowlist
-in `tools/build-site.mjs`, then validates its routes and local references.
-Add new public pages and assets to that list. Internal documents, tests,
-development tools, original photos and unlisted files are never copied.
-The Flying Speaker Notes download, checksum and build metadata remain included.
-Browser and Lighthouse checks run against `dist/`.
-The browser suite starts its own server and refuses to reuse an occupied port.
-If another task uses 4173, run `SITE_TEST_PORT=4174 npm run test:ci` with a free port.
-
-GitHub Pages must use **Settings → Pages → Build and deployment → Source →
-GitHub Actions**. The workflow checks the site before uploading only `dist/`
-and deploying on `main`. Pull requests never deploy. Switching the repository
-setting is a one-time release step before the first authorized push to `main`
-containing this workflow. This prevents a parallel legacy build from publishing
-the repository root. Until that setting changes, branch-based publication is
-still active.
-
-For a local check of the exact publication, run `npm run build`, then
-`./dev --published`. Port selection and `--port` behave as described above.
-
 ## Dependency maintenance
 
 Direct development dependencies are pinned to current stable versions. The
