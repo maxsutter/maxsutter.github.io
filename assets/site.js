@@ -290,6 +290,14 @@
         setStatus(copy.error, 'error');
         return;
       }
+      const result = await response.json();
+      if (result?.code !== 200) {
+        // A missing provider status leaves delivery uncertain; do not encourage an unqualified retry.
+        const rejected = typeof result?.code === 'number';
+        labelAfterRequest = rejected ? copy.retry : copy.resend;
+        setStatus(rejected ? copy.error : copy.uncertain, rejected ? 'error' : 'uncertain');
+        return;
+      }
       hasSubmitted = true;
     } catch (_) {
       labelAfterRequest = copy.resend;
