@@ -16,12 +16,12 @@ const formEndpoint = 'https://formcarry.com/s/c037Ctr8vBU';
 
 const landingPages = [
   {
-    route: '/', language: 'en', about: 'About me', email: 'Email', role: 'Role and organization',
+    route: '/', language: 'en', about: 'About me', email: 'Email', role: 'Role and organization (optional)',
     outcome: 'What brings you here, and what would you like to change?',
     submit: 'Request an intro call', retry: 'Try again', resend: 'Send again anyway', uncertain: 'may already have arrived',
   },
   {
-    route: '/de/', language: 'de', about: 'Über mich', email: 'E-Mail', role: 'Rolle und Organisation',
+    route: '/de/', language: 'de', about: 'Über mich', email: 'E-Mail', role: 'Rolle und Organisation (optional)',
     outcome: 'Was führt dich gerade hierher, und was möchtest du verändern?',
     submit: 'Kennenlerngespräch anfragen', retry: 'Erneut versuchen', resend: 'Trotzdem erneut senden', uncertain: 'kann bereits angekommen sein',
   },
@@ -46,7 +46,7 @@ test('/agb redirects to the German terms page', async ({ page }) => {
 });
 
 for (const route of routes) {
-  test(`${route} loads without local errors or overflow`, async ({ page }) => {
+  test(`${route} loads without local errors or overflow`, async ({ page, baseURL }) => {
     const consoleErrors = [];
     const pageErrors = [];
     const failedLocalResponses = [];
@@ -57,7 +57,7 @@ for (const route of routes) {
     page.on('pageerror', (error) => pageErrors.push(error.message));
     page.on('response', (response) => {
       const url = new URL(response.url());
-      if (url.origin === 'http://127.0.0.1:4173' && response.status() >= 400) {
+      if (url.origin === new URL(baseURL).origin && response.status() >= 400) {
         failedLocalResponses.push(`${response.status()} ${url.pathname}`);
       }
     });
@@ -232,6 +232,20 @@ test('legal routes expose the expected language counterpart', async ({ page }) =
 });
 
 for (const copy of landingPages) {
+  test(`${copy.route} an inquiry does not require a role or organization`, async ({ page }) => {
+    let requests = 0;
+    await page.route(formEndpoint, async (route) => {
+      requests += 1;
+      await route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+    });
+    await page.goto(copy.route);
+    await fillInquiry(page, copy);
+    await page.getByLabel(copy.role, { exact: true }).fill('');
+    await page.getByRole('button', { name: copy.submit, exact: true }).click();
+    await expect(page.locator('[data-form-confirmation]')).toBeVisible();
+    expect(requests).toBe(1);
+  });
+
   test(`${copy.route} form validates required fields before sending`, async ({ page }) => {
     let requestCount = 0;
     await page.route(formEndpoint, (route) => {
@@ -254,7 +268,7 @@ for (const copy of landingPages) {
     await expect(page.locator('[data-contact-form]')).not.toHaveAttribute('aria-busy', 'true');
   });
 
-  test(`${copy.route} form success sends one sanitized request`, async ({ page }) => {
+  test(`${copy.route} form success sends one sanitized request`, async ({ page, baseURL }) => {
     let requestCount = 0;
     let submittedBody = '';
     await page.route(formEndpoint, async (route) => {
@@ -286,7 +300,7 @@ for (const copy of landingPages) {
     expect(submittedBody).toContain(`name="language"\r\n\r\n${copy.language}`);
     expect(submittedBody).toContain('CEO, Test GmbH');
     expect(submittedBody).toContain('Test coaching inquiry');
-    expect(submittedBody).toContain(`http://127.0.0.1:4173${copy.route}`);
+    expect(submittedBody).toContain(`${baseURL}${copy.route}`);
     expect(submittedBody).not.toContain('utm_source');
     expect(submittedBody).not.toContain('get-in-touch');
     expect(submittedBody).not.toContain('name="readiness"');
