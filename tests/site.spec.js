@@ -46,8 +46,22 @@ test('/agb redirects to the German terms page', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Allgemeine Geschäftsbedingungen' })).toBeVisible();
 });
 
+test('publication serves the app page but excludes internal documents and source originals', async ({ request }) => {
+  const appPage = await request.get('/flying-speaker-notes/');
+  expect(appPage.ok()).toBe(true);
+  expect(await appPage.text()).toContain('/downloads/flying-speaker-notes/Flying-Speaker-Notes-Apple-Silicon.dmg');
+  for (const route of [
+    '/cutover-checklist.md', '/preview-test-report.md', '/package.json',
+    '/tools/build-site.mjs', '/tests/site.spec.js', '/.git/config',
+    '/brand/max-sutter/source/build.py',
+    '/assets/images/2025-11_Fotoshooting_Max_Exec_Coaching_Website/20251030_MSonntag-MAX-SUTTER_DSC3817.jpg',
+  ]) {
+    expect((await request.get(route)).status(), route).toBe(404);
+  }
+});
+
 for (const route of routes) {
-  test(`${route} loads without local errors or overflow`, async ({ page }) => {
+  test(`${route} loads without local errors or overflow`, async ({ page, baseURL }) => {
     const consoleErrors = [];
     const pageErrors = [];
     const failedLocalResponses = [];
@@ -58,7 +72,7 @@ for (const route of routes) {
     page.on('pageerror', (error) => pageErrors.push(error.message));
     page.on('response', (response) => {
       const url = new URL(response.url());
-      if (url.origin === 'http://127.0.0.1:4173' && response.status() >= 400) {
+      if (url.origin === baseURL && response.status() >= 400) {
         failedLocalResponses.push(`${response.status()} ${url.pathname}`);
       }
     });
@@ -255,7 +269,7 @@ for (const copy of landingPages) {
     await expect(page.locator('[data-contact-form]')).not.toHaveAttribute('aria-busy', 'true');
   });
 
-  test(`${copy.route} form success sends one sanitized request`, async ({ page }) => {
+  test(`${copy.route} form success sends one sanitized request`, async ({ page, baseURL }) => {
     let requestCount = 0;
     let submittedBody = '';
     await page.route(formEndpoint, async (route) => {
@@ -287,7 +301,7 @@ for (const copy of landingPages) {
     expect(submittedBody).toContain(`name="language"\r\n\r\n${copy.language}`);
     expect(submittedBody).toContain('CEO, Test GmbH');
     expect(submittedBody).toContain('Test coaching inquiry');
-    expect(submittedBody).toContain(`http://127.0.0.1:4173${copy.route}`);
+    expect(submittedBody).toContain(`${baseURL}${copy.route}`);
     expect(submittedBody).not.toContain('utm_source');
     expect(submittedBody).not.toContain('get-in-touch');
     expect(submittedBody).not.toContain('name="readiness"');

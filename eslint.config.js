@@ -1,4 +1,4 @@
-import eslintComments from 'eslint-plugin-eslint-comments';
+import eslintComments from '@eslint-community/eslint-plugin-eslint-comments';
 
 const browserGlobals = {
   AbortController: 'readonly',
