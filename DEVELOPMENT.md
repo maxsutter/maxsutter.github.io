@@ -10,3 +10,19 @@ causes startup to fail. Press Ctrl+C to stop the server.
 
 For the existing quality checks, install Node.js as specified in `package.json`
 and run `npm ci` once. The checks are listed in `package.json`.
+
+## Dependency maintenance
+
+Direct development dependencies are pinned to current stable versions. The
+maintained `@eslint-community/eslint-plugin-eslint-comments` preserves the
+existing lint rule with ESLint 10.
+
+The `overrides` in `package.json` select fixed transitive releases while upstream
+tools still depend on vulnerable versions: Lighthouse, chrome-launcher,
+basic-ftp, tmp, minimatch, modern glob and uuid. Updating chrome-launcher removes
+legacy rimraf/glob rather than pairing their old API with modern minimatch.
+Lighthouse CI's `Launcher.getInstallations()` API remains available; Node 24
+can load the newer ES module from CommonJS. uuid 11.1.1 preserves the CommonJS API.
+Recheck these constraints when updating Lighthouse CI, then run `npm audit` and
+the full `npm run test:ci` suite. Remove overrides when the upstream ranges
+include the fixed versions.

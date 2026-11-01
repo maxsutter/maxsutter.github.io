@@ -13,6 +13,7 @@ const routes = [
 ];
 
 const formEndpoint = 'https://formcarry.com/s/c037Ctr8vBU';
+const formSuccess = JSON.stringify({ code: 200, status: 'success' });
 
 const landingPages = [
   {
@@ -236,7 +237,7 @@ for (const copy of landingPages) {
     let requests = 0;
     await page.route(formEndpoint, async (route) => {
       requests += 1;
-      await route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+      await route.fulfill({ status: 200, contentType: 'application/json', body: formSuccess });
     });
     await page.goto(copy.route);
     await fillInquiry(page, copy);
@@ -250,7 +251,7 @@ for (const copy of landingPages) {
     let requestCount = 0;
     await page.route(formEndpoint, (route) => {
       requestCount += 1;
-      return route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+      return route.fulfill({ status: 200, contentType: 'application/json', body: formSuccess });
     });
     await page.goto(copy.route);
     const submit = page.getByRole('button', { name: copy.submit, exact: true });
@@ -275,7 +276,7 @@ for (const copy of landingPages) {
       requestCount += 1;
       submittedBody = route.request().postData() ?? '';
       await new Promise((resolve) => setTimeout(resolve, 200));
-      await route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+      await route.fulfill({ status: 200, contentType: 'application/json', body: formSuccess });
     });
     await page.goto(`${copy.route}?utm_source=ci#get-in-touch`);
     await fillInquiry(page, copy);
@@ -309,7 +310,7 @@ for (const copy of landingPages) {
   test(`${copy.route} form failures preserve values and allow manual retry`, async ({ page }) => {
     let shouldSucceed = false;
     await page.route(formEndpoint, (route) => route.fulfill({
-      status: shouldSucceed ? 200 : 500, contentType: 'application/json', body: '{}',
+      status: shouldSucceed ? 200 : 500, contentType: 'application/json', body: shouldSucceed ? formSuccess : '{}',
     }));
     await page.goto(copy.route);
     await fillInquiry(page, copy);
@@ -323,13 +324,52 @@ for (const copy of landingPages) {
     await expect(page.locator('[data-form-confirmation]')).toBeVisible();
   });
 
+  for (const response of [
+    { name: 'validation rejection', body: JSON.stringify({ code: 422, message: 'Validation failed' }), rejected: true },
+    { name: 'missing status', body: '{}' },
+    { name: 'null response', body: 'null' },
+    { name: 'string status', body: JSON.stringify({ code: '200' }) },
+    { name: 'invalid JSON', body: '<html>Unexpected response</html>' },
+  ]) {
+    test(`${copy.route} Formcarry ${response.name} preserves inputs until a confirmed retry`, async ({ page }) => {
+      let requestCount = 0;
+      await page.route(formEndpoint, (route) => {
+        requestCount += 1;
+        return route.fulfill({
+          status: 200, contentType: 'application/json', body: requestCount === 1 ? response.body : formSuccess,
+        });
+      });
+      await page.goto(copy.route);
+      await fillInquiry(page, copy);
+      await page.getByRole('button', { name: copy.submit, exact: true }).click();
+
+      const status = page.locator('[data-form-status]');
+      await expect(status).toHaveClass(response.rejected ? /is-error/ : /is-uncertain/);
+      if (!response.rejected) await expect(status).toContainText(copy.uncertain);
+      await expect(page.locator('[data-form-confirmation]')).toBeHidden();
+      await expect(page.locator('[data-contact-form]')).not.toHaveAttribute('aria-busy', 'true');
+      await expect(page.getByLabel('Name', { exact: true })).toHaveValue('Test User');
+      await expect(page.getByLabel(copy.email, { exact: true })).toHaveValue('test@example.com');
+      await expect(page.getByLabel(copy.role, { exact: true })).toHaveValue('CEO, Test GmbH');
+      await expect(page.getByLabel(copy.outcome, { exact: true })).toHaveValue('Test coaching inquiry');
+      const retry = page.getByRole('button', { name: response.rejected ? copy.retry : copy.resend, exact: true });
+      await expect(retry).toBeEnabled();
+      expect(requestCount).toBe(1);
+
+      await retry.click();
+      await expect(page.locator('[data-form-confirmation]')).toBeVisible();
+      await expect(page.locator('[data-contact-form]')).toBeHidden();
+      expect(requestCount).toBe(2);
+    });
+  }
+
   for (const failure of ['timeout', 'network']) {
     test(`${copy.route} form ${failure} explains uncertainty before an intentional resend`, async ({ page }) => {
       await page.clock.install();
       let requestCount = 0;
       await page.route(formEndpoint, (route) => {
         requestCount += 1;
-        if (requestCount > 1) return route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+        if (requestCount > 1) return route.fulfill({ status: 200, contentType: 'application/json', body: formSuccess });
         if (failure === 'network') return route.abort('failed');
       });
       await page.goto(copy.route);
@@ -354,7 +394,7 @@ for (const copy of landingPages) {
   test(`${copy.route} form confirmation fits at 320px with reduced motion`, async ({ page }) => {
     await page.setViewportSize({ width: 320, height: 568 });
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.route(formEndpoint, (route) => route.fulfill({ status: 200, contentType: 'application/json', body: '{}' }));
+    await page.route(formEndpoint, (route) => route.fulfill({ status: 200, contentType: 'application/json', body: formSuccess }));
     await page.goto(copy.route);
     await fillInquiry(page, copy);
     await page.getByRole('button', { name: copy.submit, exact: true }).click();
