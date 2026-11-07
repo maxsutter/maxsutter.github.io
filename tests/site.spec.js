@@ -147,6 +147,52 @@ for (const copy of landingPages) {
     await expect(page.locator('.faq details[open]')).toHaveCount(0);
   });
 
+  test(`${copy.route} FAQ reverses rapid clicks while an answer is closing`, async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.goto(copy.route);
+    const first = page.locator('.faq details').nth(0);
+    const second = page.locator('.faq details').nth(1);
+    await first.locator('summary').click();
+    await first.evaluate((item) => Promise.all(item.getAnimations().map((animation) => animation.finished)));
+
+    const heights = await first.evaluate(async (item) => {
+      const summary = item.querySelector('summary');
+      summary.click();
+      const closing = item.getAnimations()[0];
+      closing.pause();
+      closing.currentTime = closing.effect.getTiming().duration / 2;
+      const before = item.getBoundingClientRect().height;
+      const cancelled = new Promise((resolve) => closing.addEventListener('cancel', resolve, { once: true }));
+
+      summary.click();
+      const reopening = item.getAnimations()[0];
+      reopening.pause();
+      reopening.currentTime = 0;
+      await Promise.all([cancelled, reopening.ready]);
+      return { before, after: item.getBoundingClientRect().height };
+    });
+
+    expect(Math.abs(heights.after - heights.before)).toBeLessThan(2);
+    await expect(first).toHaveClass(/is-opening/);
+    await expect(first).toHaveCSS('overflow', 'hidden');
+
+    const animationCount = await first.evaluate((item) => {
+      const summary = item.querySelector('summary');
+      summary.click();
+      summary.click();
+      return item.getAnimations().length;
+    });
+    expect(animationCount).toBe(1);
+    await first.evaluate((item) => item.getAnimations()[0].finish());
+    await expect(first).toHaveAttribute('open', '');
+    await expect(first).not.toHaveClass(/is-opening|is-closing/);
+    await expect(first).toHaveCSS('overflow', 'visible');
+
+    await second.locator('summary').click();
+    await expect(first).not.toHaveAttribute('open');
+    await expect(page.locator('.faq details[open]')).toHaveCount(1);
+  });
+
   test(`${copy.route} new sections reflow at small and tablet widths`, async ({ page }) => {
     for (const width of [320, 768]) {
       await page.setViewportSize({ width, height: 900 });

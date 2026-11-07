@@ -157,9 +157,9 @@
     }
 
     const currentAnimation = faqAnimations.get(item);
+    const startHeight = item.offsetHeight;
     if (currentAnimation) currentAnimation.cancel();
 
-    const startHeight = item.offsetHeight;
     if (opening) item.open = true;
     const endHeight = opening ? summary.offsetHeight + answer.offsetHeight : summary.offsetHeight;
 
@@ -173,13 +173,16 @@
     );
     faqAnimations.set(item, animation);
 
+    // Cancellation callbacks can run after a replacement animation has started.
     const cleanUp = () => {
+      if (faqAnimations.get(item) !== animation) return;
       item.classList.remove('is-opening', 'is-closing');
       item.style.overflow = '';
       faqAnimations.delete(item);
     };
 
     animation.onfinish = () => {
+      if (faqAnimations.get(item) !== animation) return;
       if (!opening) item.open = false;
       cleanUp();
     };
@@ -191,7 +194,7 @@
     if (!summary) return;
     summary.addEventListener('click', (event) => {
       event.preventDefault();
-      const opening = !item.open;
+      const opening = !item.open || item.classList.contains('is-closing');
       if (opening) {
         faqItems.forEach((other) => {
           if (other !== item && other.open) animateFaq(other, false);
