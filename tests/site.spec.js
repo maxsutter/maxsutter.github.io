@@ -35,12 +35,12 @@ const contactPages = [
   {
     ...landingPages[0], route: '/team-offsites/',
     outcome: 'What is happening in your team, and what would you like to work on?',
-    submit: 'Discuss your team offsite',
+    submit: 'Let’s talk about your team',
   },
   {
     ...landingPages[1], route: '/de/teams-offsites/',
     outcome: 'Was beschäftigt euer Team, und woran möchtet ihr arbeiten?',
-    submit: 'Euer Offsite besprechen',
+    submit: 'Über euer Team sprechen',
   },
 ];
 

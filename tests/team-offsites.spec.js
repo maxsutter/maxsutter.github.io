@@ -1,8 +1,8 @@
 import { expect, test } from '@playwright/test';
 
 const offers = [
-  { home: '/', route: '/team-offsites/', alternate: '/de/teams-offsites/', language: 'de', cta: 'Discuss your team offsite' },
-  { home: '/de/', route: '/de/teams-offsites/', alternate: '/team-offsites/', language: 'en', cta: 'Euer Offsite besprechen' },
+  { home: '/', route: '/team-offsites/', alternate: '/de/teams-offsites/', language: 'de', cta: 'Let’s talk about your team' },
+  { home: '/de/', route: '/de/teams-offsites/', alternate: '/team-offsites/', language: 'en', cta: 'Über euer Team sprechen' },
 ];
 
 test.beforeEach(async ({ page }) => {
