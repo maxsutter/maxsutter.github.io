@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint assets/site.js main.js tools tests playwright.config.js eslint.config.js",
-    "validate:html": "html-validate index.html de/index.html 404.html agb/index.html legal-notice/index.html privacy/index.html terms/index.html de/impressum/index.html de/datenschutz/index.html de/agb/index.html",
+    "validate:html": "html-validate index.html de/index.html team-offsites/index.html de/teams-offsites/index.html 404.html agb/index.html legal-notice/index.html privacy/index.html terms/index.html de/impressum/index.html de/datenschutz/index.html de/agb/index.html",
     "check:site": "node tools/check-site.mjs",
     "test:unit": "node --test tests/*.test.js",
     "test:e2e": "playwright test",
@@ -19,7 +19,7 @@
     "@lhci/cli": "0.15.1",
     "@playwright/test": "1.64.1",
     "eslint": "10.14.0",
-    "html-validate": "11.17.0"
+    "html-validate": "11.18.0"
   },
   "overrides": {
     "lighthouse": "13.6.0",

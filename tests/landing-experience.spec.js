@@ -6,7 +6,7 @@ for (const [route, wordBoundary] of [['/', 'more to'], ['/de/', 'tragen, um']]) 
     await page.goto(route);
     await page.evaluate(() => document.fonts.ready);
     await expect(page.locator('.hero .cta')).toBeInViewport({ ratio: 1 });
-    expect(await page.locator('.hero-audience').evaluate((element) => parseFloat(window.getComputedStyle(element).fontSize))).toBeGreaterThanOrEqual(16);
+    await expect(page.locator('.hero .eyebrow')).toBeInViewport({ ratio: 1 });
   });
 
   test(`${route} mobile method heading keeps spaces at its desktop line break`, async ({ page }) => {
